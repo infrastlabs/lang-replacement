@@ -7,3 +7,6 @@
 
 *.vswp
 #*.docx
+
+lang-replacement
+*.mdf

@@ -43,9 +43,17 @@ func main() {
 
     pars := &assets{}
     xml.Unmarshal([]byte(Text), &pars)
-    fmt.Println("%#v", pars)
+    // fmt.Println("%#v", pars)
 
-    v := &assets{Version: "3.0.2.1"}
+    
+    for i := 0; i < len(pars.Asset); i++ {
+        // fmt.Println("i=", i, pars.Asset[i])
+        for j:= 0; j < len(pars.Asset[i].Test); j++ {
+            fmt.Println("j=", j, pars.Asset[i].Test[j])
+        }
+    }
+
+    /* v := &assets{Version: "3.0.2.1"}
     //ass
     for cp := 0; cp < 2; cp++ {
         var ass asset
@@ -61,13 +69,13 @@ func main() {
         }
 
         v.Asset = append(v.Asset, ass)
-    }
+    } 
 
-    output, err := xml.MarshalIndent(v, "  ", "    ")
+    output, err := xml.MarshalIndent(v, "", "  ")
     if err != nil {
         fmt.Printf("error: %v\n", err)
     }
-    fmt.Println(string(output))
+    fmt.Println(string(output))*/
 
     /*
             var Text1 = `
