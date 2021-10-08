@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<root>
+		<file>
+			<name>js/app/dashboard/dashboard.html</name>
+			<item>
+				<replace>
+					<target>^\s+Welcome!$</target>
+					<expect>欢迎!</expect>
+				</replace>
+				<replace>
+					<target>Make sure your active &lt;a ui-sref=&quot;connections&quot;&gt;connection&lt;/a&gt; is valid and Kong is up and running.</target>
+					<expect>请确认 &lt;a ui-sref=&quot;connections&quot;&gt;连接管理&lt;/a&gt; 设置有可用的Kong并且是运行中.</expect>
+				</replace>
+				<replace>
+					<target>^\s+CONNECTIONS$</target>
+					<expect>连接端</expect>
+				</replace>
+				<replace>
+					<target>Total Requests: </target>
+					<expect>总请求: </expect>
+				</replace>
+				<replace>
+					<target>^\s+CLUSTER \(\{\{clusters.total\}\} nodes\)&amp;</target>
+					<expect>集群有 ({{clusters.total}} 节点数)</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>js/app/connections/partials/create-connection-form.html</name>
+			<item>
+				<replace>
+					<target>^\s+DEFAULT$</target>
+					<expect>默认</expect>
+				</replace>
+				<replace>
+					<target>^\s+KEY AUTH$</target>
+					<expect>键值授权</expect>
+				</replace>
+				<replace>
+					<target>^\s+JWT AUTH$</target>
+					<expect>JWT授权</expect>
+				</replace>
+			</item>
+		</file>
+	</root>
+	

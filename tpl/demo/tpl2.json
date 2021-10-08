@@ -1,0 +1,52 @@
+{
+    "root": {
+      "file": [
+        {
+          "name": "js/app/dashboard/dashboard.html",
+          "item": {
+            "replace": [
+              {
+                "target": "^\\s+Welcome!$",
+                "expect": "欢迎!"
+              },
+              {
+                "target": "Make sure your active <a ui-sref=\"connections\">connection</a> is valid and Kong is up and running.",
+                "expect": "请确认 <a ui-sref=\"connections\">连接管理</a> 设置有可用的Kong并且是运行中."
+              },
+              {
+                "target": "^\\s+CONNECTIONS$",
+                "expect": "连接端"
+              },
+              {
+                "target": "Total Requests: ",
+                "expect": "总请求: "
+              },
+              {
+                "target": "^\\s+CLUSTER \\(\\{\\{clusters.total\\}\\} nodes\\)&",
+                "expect": "集群有 ({{clusters.total}} 节点数)"
+              }
+            ]
+          }
+        },
+        {
+          "name": "js/app/connections/partials/create-connection-form.html",
+          "item": {
+            "replace": [
+              {
+                "target": "^\\s+DEFAULT$",
+                "expect": "默认"
+              },
+              {
+                "target": "^\\s+KEY AUTH$",
+                "expect": "键值授权"
+              },
+              {
+                "target": "^\\s+JWT AUTH$",
+                "expect": "JWT授权"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }

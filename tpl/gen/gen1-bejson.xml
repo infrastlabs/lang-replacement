@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<root>
+		<file>
+			<name>docker/components/datatables/networks-datatable/networksDatatable.html</name>
+			<item></item>
+		</file>
+		<file>
+			<name>docker/components/docker-sidebar/docker-sidebar.html</name>
+			<item>
+				<replace>
+					<target>App Templates</target>
+					<expect>应用模板</expect>
+				</replace>
+				<replace>
+					<target>Custom Templates</target>
+					<expect>自定义模板</expect>
+				</replace>
+				<replace>
+					<target>Stacks</target>
+					<expect>集合</expect>
+				</replace>
+				<replace>
+					<target>Services</target>
+					<expect>服务</expect>
+				</replace>
+				<replace>
+					<target>Containers</target>
+					<expect>容器</expect>
+				</replace>
+				<replace>
+					<target>Images</target>
+					<expect>镜像</expect>
+				</replace>
+				<replace>
+					<target>Networks</target>
+					<expect>网络</expect>
+				</replace>
+				<replace>
+					<target>Volumes</target>
+					<expect>磁盘</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/components/host-view-panels/engine-details-panel/engine-details-panel.html</name>
+			<item>
+				<replace>
+					<target>Engine Details</target>
+					<expect>容器信息</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/components/host-view-panels/host-details-panel/host-details-panel.html</name>
+			<item>
+				<replace>
+					<target>Host Details</target>
+					<expect>主机信息</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/containers/containers.html</name>
+			<item>
+				<replace>
+					<target>Containers</target>
+					<expect>容器管理</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/containers/create/createcontainer.html</name>
+			<item>
+				<replace>
+					<target>Image configuration</target>
+					<expect>镜像设置</expect>
+				</replace>
+				<replace>
+					<target>Network ports configuration</target>
+					<expect>端口设置</expect>
+				</replace>
+				<replace>
+					<target>Advanced container settings</target>
+					<expect>高级选项设置</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/dashboard/dashboard.html</name>
+			<item>
+				<replace>
+					<target>Environment summary</target>
+					<expect>节点总览</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/events/events.html</name>
+			<item>
+				<replace>
+					<target>Events</target>
+					<expect>容器事件</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/images/images.html</name>
+			<item>
+				<replace>
+					<target>Pull image</target>
+					<expect>镜像拉取</expect>
+				</replace>
+				<replace>
+					<target>Images</target>
+					<expect>镜像管理</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/networks/create/createnetwork.html</name>
+			<item>
+				<replace>
+					<target>Add network</target>
+					<expect>网络添加</expect>
+				</replace>
+				<replace>
+					<target>Driver configuration</target>
+					<expect>网络配置</expect>
+				</replace>
+				<replace>
+					<target>Driver options</target>
+					<expect>网络驱动</expect>
+				</replace>
+				<replace>
+					<target>Advanced configuration</target>
+					<expect>高级网络配置</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/networks/networks.html</name>
+			<item>
+				<replace>
+					<target>Networks</target>
+					<expect>网络管理</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/volumes/create/createvolume.html</name>
+			<item>
+				<replace>
+					<target>options</target>
+					<expect>选项</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>docker/views/volumes/volumes.html</name>
+			<item>
+				<replace>
+					<target>Volumes</target>
+					<expect>数据管理</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/__module.js</name>
+			<item>
+				<replace>
+					<target>Your session has expired</target>
+					<expect>会话过期，请重新登录~</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/components/accessControlForm/porAccessControlForm.html</name>
+			<item>
+				<replace>
+					<target>Access control</target>
+					<expect>权限设置</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/components/accessControlPanel/porAccessControlPanel.html</name>
+			<item>
+				<replace>
+					<target>Access control</target>
+					<expect>权限设置</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/components/header-content.js</name>
+			<item>
+				<replace>
+					<target>my account</target>
+					<expect>帐号设置</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/components/theme/theme-settings.html</name>
+			<item>
+				<replace>
+					<target>Change user theme</target>
+					<expect>主题切换</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/account/account.html</name>
+			<item>
+				<replace>
+					<target>Change user password</target>
+					<expect>修改密码</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/endpoints/create/createendpoint.html</name>
+			<item>
+				<replace>
+					<target>Environment type</target>
+					<expect>节点类型</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/endpoints/endpoints.html</name>
+			<item>
+				<replace>
+					<target>Environment management</target>
+					<expect>节点管理</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/home/home.html</name>
+			<item>
+				<replace>
+					<target>Connecting to the Edge environment</target>
+					<expect>正在连接节点，请稍后</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/registries/registries.html</name>
+			<item>
+				<replace>
+					<target>Registry management</target>
+					<expect>仓库管理</expect>
+				</replace>
+				<replace>
+					<target>Registries</target>
+					<expect>仓库管理</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/settings/authentication/settingsAuthentication.html</name>
+			<item>
+				<replace>
+					<target>Authentication method</target>
+					<expect>认证方式</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/settings/settings.html</name>
+			<item>
+				<replace>
+					<target>Application settings</target>
+					<expect>应用设置</expect>
+				</replace>
+				<replace>
+					<target>Hidden containers</target>
+					<expect>容器隐藏</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/sidebar/sidebar.html</name>
+			<item>
+				<replace>
+					<target>Environments</target>
+					<expect>节点管理</expect>
+				</replace>
+				<replace>
+					<target>Groups</target>
+					<expect>节点分组</expect>
+				</replace>
+				<replace>
+					<target>Tags</target>
+					<expect>节点标签</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/teams/teams.html</name>
+			<item>
+				<replace>
+					<target>Teams management</target>
+					<expect>用户组管理</expect>
+				</replace>
+				<replace>
+					<target>Add a new team</target>
+					<expect>添加用户组</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/templates/templates.html</name>
+			<item>
+				<replace>
+					<target>Configuration</target>
+					<expect>基础设置</expect>
+				</replace>
+				<replace>
+					<target>Port mapping</target>
+					<expect>端口映射</expect>
+				</replace>
+				<replace>
+					<target>Volume mapping</target>
+					<expect>磁盘挂载</expect>
+				</replace>
+				<replace>
+					<target>Templates</target>
+					<expect>应用模板</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/users/edit/user.html</name>
+			<item>
+				<replace>
+					<target>Change user password</target>
+					<expect>修改密码</expect>
+				</replace>
+			</item>
+		</file>
+		<file>
+			<name>portainer/views/users/users.html</name>
+			<item>
+				<replace>
+					<target>Add a new user</target>
+					<expect>添加用户</expect>
+				</replace>
+				<replace>
+					<target>Users</target>
+					<expect>用户管理</expect>
+				</replace>
+			</item>
+		</file>
+	</root>
+	

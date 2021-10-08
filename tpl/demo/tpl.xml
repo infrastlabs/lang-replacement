@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+    <root>
+        <file>
+            <name>js/app/dashboard/dashboard.html</name>
+            <item>
+                <replace>
+                    <target><![CDATA[^\s+Welcome!$]]></target>
+                    <expect><![CDATA[欢迎!]]></expect>
+                </replace>
+                <replace>
+                    <target><![CDATA[Make sure your active <a ui-sref="connections">connection</a> is valid and Kong is up and running.]]></target>
+                    <expect><![CDATA[请确认 <a ui-sref="connections">连接管理</a> 设置有可用的Kong并且是运行中.]]></expect>
+                </replace>
+                <replace>
+                    <target><![CDATA[^\s+CONNECTIONS$]]></target>
+                    <expect><![CDATA[连接端]]></expect>
+                </replace>
+                <replace>
+                    <target><![CDATA[Total Requests: ]]></target>
+                    <expect><![CDATA[总请求: ]]></expect>
+                </replace>
+                <replace>
+                    <target><![CDATA[^\s+CLUSTER \(\{\{clusters.total\}\} nodes\)&]]></target>
+                    <expect><![CDATA[集群有 ({{clusters.total}} 节点数)]]></expect>
+                </replace>
+            </item>
+        </file>
+        <file>
+            <name>js/app/connections/partials/create-connection-form.html</name>
+            <item>
+                <replace>
+                    <target><![CDATA[^\s+DEFAULT$]]></target>
+                    <expect>默认</expect>
+                </replace>
+                <replace>
+                    <target><![CDATA[^\s+KEY AUTH$]]></target>
+                    <expect>键值授权</expect>
+                </replace>
+                <replace>
+                    <target><![CDATA[^\s+JWT AUTH$]]></target>
+                    <expect>JWT授权</expect>
+                </replace>
+            </item>
+        </file>
+    </root>

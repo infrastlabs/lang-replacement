@@ -1,0 +1,4 @@
+{
+    "target": "^\\s+DEFAULT$",
+    "expect": "默认"
+}
