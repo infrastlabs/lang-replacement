@@ -36,6 +36,13 @@ $ cat tpl/_file.json |jq ".item.replace[.item.replace|length]=$rep"
     ]
   }
 }
+
+# json2xml: tranfer
+wget https://hub.fastgit.org/rinetd/transfer/releases/download/v1.0.2/transfer-v1.0.2-linux-amd64.tar.gz
+# headless @ barge in .../_ct/lang-replacement |19:50:43  |master U:1 ?:5 ✗| 
+$ ./transfer -s tpl/gen/gen1.json -t tpl/gen/gen1-trans.xml
+  input : tpl/gen/gen1.json
+  output: tpl/gen/gen1-trans-1633693858.xml
 ```
 
 ## gen

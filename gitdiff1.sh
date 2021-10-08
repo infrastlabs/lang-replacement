@@ -93,5 +93,7 @@ root=$(cat $tmp/root.txt)
 echo $root |jq -c
 
 cat $tmp/root.txt > $cur/tpl/gen/gen1.json
+# $cur/transfer -h
+$cur/transfer -s $cur/tpl/gen/gen1.json -t $cur/tpl/gen/gen1-trans.xml
 # ss=$(echo $root |jq)
 # echo "$ss" > $cur/tpl/gen/gen1.json
