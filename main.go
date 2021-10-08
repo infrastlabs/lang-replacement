@@ -142,6 +142,11 @@ func main() {
 
         //go routine
         replaceFile(basePath, pars.File[i].Name.Value, pars.File[i].Item.Replace)
+        
+        //TODO: 
+        // 1.cp backup src
+        // 2.replace src with xx.mdf
+        // 3.mv out xx.mdf
     }
 
     fmt.Println("FINISH!")

@@ -12,6 +12,37 @@ CMP2=e1c2e0439ff627a45b7ee0967309eb4460c44b4c
 cd $SOURCE
 tmp=/tmp/.gitdiff && mkdir -p $tmp
 
+function doOneLine(){
+    local lineAnayFile=$1
+    cat $lineAnayFile |grep -v "^$" |while read rep0; do 
+
+        local rep0=$(echo $rep0 |sed "s/ >>>>> />>>>>/g")
+        # echo $rep0
+        OLD_IFS="$IFS"
+        IFS=">>>>>"
+        local arr=($rep0)
+        IFS="$OLD_IFS"
+
+        local src0=$(echo ${arr[0]})
+        local dest0=$(echo ${arr[${#arr[@]}-1]})
+        if [ "" != "$src0" ] && [ "" != "$dest0" ]; then
+            rep=$(cat $cur/tpl/_replace.json |jq ".target=\"$src0\"" |jq ".expect=\"$dest0\"" -c)
+            # echo "=== $rep"
+            
+            # //$onefile变量与文件来回倒: (直接单个变量不能赋值..)
+            # cat $tmp/oneAdd_line_replace.txt
+            onefile=$(cat $tmp/oneAdd_line_replace.txt)
+            # echo ">>> $onefile"
+
+            # echo $onefile |jq ".item.replace[.item.replace|length]=$rep" -c
+            onefile=$(echo $onefile |jq ".item.replace[.item.replace|length]=$rep" -c)
+            # echo $onefile
+            echo $onefile > $tmp/oneAdd_line_replace.txt
+            # cat $tmp/oneAdd_line_replace.txt
+        fi
+    done
+}
+
 function doOne(){
     local file=$1
     echo -e "\nFILE=$file"
@@ -34,36 +65,8 @@ function doOne(){
         # echo "$cmp1 ||| $cmp2"  ##./main ${cmp1} ${cmp2} ${equal=true/false}
         $GODIFF "$cmp1" "$cmp2" true2 #|grep ">>>>>" #view
         $GODIFF "$cmp1" "$cmp2" true2 |grep ">>>>>" > $tmp/oneAdd_line.txt #//oneLine: if multiReplace
-        cat $tmp/oneAdd_line.txt |grep -v "^$" |while read rep0; do 
-
-            local rep0=$(echo $rep0 |sed "s/ >>>>> />>>>>/g")
-            # echo $rep0
-            OLD_IFS="$IFS"
-            IFS=">>>>>"
-            local arr=($rep0)
-            IFS="$OLD_IFS"
-
-            local src0=$(echo ${arr[0]})
-            local dest0=$(echo ${arr[${#arr[@]}-1]})
-            if [ "" != "$src0" ] && [ "" != "$dest0" ]; then
-                rep=$(cat $cur/tpl/_replace.json |jq ".target=\"$src0\"" |jq ".expect=\"$dest0\"" -c)
-                # echo "=== $rep"
-                
-                
-                # //$onefile变量与文件来回倒: (直接单个变量不能赋值..)
-                # cat $tmp/oneAdd_line_replace.txt
-                onefile=$(cat $tmp/oneAdd_line_replace.txt)
-                # echo ">>> $onefile"
-
-                # echo $onefile |jq ".item.replace[.item.replace|length]=$rep" -c
-                onefile=$(echo $onefile |jq ".item.replace[.item.replace|length]=$rep" -c)
-                # echo $onefile
-                echo $onefile > $tmp/oneAdd_line_replace.txt
-                # cat $tmp/oneAdd_line_replace.txt
-
-            fi
-        done
-
+        
+        doOneLine "$tmp/oneAdd_line.txt"
     done
     onefile=$(cat $tmp/oneAdd_line_replace.txt)
     # echo $onefile |jq 
@@ -95,5 +98,3 @@ echo $root |jq -c
 cat $tmp/root.txt > $cur/tpl/gen/gen1.json
 # $cur/transfer -h
 $cur/transfer -s $cur/tpl/gen/gen1.json -t $cur/tpl/gen/gen1-trans.xml
-# ss=$(echo $root |jq)
-# echo "$ss" > $cur/tpl/gen/gen1.json

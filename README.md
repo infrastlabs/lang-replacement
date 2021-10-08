@@ -1,8 +1,16 @@
 # file-replacement
 
-- https://github.com/jsonljd/konga-lang-plugin
-- http://www.zzvips.com/article/167183.html
-- https://blog.csdn.net/qiuyoujie/article/details/79289181
+该程序用于非本土化的应用, 可针对源码/未混淆加密的目标代码做汉化, 依赖于汉化字典:  
+1.字典可基于源码手动做一版改动后,自动分析生成  
+2.由上生成的字典,可进一步翻译为其它语言  
+
+- 汉化程序(./main.go): 参考konga,改用Golang实现
+- XML字典(./gitdiff1.sh): 反向分析git代码仓库的变动差异, 生成汉化程序所需的配置xml(依赖git, jq, transfer, ./main为./diff/main.go生成) 
+
+**汉化程序**
+
+- Konga v0.14.9 全支持
+- Portainer v2.9.0 半汉化(docker+porainer部分)
 
 ## Dev
 
@@ -45,3 +53,9 @@ i= 2 docker/components/host-view-panels/host-details-panel/host-details-panel.ht
 (replace)j= 0 {Host Details} > {主机信息}
 ...
 ```
+
+## Refs
+
+- https://github.com/jsonljd/konga-lang-plugin
+- http://www.zzvips.com/article/167183.html
+- https://blog.csdn.net/qiuyoujie/article/details/79289181
