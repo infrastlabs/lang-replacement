@@ -8,7 +8,11 @@
 *.vswp
 #*.docx
 
-lang-replacement
 *.mdf
-godiff*
-transfer*
+generate/*
+!generate/tpl
+!generate/*.sh
+!generate/*.xml
+# lang-replacement
+# godiff*
+# transfer*

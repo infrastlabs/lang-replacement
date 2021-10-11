@@ -1,14 +1,20 @@
 
 #!/bin/bash
+# deps: git diff; go-diff
 set -e
 cur=$(cd "$(dirname "$0")"; pwd)
-GODIFF="$cur/main"
-# SOURCE="/_ext/bbox/_ee/fk-portainer/app"
+GODIFF="$cur/godiff"
+
+# debug
+# # SOURCE="/_ext/bbox/_ee/fk-portainer/app"
 # SOURCE=/_ext/working/_ct/fk-portainer/app
-# CMP1=bdb827fb081c44388f8fd506fa318a03b960fa11 #CMP1, CMP2: if not set, compare local with origin
-# CMP2=e1c2e0439ff627a45b7ee0967309eb4460c44b4c
-# OUTPUT=$cur/tpl/gen/gen1-trans.xml
-# deps: git diff; go-diff
+# CMP1=055c57 #CMP1, CMP2: if not set, compare local with origin
+# CMP2=br-v29-lang
+# OUTPUT=$cur/../demo/gen/gen1-trans.xml
+test -z "$SOURCE" && (echo "SOURCE is null, exit"; exit 1)
+test -z "$CMP1" && (echo "CMP1 is null, exit"; exit 1)
+test -z "$CMP2" && (echo "CMP2 is null, exit"; exit 1)
+test -z "$OUTPUT" && (echo "OUTPUT is null, exit"; exit 1)
 
 cd $SOURCE
 tmp=/tmp/.gitdiff && mkdir -p $tmp
@@ -96,6 +102,8 @@ done
 root=$(cat $tmp/root.txt)
 echo $root |jq -c
 
-cat $tmp/root.txt > $cur/tpl/gen/gen1.json
+cat $tmp/root.txt > $tmp/root.json
 # $cur/transfer -h
-$cur/transfer -s $cur/tpl/gen/gen1.json -t $OUTPUT
+# touch $OUTPUT #if notExist, transfer err (in alpine)
+$cur/transfer -f -s $tmp/root.json -t $OUTPUT
+# rm -rf $tmp

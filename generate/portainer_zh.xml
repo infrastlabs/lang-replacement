@@ -1,0 +1,598 @@
+<root>
+  <file>
+    <item>
+      <replace>
+        <expect>节点连接失败</expect>
+        <target>Failed loading environment</target>
+      </replace>
+    </item>
+    <name>docker/__module.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>获取节点信息失败</expect>
+        <target>Unable to retrieve agent information</target>
+      </replace>
+    </item>
+    <name>docker/components/dashboard-cluster-agent-info/dashboardClusterAgentInfoController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>容器已删除</expect>
+        <target>Container successfully removed</target>
+      </replace>
+      <replace>
+        <expect>容器删除失败</expect>
+        <target>Unable to remove container</target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/containers-datatable/actions/containersDatatableActionsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace    />
+    </item>
+    <name>docker/components/datatables/networks-datatable/networksDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>容量已调整</expect>
+        <target>successfully scaled</target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/services-datatable/actions/servicesDatatableActionsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>应用模板</expect>
+        <target>App Templates</target>
+      </replace>
+      <replace>
+        <expect>自定义模板</expect>
+        <target>Custom Templates</target>
+      </replace>
+      <replace>
+        <expect>集合</expect>
+        <target>Stacks</target>
+      </replace>
+      <replace>
+        <expect>服务</expect>
+        <target>Services</target>
+      </replace>
+      <replace>
+        <expect>容器</expect>
+        <target>Containers</target>
+      </replace>
+      <replace>
+        <expect>镜像</expect>
+        <target>Images</target>
+      </replace>
+      <replace>
+        <expect>网络</expect>
+        <target>Networks</target>
+      </replace>
+      <replace>
+        <expect>磁盘</expect>
+        <target>Volumes</target>
+      </replace>
+    </item>
+    <name>docker/components/docker-sidebar/docker-sidebar.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>容器信息</expect>
+        <target>Engine Details</target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/engine-details-panel/engine-details-panel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>主机信息</expect>
+        <target>Host Details</target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/host-details-panel/host-details-panel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>获取仓库失败</expect>
+        <target>Unable to retrieve registries</target>
+      </replace>
+      <replace>
+        <expect>获取镜像失败</expect>
+        <target>Unable to retrieve images</target>
+      </replace>
+    </item>
+    <name>docker/components/imageRegistry/por-image-registry.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>获取</expect>
+        <target>Unable to retrieve informations for</target>
+      </replace>
+    </item>
+    <name>docker/components/network-macvlan-form/networkMacvlanFormController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>获取配置失败</expect>
+        <target>Unable to retrieve configs</target>
+      </replace>
+      <replace>
+        <expect>配置删除成功</expect>
+        <target>Config successfully removed</target>
+      </replace>
+      <replace>
+        <expect>获取配置失败</expect>
+        <target>Unable to remove config</target>
+      </replace>
+    </item>
+    <name>docker/views/configs/configsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>未运行</expect>
+        <target>is not running</target>
+      </replace>
+      <replace>
+        <expect>获取容器明细失败</expect>
+        <target>Unable to retrieve container details</target>
+      </replace>
+      <replace>
+        <expect>不能进入容器</expect>
+        <target>Unable to exec into container</target>
+      </replace>
+    </item>
+    <name>docker/views/containers/console/containerConsoleController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>容器管理</expect>
+        <target>Containers</target>
+      </replace>
+    </item>
+    <name>docker/views/containers/containers.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>获取容器失败</expect>
+        <target>Unable to retrieve containers</target>
+      </replace>
+    </item>
+    <name>docker/views/containers/containersController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>获取仓库失败</expect>
+        <target>Unable to retrive registry</target>
+      </replace>
+      <replace>
+        <expect>获取容器失败</expect>
+        <target>Unable to retrieve container</target>
+      </replace>
+      <replace>
+        <expect>获取网络失败</expect>
+        <target>Unable to retrieve networks</target>
+      </replace>
+      <replace>
+        <expect>获取容器失败</expect>
+        <target>Unable to retrieve containers</target>
+      </replace>
+    </item>
+    <name>docker/views/containers/create/createContainerController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>镜像设置</expect>
+        <target>Image configuration</target>
+      </replace>
+      <replace>
+        <expect>端口设置</expect>
+        <target>Network ports configuration</target>
+      </replace>
+      <replace>
+        <expect>高级选项设置</expect>
+        <target>Advanced container settings</target>
+      </replace>
+    </item>
+    <name>docker/views/containers/create/createcontainer.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>获取容器信息失败</expect>
+        <target>Unable to retrieve container info</target>
+      </replace>
+    </item>
+    <name>docker/views/containers/edit/containerController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>节点总览</expect>
+        <target>Environment summary</target>
+      </replace>
+    </item>
+    <name>docker/views/dashboard/dashboard.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>容器事件</expect>
+        <target>Events</target>
+      </replace>
+    </item>
+    <name>docker/views/events/events.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>镜像成功</expect>
+        <target>ged</target>
+      </replace>
+    </item>
+    <name>docker/views/images/edit/imageController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>镜像拉取</expect>
+        <target>Pull image</target>
+      </replace>
+      <replace>
+        <expect>镜像管理</expect>
+        <target>Images</target>
+      </replace>
+    </item>
+    <name>docker/views/images/images.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>拉取镜像失败</expect>
+        <target>Unable to pull image</target>
+      </replace>
+      <replace>
+        <expect>镜像已拉取</expect>
+        <target>Image successfully pulled</target>
+      </replace>
+    </item>
+    <name>docker/views/images/imagesController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>创建成功</expect>
+        <target>successfully created</target>
+      </replace>
+    </item>
+    <name>docker/views/networks/create/createNetworkController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>网络添加</expect>
+        <target>Add network</target>
+      </replace>
+      <replace>
+        <expect>网络配置</expect>
+        <target>Driver configuration</target>
+      </replace>
+      <replace>
+        <expect>网络驱动</expect>
+        <target>Driver options</target>
+      </replace>
+      <replace>
+        <expect>高级网络配置</expect>
+        <target>Advanced configuration</target>
+      </replace>
+    </item>
+    <name>docker/views/networks/create/createnetwork.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>网络管理</expect>
+        <target>Networks</target>
+      </replace>
+    </item>
+    <name>docker/views/networks/networks.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>删除成功</expect>
+        <target>successfully removed</target>
+      </replace>
+    </item>
+    <name>docker/views/networks/networksController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>创建成功</expect>
+        <target>successfully created</target>
+      </replace>
+    </item>
+    <name>docker/views/secrets/create/createSecretController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>删除成功</expect>
+        <target>successfully removed</target>
+      </replace>
+    </item>
+    <name>docker/views/secrets/secretsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>删除失败</expect>
+        <target>Unable to delete</target>
+      </replace>
+      <replace>
+        <expect>创建失败</expect>
+        <target>Unable to create</target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/serviceController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>创建成功</expect>
+        <target>successfully created</target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/create/createVolumeController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>选项</expect>
+        <target>options</target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/create/createvolume.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>删除成功</expect>
+        <target>successfully removed</target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/edit/volumeController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>数据管理</expect>
+        <target>Volumes</target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/volumes.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>删除成功</expect>
+        <target>successfully removed</target>
+      </replace>
+      <replace>
+        <expect>V</expect>
+        <target>Unable to remove v</target>
+      </replace>
+      <replace>
+        <expect>获取</expect>
+        <target>Unable to retrieve</target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/volumesController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>会话过期，请重新登录~</expect>
+        <target>Your session has expired</target>
+      </replace>
+    </item>
+    <name>portainer/__module.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>权限设置</expect>
+        <target>Access control</target>
+      </replace>
+    </item>
+    <name>portainer/components/accessControlForm/porAccessControlForm.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>权限设置</expect>
+        <target>Access control</target>
+      </replace>
+    </item>
+    <name>portainer/components/accessControlPanel/porAccessControlPanel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>帐号设置</expect>
+        <target>my account</target>
+      </replace>
+    </item>
+    <name>portainer/components/header-content.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>主题切换</expect>
+        <target>Change user theme</target>
+      </replace>
+    </item>
+    <name>portainer/components/theme/theme-settings.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>修改密码</expect>
+        <target>Change user password</target>
+      </replace>
+    </item>
+    <name>portainer/views/account/account.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>节点类型</expect>
+        <target>Environment type</target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/create/createendpoint.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>节点管理</expect>
+        <target>Environment management</target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/endpoints.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>正在连接节点，请稍后</expect>
+        <target>Connecting to the Edge environment</target>
+      </replace>
+    </item>
+    <name>portainer/views/home/home.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>仓库管理</expect>
+        <target>Registry management</target>
+      </replace>
+      <replace>
+        <expect>仓库管理</expect>
+        <target>Registries</target>
+      </replace>
+    </item>
+    <name>portainer/views/registries/registries.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>认证方式</expect>
+        <target>Authentication method</target>
+      </replace>
+    </item>
+    <name>portainer/views/settings/authentication/settingsAuthentication.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>应用设置</expect>
+        <target>Application settings</target>
+      </replace>
+      <replace>
+        <expect>容器隐藏</expect>
+        <target>Hidden containers</target>
+      </replace>
+    </item>
+    <name>portainer/views/settings/settings.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>节点管理</expect>
+        <target>Environments</target>
+      </replace>
+      <replace>
+        <expect>节点分组</expect>
+        <target>Groups</target>
+      </replace>
+      <replace>
+        <expect>节点标签</expect>
+        <target>Tags</target>
+      </replace>
+    </item>
+    <name>portainer/views/sidebar/sidebar.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>用户组管理</expect>
+        <target>Teams management</target>
+      </replace>
+      <replace>
+        <expect>添加用户组</expect>
+        <target>Add a new team</target>
+      </replace>
+    </item>
+    <name>portainer/views/teams/teams.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>基础设置</expect>
+        <target>Configuration</target>
+      </replace>
+      <replace>
+        <expect>端口映射</expect>
+        <target>Port mapping</target>
+      </replace>
+      <replace>
+        <expect>磁盘挂载</expect>
+        <target>Volume mapping</target>
+      </replace>
+      <replace>
+        <expect>应用模板</expect>
+        <target>Templates</target>
+      </replace>
+    </item>
+    <name>portainer/views/templates/templates.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>修改密码</expect>
+        <target>Change user password</target>
+      </replace>
+    </item>
+    <name>portainer/views/users/edit/user.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect>添加用户</expect>
+        <target>Add a new user</target>
+      </replace>
+      <replace>
+        <expect>用户管理</expect>
+        <target>Users</target>
+      </replace>
+    </item>
+    <name>portainer/views/users/users.html</name>
+  </file>
+</root>
