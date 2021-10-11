@@ -1,3 +1,7 @@
+# 
+
+format a commandline-tool  
+github.com/sergi/go-diff/diffmatchpatch: ref google-diff-match-patch, go implementiion
 
 ```bash
 $ go run ./diff/main.go  > ss.txt
@@ -17,4 +21,6 @@ $ go build ./diff/main.go
 $ ./main aa bb true
 aa >>>>> bb
 aabb
+
+$ go build -o godiff ./diff/main.go
 ```

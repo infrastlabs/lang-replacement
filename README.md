@@ -17,6 +17,12 @@
 ```bash
 # headless @ barge in .../_ct/lang-replacement |11:39:37  |master ↑2 U:1 ?:1 ✗| 
 $ go run ./main.go ./konga.xml "./asset"
+
+# diff
+CGO_ENABLED=0
+$ go build -o godiff -x -v -ldflags "-s -w $flags" ./diff/main.go
+# -rwxr-xr-x 1 headless headless 1.9M 10月  9 10:10 main*
+# -rwxr-xr-x 1 headless headless 2.6M 10月  9 10:09 main00*
 ```
 
 ## Replacement模版生成
