@@ -123,15 +123,41 @@ func replaceFile(basePath string, fileName string, replaceList []replace){
     }
 }
 
+
+func copy(src, dst string) (int64, error) {
+    sourceFileStat, err := os.Stat(src)
+    if err != nil {
+            return 0, err
+    }
+
+    if !sourceFileStat.Mode().IsRegular() {
+            return 0, fmt.Errorf("%s is not a regular file", src)
+    }
+
+    source, err := os.Open(src)
+    if err != nil {
+            return 0, err
+    }
+    defer source.Close()
+
+    destination, err := os.Create(dst)
+    if err != nil {
+            return 0, err
+    }
+    defer destination.Close()
+    nBytes, err := io.Copy(destination, source)
+    return nBytes, err
+}
+
 func main() {
     if len(os.Args) != 3 {
-        fmt.Println("lack of config file, eg: go run main.go ${path_of_file} ${path_of_src}")
+        fmt.Println("lack of config file, eg: ./lang-replacement ${replaceDictFile} ${replacePath}")
         os.Exit(-1)
     }
-    fileName := os.Args[1]
-    basePath:= os.Args[2]
+    replaceDictFile := os.Args[1]
+    replacePath:= os.Args[2]
 
-    pars:= parseReplacement(fileName)
+    pars:= parseReplacement(replaceDictFile)
     // fmt.Println("%#v", pars)
 
     for i := 0; i < len(pars.File); i++ {
@@ -141,12 +167,38 @@ func main() {
         } */
 
         //go routine
-        replaceFile(basePath, pars.File[i].Name.Value, pars.File[i].Item.Replace)
+        replaceFile(replacePath, pars.File[i].Name.Value, pars.File[i].Item.Replace)
         
         //TODO: 
-        // 1.cp backup src
-        // 2.replace src with xx.mdf
-        // 3.mv out xx.mdf
+        // 1.mv src 2.cp xx.mdf 3.mv xx.mdf
+        // https://blog.csdn.net/whatday/article/details/109287416
+        filesrc:= replacePath+"/"+pars.File[i].Name.Value
+        replace:= filesrc+".mdf"
+        fileDest:= replacePath+"/.lang-replacement/"+pars.File[i].Name.Value //mvDest
+        pos:= strings.LastIndex(fileDest, "/")
+        filedir:=fileDest[0:pos]
+        // fmt.Println(filesrc)
+        // fmt.Println(replace)
+        // fmt.Println(filedir)
+        // 创建文件夹
+        os.MkdirAll(filedir, 0777)
+        // 移动文件
+        os.Rename(filesrc, fileDest)
+
+        // 拷贝文件, 拷贝其实就是创建一个文件, 然后写入文件内容
+        // file, _ := os.OpenFile(replace, 2, 0666)
+        // defer file.Close()
+        // src1, _ := os.Create(filesrc)
+        // io.Copy(file, src1) // 把文件file, 写入src1文件
+        nBytes, err := copy(replace, filesrc)
+        if err != nil {
+            fmt.Printf("The copy operation failed %q\n", err)
+        } else {
+            fmt.Printf("Replace-Copied %d bytes, backdir: %s!\n", nBytes, fileDest)
+        }
+
+        // 移动文件
+        os.Rename(replace, fileDest+".mdf")
     }
 
     fmt.Println("FINISH!")
