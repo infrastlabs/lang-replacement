@@ -32,7 +32,14 @@ function doOneLine(){
 
         local src0=$(echo ${arr[0]})
         local dest0=$(echo ${arr[${#arr[@]}-1]})
+        test "@@@" == "$dest0" && dest0=$src0 #spe: just dest=$src
+        src0=$(echo $src0 |sed "s/\"/\\\\\"/g") # " >> \"
+        dest0=$(echo $dest0 |sed "s/\"/\\\\\"/g")
+        # echo "doOneLine >> src0: $src0, dest0: $dest0"
         if [ "" != "$src0" ] && [ "" != "$dest0" ]; then
+            # src0="$src0<><>><" #debug
+            src0="<![CDATA[$src0]]>" #xml: <> in CDATA
+            dest0="<![CDATA[$dest0]]>"
             rep=$(cat $cur/tpl/_replace.json |jq ".target=\"$src0\"" |jq ".expect=\"$dest0\"" -c)
             # echo "=== $rep"
             
@@ -46,6 +53,8 @@ function doOneLine(){
             # echo $onefile
             echo $onefile > $tmp/oneAdd_line_replace.txt
             # cat $tmp/oneAdd_line_replace.txt
+        else 
+            echo "==================================WARN, skip >> src0: $src0, dest0: $dest0"
         fi
     done
 }
@@ -100,7 +109,7 @@ cat $tmp/addList.txt | while read one; do
 done
 
 root=$(cat $tmp/root.txt)
-echo $root |jq -c
+# echo $root |jq -c
 
 cat $tmp/root.txt > $tmp/root.json
 # $cur/transfer -h

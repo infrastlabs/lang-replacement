@@ -14,7 +14,8 @@ ver=latest
 img="lang-replacement:$ver"
 docker build $cache $pull -t $repo/$ns/$img -f Dockerfile . 
 # push
-docker push $repo/$ns/$img
+# docker push $repo/$ns/$img
 
 # dind: out-binary
-docker run -it --rm --entrypoint=bash -v   /mnt/data/$(pwd)/generate:/mnt $repo/$ns/$img -c "ls -lh /mnt/; cp -a transfer godiff lang-replacement /mnt/; ls -lh /mnt/"
+# barge=/mnt/data/
+docker run -it --rm --entrypoint=bash -v   $barge$(pwd)/generate:/mnt $repo/$ns/$img -c "ls -lh /mnt/; cp -a transfer godiff lang-replacement /mnt/; ls -lh /mnt/"
