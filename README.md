@@ -44,8 +44,22 @@ https://www.bejson.com/xml2json/
 ## Use
 
 ```bash
+# 生成汉化字典
 # headless @ barge in .../_ct/lang-replacement |14:42:10  |dev U:1 ✗|  #dindMnt
 $ docker  run -it --rm -v /mnt/data/$(pwd)/output:/output registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement
+
+# 汉化
+# headless @ barge in .../lang-replacement/generate |15:53:12  |dev U:1 ?:2 ✗| 
+$ ./lang-replacement ./portainer_zh.xml $(pwd)/portainer/app
+...
+i= 49 portainer/views/users/edit/user.html
+(replace)j= 0 {Change user password} > {修改密码}
+Replace-Copied 4325 bytes, backdir: /_ext/working/_ct/lang-replacement/generate/portainer/app/.lang-replacement/portainer/views/users/edit/user.html!
+i= 50 portainer/views/users/users.html
+(replace)j= 0 {Add a new user} > {添加用户}
+(replace)j= 1 {Users} > {用户管理}
+Replace-Copied 7171 bytes, backdir: /_ext/working/_ct/lang-replacement/generate/portainer/app/.lang-replacement/portainer/views/users/users.html!
+FINISH!
 
 ```
 

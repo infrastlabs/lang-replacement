@@ -13,6 +13,6 @@ generate/*
 !generate/tpl
 !generate/*.sh
 !generate/*.xml
-# lang-replacement
+lang-replacement
 # godiff*
 # transfer*
