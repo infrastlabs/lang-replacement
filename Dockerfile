@@ -26,18 +26,18 @@ RUN apk --update add \
 WORKDIR /generate
 RUN wget https://hub.fastgit.org/rinetd/transfer/releases/download/v1.0.2/transfer-v1.0.2-linux-amd64.tar.gz; \
   tar -zxf transfer-v1.0.2-linux-amd64.tar.gz && rm -f transfer-v1.0.2-linux-amd64.tar.gz
+RUN wget https://hub.fastgit.org/covrom/xml2json/releases/download/1.0/xml2json; chmod +x xml2json  
 COPY --from=builder /src/lang-replacement /generate
 COPY --from=builder /src/godiff /generate
 ADD ./generate/tpl/ /generate/tpl/
 ADD ./generate/gitdiff.sh /generate
+ADD ./generate/dictReplace.txt /generate
 ADD ./entry.sh /generate
 RUN find /generate
 
 # EXPOSE 80
 ENV GENERATE_REPO="https://gitee.com/g-devops/fk-portainer" \
-    GENERATE_BRANCH="br-v29-lang" \
     GENERATE_OUTPUT="portainer_zh.xml" \
-    REPLACE_REPO="https://gitee.com/g-devops/fk-portainer" \ 
-    REPLACE_BRANCH="release/2.9" \
-    EXEC_TYPE="GENERATE"
+    CMP1="2.9.1" \
+    CMP2="origin/br-lang2"
 ENTRYPOINT /generate/entry.sh

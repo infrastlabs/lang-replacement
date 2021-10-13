@@ -1,0 +1,13 @@
+<expect><![CDATA[text="Containers"]]></expect>|<expect><![CDATA[text="容器"]]></expect>
+<expect><![CDATA[text="Events"]]></expect>|<expect><![CDATA[text="Events事件"]]></expect>
+<expect><![CDATA[text="Images"]]></expect>|<expect><![CDATA[text="镜像"]]></expect>
+<expect><![CDATA[text="Networks"]]></expect>|<expect><![CDATA[text="网络"]]></expect>
+<expect><![CDATA[text="Volumes"]]></expect>|<expect><![CDATA[text="磁盘"]]></expect>
+
+<expect><![CDATA[text="Registries"]]></expect>|<expect><![CDATA[text="Registries仓库"]]></expect>
+<expect><![CDATA[-text="Stacks"]]></expect>|<expect><![CDATA[-text="应用Stacks"]]></expect>
+<expect><![CDATA[获取容噟����������������������������明细失败]]></expect>|<expect><![CDATA[获取容器明细失败]]></expect>
+
+
+
+

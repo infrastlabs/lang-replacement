@@ -116,3 +116,18 @@ cat $tmp/root.txt > $tmp/root.json
 # touch $OUTPUT #if notExist, transfer err (in alpine)
 $cur/transfer -f -s $tmp/root.json -t $OUTPUT
 # rm -rf $tmp
+
+function dictReplace(){
+    echo "==[dictReplace]==============="
+    cat $cur/dictReplace.txt |grep -v "^#" |grep -v "^$" | while read one; do
+        # echo $one
+        f1=$(echo $one |cut -d'|' -f1)
+        f2=$(echo $one |cut -d'|' -f2)
+        f1=$(echo $f1 |sed "s/\[/\\\[/g" |sed "s/\!/\\\!/g" |sed "s/\]/\\\]/g")
+        f2=$(echo $f2 |sed "s/\[/\\\[/g" |sed "s/\!/\\\!/g" |sed "s/\]/\\\]/g")
+        echo "$f1"; echo "$f2"; echo ""
+
+        sed -i "s^$f1^$f2^g" $OUTPUT #$cur/portainer_zh.xml 
+    done
+}
+dictReplace

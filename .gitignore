@@ -13,6 +13,14 @@ generate/*
 !generate/tpl
 !generate/*.sh
 !generate/*.xml
+!generate/*.md
+!generate/dictReplace.txt
 lang-replacement
 # godiff*
 # transfer*
+
+output/*
+!output/*.sh
+!output/.cache
+!output/.cache/Dockerfile
+node_modules
