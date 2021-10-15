@@ -1,0 +1,825 @@
+<root>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[节点连接失败]]></expect>
+        <target><![CDATA[Failed loading environment]]></target>
+      </replace>
+    </item>
+    <name>docker/__module.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取节点信息失败]]></expect>
+        <target><![CDATA[Unable to retrieve agent information]]></target>
+      </replace>
+    </item>
+    <name>docker/components/dashboard-cluster-agent-info/dashboardClusterAgentInfoController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[容器已删除]]></expect>
+        <target><![CDATA[Container successfully removed]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器删除失败]]></expect>
+        <target><![CDATA[Unable to remove container]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/containers-datatable/actions/containersDatatableActionsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[应用模板]]></expect>
+        <target><![CDATA[App Templates]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[自定义模板]]></expect>
+        <target><![CDATA[Custom Templates]]></target>
+      </replace>
+      <!-- <replace>
+        <expect><![CDATA[应用组]]></expect>
+        <target><![CDATA[Stacks]]></target>
+      </replace> -->
+      <replace>
+        <expect><![CDATA[服务]]></expect>
+        <target><![CDATA[Services]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器]]></expect>
+        <target><![CDATA[Containers]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[镜像]]></expect>
+        <target><![CDATA[Images]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[网络]]></expect>
+        <target><![CDATA[Networks]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[磁盘]]></expect>
+        <target><![CDATA[Volumes]]></target>
+      </replace>
+    </item>
+    <name>docker/components/docker-sidebar/docker-sidebar.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[容器信息]]></expect>
+        <target><![CDATA[Engine Details]]></target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/engine-details-panel/engine-details-panel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[主机信息]]></expect>
+        <target><![CDATA[Host Details]]></target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/host-details-panel/host-details-panel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取仓库失败]]></expect>
+        <target><![CDATA[Unable to retrieve registries]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[获取镜像失败]]></expect>
+        <target><![CDATA[Unable to retrieve images]]></target>
+      </replace>
+    </item>
+    <name>docker/components/imageRegistry/por-image-registry.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取]]></expect>
+        <target><![CDATA[Unable to retrieve informations for]]></target>
+      </replace>
+    </item>
+    <name>docker/components/network-macvlan-form/networkMacvlanFormController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取配置失败]]></expect>
+        <target><![CDATA[Unable to retrieve configs]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[配置删除成功]]></expect>
+        <target><![CDATA[Config successfully removed]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[获取配置失败]]></expect>
+        <target><![CDATA[Unable to remove config]]></target>
+      </replace>
+    </item>
+    <name>docker/views/configs/configsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[未运行]]></expect>
+        <target><![CDATA[is not running]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[获取容器明细失败]]></expect>
+        <target><![CDATA[Unable to retrieve container details]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[不能进入容器]]></expect>
+        <target><![CDATA[Unable to exec into container]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[获取容器明细失败]]></expect>
+        <target><![CDATA[Unable to retrieve container details]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/console/containerConsoleController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="容器"]]></expect>
+        <target><![CDATA[text="Containers"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/containers.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取容器失败]]></expect>
+        <target><![CDATA[Unable to retrieve containers]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/containersController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取仓库失败]]></expect>
+        <target><![CDATA[Unable to retrive registry]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[获取容器失败]]></expect>
+        <target><![CDATA[Unable to retrieve container]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[获取网络失败]]></expect>
+        <target><![CDATA[Unable to retrieve networks]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[获取容器失败]]></expect>
+        <target><![CDATA[Unable to retrieve containers]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/create/createContainerController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[镜像设置]]></expect>
+        <target><![CDATA[Image configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[端口设置]]></expect>
+        <target><![CDATA[Network ports configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[高级选项设置]]></expect>
+        <target><![CDATA[Advanced container settings]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/create/createcontainer.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[操作]]></expect>
+        <target><![CDATA[Actions]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器状态]]></expect>
+        <target><![CDATA[Container status]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[创建镜像]]></expect>
+        <target><![CDATA[Create image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="容器明细"]]></expect>
+        <target><![CDATA[text="Container details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器网络]]></expect>
+        <target><![CDATA[Connected networks]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/edit/container.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取容器信息失败]]></expect>
+        <target><![CDATA[Unable to retrieve container info]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/edit/containerController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[节点信息]]></expect>
+        <target><![CDATA[Environment info]]></target>
+      </replace>
+    </item>
+    <name>docker/views/dashboard/dashboard.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[主机文件管理]]></expect>
+        <target><![CDATA[Host and Filesystem]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器安全设置]]></expect>
+        <target><![CDATA[Docker Security Settings]]></target>
+      </replace>
+    </item>
+    <name>docker/views/docker-features-configuration/docker-features-configuration.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Events事件"]]></expect>
+        <target><![CDATA[text="Events"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/events/events.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[构建方式]]></expect>
+        <target><![CDATA[Build method]]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/build/buildimage.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[镜像标签]]></expect>
+        <target><![CDATA[Image tags]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[打标签]]></expect>
+        <target><![CDATA[Tag the image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="镜像明细"]]></expect>
+        <target><![CDATA[text="Image details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="Dockerfile明细"]]></expect>
+        <target><![CDATA[text="Dockerfile details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[镜像层]]></expect>
+        <target><![CDATA[Image layers]]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/edit/image.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[镜像拉取]]></expect>
+        <target><![CDATA[Pull image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="镜像"]]></expect>
+        <target><![CDATA[text="Images"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/images.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[拉取镜像失败]]></expect>
+        <target><![CDATA[Unable to pull image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[镜像已拉取]]></expect>
+        <target><![CDATA[Image successfully pulled]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[拉取镜像失败]]></expect>
+        <target><![CDATA[Unable to pull image]]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/imagesController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[创建成功]]></expect>
+        <target><![CDATA[successfully created]]></target>
+      </replace>
+    </item>
+    <name>docker/views/networks/create/createNetworkController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[网络添加]]></expect>
+        <target><![CDATA[Add network]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[网络配置]]></expect>
+        <target><![CDATA[Driver configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[网络驱动)]]></expect>
+        <target><![CDATA[Driver options]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[网络驱动)]]></expect>
+        <target><![CDATA[Driver options]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[高级网络配置]]></expect>
+        <target><![CDATA[Advanced configuration]]></target>
+      </replace>
+    </item>
+    <name>docker/views/networks/create/createnetwork.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="网络明细"]]></expect>
+        <target><![CDATA[text="Network details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[网络选项]]></expect>
+        <target><![CDATA[Network options]]></target>
+      </replace>
+    </item>
+    <name>docker/views/networks/edit/network.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="网络"]]></expect>
+        <target><![CDATA[text="Networks"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/networks/networks.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[删除成功]]></expect>
+        <target><![CDATA[successfully removed]]></target>
+      </replace>
+    </item>
+    <name>docker/views/networks/networksController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[创建成功]]></expect>
+        <target><![CDATA[successfully created]]></target>
+      </replace>
+    </item>
+    <name>docker/views/secrets/create/createSecretController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[删除成功]]></expect>
+        <target><![CDATA[successfully removed]]></target>
+      </replace>
+    </item>
+    <name>docker/views/secrets/secretsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[创建成功]]></expect>
+        <target><![CDATA[successfully created]]></target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/create/createVolumeController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[驱动设置]]></expect>
+        <target><![CDATA[Driver configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[驱动选项)]]></expect>
+        <target><![CDATA[Driver options]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[驱动选项)]]></expect>
+        <target><![CDATA[Driver options]]></target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/create/createvolume.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="磁盘明细"]]></expect>
+        <target><![CDATA[text="Volume details"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/edit/volume.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[删除成功]]></expect>
+        <target><![CDATA[successfully removed]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[删除成功]]></expect>
+        <target><![CDATA[successfully removed]]></target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/edit/volumeController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="磁盘"]]></expect>
+        <target><![CDATA[text="Volumes"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/volumes.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[加载中。。]]></expect>
+        <target><![CDATA[Loading Portainer...]]></target>
+      </replace>
+    </item>
+    <name>index.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[会话过期，请重新登录~]]></expect>
+        <target><![CDATA[Your session has expired]]></target>
+      </replace>
+    </item>
+    <name>portainer/__module.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/accessControlForm/porAccessControlForm.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[权限设置]]></expect>
+        <target><![CDATA[Access control]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/accessControlPanel/porAccessControlPanel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[列表为空。]]></expect>
+        <target><![CDATA[No templates available.]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/custom-templates-list/customTemplatesList.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[帐号设置]]></expect>
+        <target><![CDATA[my account]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/header-content.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[列表为空。]]></expect>
+        <target><![CDATA[No templates available.]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/template-list/templateList.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[主题切换]]></expect>
+        <target><![CDATA[Change user theme]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/theme/theme-settings.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="SSL认证"]]></expect>
+        <target><![CDATA[text="SSL certificate"]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/general/ssl-certificate/ssl-certificate.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[修改密码]]></expect>
+        <target><![CDATA[Change user password]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/account/account.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[登录</span]]></expect>
+        <target><![CDATA[Login</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[登录中。。]]></expect>
+        <target><![CDATA[Login in progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[认证中。。]]></expect>
+        <target><![CDATA[Authentication in progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/auth/auth.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="模板列表"]]></expect>
+        <target><![CDATA[text="Templates"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/custom-templates/custom-templates-view/customTemplatesView.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Registries仓库"]]></expect>
+        <target><![CDATA[text="Registries"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoint-registries/registries.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[节点类型]]></expect>
+        <target><![CDATA[Environment type]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/create/createendpoint.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="节点列表"]]></expect>
+        <target><![CDATA[text="Environments"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/endpoints.html</name>
+  </file>
+  <file>
+    <item>
+      <replace    />
+    </item>
+    <name>portainer/views/groups/groups.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[正在连接，反向节点有轮询耗时 请稍后。。]]></expect>
+        <target><![CDATA[Connecting to the Edge environment...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="节点列表"]]></expect>
+        <target><![CDATA[text="Environments"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/home/home.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[全新安装]]></expect>
+        <target><![CDATA[New Portainer installation]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[由备份数据导入]]></expect>
+        <target><![CDATA[Restore Portainer from backup]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/init/admin/initAdmin.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Registries仓库"]]></expect>
+        <target><![CDATA[text="Registries"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/registries/registries.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="用户认证"]]></expect>
+        <target><![CDATA[text="Authentication"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[认证方式]]></expect>
+        <target><![CDATA[Authentication method]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/settings/authentication/settingsAuthentication.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[应用设置]]></expect>
+        <target><![CDATA[Application settings]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[应用模板]]></expect>
+        <target><![CDATA[App Templates]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[Helm仓库]]></expect>
+        <target><![CDATA[Helm Repository]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器隐藏]]></expect>
+        <target><![CDATA[Hidden containers]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[数据备份]]></expect>
+        <target><![CDATA[Backup Portainer]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/settings/settings.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[节点管理]]></expect>
+        <target><![CDATA[Environments]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/sidebar/sidebar.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="容器"]]></expect>
+        <target><![CDATA[text="Containers"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/stacks/edit/stack.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[-text="应用Stacks"]]></expect>
+        <target><![CDATA[-text="Stacks"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/stacks/stacks.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[添加标签]]></expect>
+        <target><![CDATA[Add a new tag]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/tags/tags.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[添加用户组]]></expect>
+        <target><![CDATA[Add a new team]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/teams/teams.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[基础设置]]></expect>
+        <target><![CDATA[Configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[端口映射]]></expect>
+        <target><![CDATA[Port mapping]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[磁盘挂载]]></expect>
+        <target><![CDATA[Volume mapping]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="模板列表"]]></expect>
+        <target><![CDATA[text="Templates"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/templates/templates.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[修改密码]]></expect>
+        <target><![CDATA[Change user password]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/users/edit/user.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[添加用户]]></expect>
+        <target><![CDATA[Add a new user]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="用户列表"]]></expect>
+        <target><![CDATA[text="Users"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/users/users.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Wizard指引"]]></expect>
+        <target><![CDATA[text="Environment Wizard"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoints.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Wizard指引"]]></expect>
+        <target><![CDATA[text="Environment Wizard"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-view.html</name>
+  </file>
+</root>

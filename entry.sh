@@ -23,6 +23,9 @@ function getRepo(){
 getRepo
 
 
+# wget newest: out and replace file
+wget -O /generate/dictReplace.txt https://gitee.com/g-devops/lang-replacement/raw/dev/generate/dictReplace.txt
+
 outPath="/output" && mkdir -p $outPath
 # export CMP1=055c57
 # export CMP2=br-lang2

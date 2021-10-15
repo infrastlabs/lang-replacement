@@ -1,111 +1,71 @@
 # file-replacement
 
-该程序用于非本土化的应用, 可针对源码/未混淆加密的目标代码做汉化, 依赖于汉化字典:  
-1.字典可基于源码手动做一版改动后,自动分析生成  
-2.由上生成的字典,可进一步翻译为其它语言  
-
-- 汉化程序(./main.go): 参考konga,改用Golang实现
-- XML字典(./gitdiff1.sh): 反向分析git代码仓库的变动差异, 生成汉化程序所需的配置xml(依赖git, jq, transfer, ./main为./diff/main.go生成) 
-
-**汉化程序**
-
-- Konga v0.14.9 全支持
+- Konga v0.14.9 全支持 (借用 generate/konga.xml)
 - Portainer v2.9.0 半汉化(docker+porainer部分)
 
-## 操作说明
+## Portainer汉化
 
-- pt >> infrastlabs/portainer-cn:latest #基于官方v2.9.1, 生成portainer-cn汉化版镜像
-- registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement
-  - dict #字典生成
-  - cache #node_modules @v291
-  - replace,latest #汉化程序+Node构建 >> 生成public.tar.gz
-
-**汉化(容器)** 
+**output/portainer_zh.xml** 生成字典
 
 ```bash
-# choice1: 直接使用汉化的容器(基于官方v2.9.1, 替换/public)
-docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock registry.cn-shenzhen.aliyuncs.com/infrastlabs/portainer-cn
+# dict生成
+# ENV GENERATE_REPO="https://gitee.com/g-devops/fk-portainer" \
+#     GENERATE_OUTPUT="portainer_zh.xml" \
+#     CMP1="2.9.1" \
+#     CMP2="origin/br-lang2"
+docker run -it --rm -e CMP1=2.9.1 -e CMP2=origin/br-lang3 -v /mnt/data/$(pwd)/output:/output registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement:dict
 
-# choice2: 生成public.tar.gz, 手动挂载到容器内使用
-#  choice2_step1: 容器运行(node环境: 替换后 直接构建输出public.tar.gz)
-$ docker run -it --rm -v $(pwd)/output:/output registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement
-#  choice2_step1: 挂载/public目录来使用
-tar -zxf public.tar.gz
-docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/public:/public portainer/portainer-ce:2.9.1-alpine
-```
 
-**汉化(二进制用法)** 二进制运行替换后,手工build前端工程
-
-```bash
-# step1: 二进制运行替换
-# headless @ barge in .../lang-replacement/generate |15:53:12  |dev U:1 ?:2 ✗| 
-$ ./lang-replacement ./portainer_zh.xml $(pwd)/portainer/app
-...
-i= 49 portainer/views/users/edit/user.html
-(replace)j= 0 {Change user password} > {修改密码}
-Replace-Copied 4325 bytes, backdir: /_ext/working/_ct/lang-replacement/generate/portainer/app/.lang-replacement/portainer/views/users/edit/user.html!
-i= 50 portainer/views/users/users.html
-(replace)j= 0 {Add a new user} > {添加用户}
-(replace)j= 1 {Users} > {用户管理}
-Replace-Copied 7171 bytes, backdir: /_ext/working/_ct/lang-replacement/generate/portainer/app/.lang-replacement/portainer/views/users/users.html!
-FINISH!
-
-# step2: 基于上1步替换后的源码, 手工build前端工程(Portainer需要在源码层做汉化替换)
-# ...
-```
-
-**生成汉化字典**
-
-```bash
-# headless @ barge in .../_ct/lang-replacement |14:42:10  |dev U:1 ✗|  #dindMnt
-$ docker run -it --rm -v $(pwd)/output:/output registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement:generate
+# xml2json
+# wget https://hub.fastgit.org/covrom/xml2json/releases/download/1.0/xml2json
+cat portainer_zh.xml |./xml2json  |jq
 
 ```
 
-## Dev开发说明
+**dict/public.tar.gz** 生成汉化包
 
 ```bash
-# headless @ barge in .../_ct/lang-replacement |11:39:37  |master ↑2 U:1 ?:1 ✗| 
-$ go run ./main.go ./konga.xml "./asset"
+# 方式一： 可指定官方/自定义的REPO仓库
+# barge: 生成public.tar.gz
+# ENV \
+#     REPO="https://gitee.com/g-devops/fk-portainer" \ 
+#     # BRANCH="release/2.9" \
+#     # TAG="2.9.1"
+#     TAG="v291-patch" #up/down样式; 美化rdash样式; CPU/MEM限定
 
-# diff
-CGO_ENABLED=0
-$ go build -o godiff -x -v -ldflags "-s -w $flags" ./diff/main.go
-# -rwxr-xr-x 1 headless headless 1.9M 10月  9 10:10 main*
-# -rwxr-xr-x 1 headless headless 2.6M 10月  9 10:09 main00*
+# TAG=2.9.0; BRANCH=sam-custom
+docker run -it --rm -e TAG=v291-patch -v /mnt/data/$(pwd)/output:/output registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement:replace
+
+# tar -zxf public.tar.gz 
+public=/mnt/data/$(pwd)/output/portainer/dist/public
+docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v $public:/public portainer/portainer-ce:2.9.1-alpine
+
+
+# 方式二：clone本仓库，直接生成pt镜像`registry.cn-shenzhen.aliyuncs.com/infrastlabs/portainer-cn:latest`
+# ENV \
+#     REPO="https://gitee.com/g-devops/fk-portainer" \ 
+#     BRANCH="sam-custom"
+#     # TAG="2.9.1"
+sh img_build.sh pt
+# # 基于`sam-custom`分支：
+# 1.sidebar up/down样式还原
+# 2.前端(Alter)：改通用配置参数、紧凑/美化rdash样式
+# 3.前端(Feat)：updateLimits，实时更新容器的CPU/MEM限定
+# 3.后端(Alter)：调小edgePoll周期：DefaultEdgeAgentCheckinIntervalInSeconds = 2 //5
+# 4.前端(Alter)：屏蔽sidebar新版提示、EE功能页、templates模块(当前用不上它)。
 ```
 
-**Replacement模版生成**
+
+## +templates TODO
+
+- `./templates`已缓存(含图片)，当前调用本地9000端口未登录会被限制使用
+- 用法上不需要：只用`psu-stack`自动化部署、PT面板管维
 
 ```bash
-TODO: git diff 锁定到行? > tpl > Replace指定行
+# https://docs.portainer.io/v/ce-2.9/advanced/app-templates/build
 
-**Portainer汉化**
-
-- app/docker 半汉化
-- app/portainer 半汉化
-- app/kubernetes
-- app/integrations
-- app/azure
-- app/agent
-- app/edge
-
-https://www.bejson.com/xml2json/
-```
-
-**buildPortainer**
-
-```bash
-# https://www.cnblogs.com/ccti7/p/13956678.html
-# npm install image-webpack-loader --save-dev
-yarn add image-webpack-loader -D
-yarn add image-webpack-loader -g
+# 地址是对的, 不能用: 需要LOGIN??
+# headless @ barge in .../dist/portainer |20:15:24  |tag:v291-patch U:48 ✗| 
+$ ./portainer --data=./data --admin-password=$token --templates=http://127.0.0.1:9000/templates/templates.json
 
 ```
-
-## Refs
-
-- https://github.com/jsonljd/konga-lang-plugin
-- http://www.zzvips.com/article/167183.html
-- https://blog.csdn.net/qiuyoujie/article/details/79289181
-

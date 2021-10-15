@@ -52,7 +52,7 @@ function getRepo(){
 getRepo
 
 # dict portainer_zh.xml
-curl -O https://gitee.com/g-devops/lang-replacement/raw/dev/generate/portainer_zh.xml
+curl -O https://gitee.com/g-devops/lang-replacement/raw/dev/output/portainer_zh.xml
 
 # REPLACE
 rm -rf portainer; cp -a pt0 portainer

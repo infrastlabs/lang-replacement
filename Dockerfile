@@ -31,6 +31,7 @@ COPY --from=builder /src/lang-replacement /generate
 COPY --from=builder /src/godiff /generate
 ADD ./generate/tpl/ /generate/tpl/
 ADD ./generate/gitdiff.sh /generate
+# TODO dictReplace.txt mnt in
 ADD ./generate/dictReplace.txt /generate
 ADD ./entry.sh /generate
 RUN find /generate

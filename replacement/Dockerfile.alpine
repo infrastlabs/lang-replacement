@@ -36,12 +36,11 @@ ADD ./conf/webpack.production.js /conf/webpack.production.js
 ADD ./conf/gruntfile.js /conf/gruntfile.js
 COPY --from=bins /generate/lang-replacement /usr/local/bin/
 WORKDIR /output
-
 ENV \
     REPO="https://gitee.com/g-devops/fk-portainer" \ 
     # BRANCH="release/2.9" \
-    TAG="2.9.1"
-
+    # TAG="2.9.1"
+    TAG="v291-patch"
 # VOLUME ["/data"]
 # EXPOSE 8080
 ENTRYPOINT ["/entry.sh"]
