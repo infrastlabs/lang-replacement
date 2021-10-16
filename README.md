@@ -1,7 +1,17 @@
-# file-replacement
+# lang-replacement
 
 - Konga v0.14.9 全支持 (借用 generate/konga.xml)
 - Portainer v2.9.0 半汉化(docker+porainer部分)
+
+![](./demo/pt-cn-2021-10-16_21-48.png)
+
+## 快速体验
+
+```bash
+# 该镜像基于官方v291做汉化，其它版本请依据汉化步骤自行生成
+img=registry.cn-shenzhen.aliyuncs.com/infrastlabs/portainer-cn
+docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock $img
+```
 
 ## Portainer汉化
 
