@@ -2,6 +2,15 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[主机文件管理]]></expect>
+        <target><![CDATA[Host browser]]></target>
+      </replace>
+    </item>
+    <name>agent/components/host-browser/hostBrowser.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[节点连接失败]]></expect>
         <target><![CDATA[Failed loading environment]]></target>
       </replace>
@@ -40,10 +49,6 @@
         <expect><![CDATA[自定义模板]]></expect>
         <target><![CDATA[Custom Templates]]></target>
       </replace>
-      <!-- <replace>
-        <expect><![CDATA[应用组]]></expect>
-        <target><![CDATA[Stacks]]></target>
-      </replace> -->
       <replace>
         <expect><![CDATA[服务]]></expect>
         <target><![CDATA[Services]]></target>
@@ -672,6 +677,15 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[正在登出。。]]></expect>
+        <target><![CDATA[Logout in progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/logout/logout.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[text="Registries仓库"]]></expect>
         <target><![CDATA[text="Registries"]]></target>
       </replace>
@@ -751,6 +765,23 @@
       </replace>
     </item>
     <name>portainer/views/tags/tags.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Team组明细"]]></expect>
+        <target><![CDATA[text="Team details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="用户列表"]]></expect>
+        <target><![CDATA[text="Users"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[团队成员]]></expect>
+        <target><![CDATA[Team members]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/teams/edit/team.html</name>
   </file>
   <file>
     <item>
