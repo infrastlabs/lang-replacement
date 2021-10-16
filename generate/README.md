@@ -1,3 +1,6 @@
+# 
+
+## DictGen
 
 ```bash
 headless @ barge in .../lang-replacement/generate |17:31:51  |dev U:3 ?:3 ✗| 
@@ -29,9 +32,34 @@ $ cat portainer_zh.xml |grep expect |grep fications  |sort -u |awk '$1=$1' |whil
 ==[dictReplace]===============
 该文件疑似存在违规内容，无法显示
 该文件疑似存在违规内容，无法显示
+
+# 已改文件数 x158
+$ cat output/portainer_zh.xml |./generate/xml2json |jq ".[].file[].name" |wc
+    158     158    9100
 ```
 
-## notifications汉化字典:
+## 汉化TODO
+
+- @@@         已改 x416 (*.html: x31; Noti@@@: x385)
+- 
+- </button  > 按钮 x412 ./app
+  - ./portainer x150 DONE1;
+  - ./docker x147    DONE2;
+- <th>        表头 x278 ./app
+  - ./portainer  x50   <th: > x80
+  - ./docker     x113; <th: > x172 #quick: 非单行的，仅词组可替换；DONE1
+- placeholder      x387
+  - ./portainer  x141 ##placeholder="{{ $ctrl.placeholder }}" #连续多个..
+  - ./docker     x128 #已批替换 DONE1
+- 
+- 全篇
+  - </p>         x405 #行描述
+  - text-muted   x489 #行描述
+  - </label>   x809 #双列左列label描述
+  - </a>       x780 
+
+
+## notifications汉化字典: DONE;
 
 ```bash
 notifications.

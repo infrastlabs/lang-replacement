@@ -11,11 +11,18 @@
 # 该镜像基于官方v291做汉化，其它版本请依据汉化步骤自行生成
 img=registry.cn-shenzhen.aliyuncs.com/infrastlabs/portainer-cn
 docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock $img
+
+# # 基于`sam-custom`分支：
+# 1.sidebar up/down样式还原
+# 2.前端(Alter)：改通用配置参数、紧凑/美化rdash样式
+# 3.前端(Feat)：updateLimits，实时更新容器的CPU/MEM限定
+# 3.后端(Alter)：调小edgePoll周期：DefaultEdgeAgentCheckinIntervalInSeconds = 2 //5
+# 4.前端(Alter)：屏蔽sidebar新版提示、EE功能页、templates模块(当前用不上它)。
 ```
 
 ## Portainer汉化
 
-**output/portainer_zh.xml** 生成字典
+**output/portainer_zh.xml** 生成字典 (无需定制 请跳下一步)
 
 ```bash
 # dict生成
@@ -33,6 +40,10 @@ cat portainer_zh.xml |./xml2json  |jq
 ```
 
 **dict/public.tar.gz** 生成汉化包
+
+- 默认最新字典：https://gitee.com/g-devops/lang-replacement/raw/dev/output/portainer_zh.xml
+- 默认汉化源：https://gitee.com/g-devops/fk-portainer
+- 默认分支：TAG="v291-patch"（生成包）， BRANCH="sam-custom"（镜像版）
 
 ```bash
 # 方式一： 可指定官方/自定义的REPO仓库
@@ -57,12 +68,7 @@ docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v $
 #     BRANCH="sam-custom"
 #     # TAG="2.9.1"
 sh img_build.sh pt
-# # 基于`sam-custom`分支：
-# 1.sidebar up/down样式还原
-# 2.前端(Alter)：改通用配置参数、紧凑/美化rdash样式
-# 3.前端(Feat)：updateLimits，实时更新容器的CPU/MEM限定
-# 3.后端(Alter)：调小edgePoll周期：DefaultEdgeAgentCheckinIntervalInSeconds = 2 //5
-# 4.前端(Alter)：屏蔽sidebar新版提示、EE功能页、templates模块(当前用不上它)。
+
 ```
 
 
