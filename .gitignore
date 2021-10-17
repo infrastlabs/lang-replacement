@@ -14,7 +14,7 @@ generate/*
 !generate/*.sh
 !generate/*.xml
 !generate/*.md
-!generate/dictReplace.txt
+!generate/*.txt
 lang-replacement
 # godiff*
 # transfer*
@@ -22,6 +22,6 @@ lang-replacement
 output/*
 !output/*.sh
 !output/*.xml
-!output/.cache
+!output/.cache/*
 !output/.cache/Dockerfile
 node_modules
