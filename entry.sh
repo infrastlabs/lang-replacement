@@ -23,8 +23,12 @@ function getRepo(){
 getRepo
 
 
-# wget newest: out and replace file
-wget -O /generate/dictReplace.txt https://gitee.com/g-devops/lang-replacement/raw/dev/generate/dictReplace.txt
+# wget newest dictions
+file=dictReplace.txt; wget -qO /generate/$file https://gitee.com/g-devops/lang-replacement/raw/dev/generate/$file
+cat /generate/$file |wc
+file=dict_fications.txt; wget -qO /generate/$file https://gitee.com/g-devops/lang-replacement/raw/dev/generate/$file
+cat /generate/$file |wc
+echo -e "已获取最新replaceDict, 请注意获取到dict的行数(避免无效数据) \n准备clone仓库反向分析 生成替换字典：(sleep 5)"; sleep 5
 
 outPath="/output" && mkdir -p $outPath
 # export CMP1=055c57
@@ -36,4 +40,4 @@ export OUTPUT=$outPath/$GENERATE_OUTPUT
 # view
 cat $OUTPUT |wc; tail -30 $OUTPUT
 # /generate/transfer -f -s $OUTPUT -t /tmp/view.json; cat /tmp/view.json |jq #tranferErr: got "null"
-cat $OUTPUT |/generate/xml2json |jq
+# cat $OUTPUT |/generate/xml2json |jq #nonViewHere

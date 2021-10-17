@@ -27,12 +27,18 @@ WORKDIR /generate
 RUN wget https://hub.fastgit.org/rinetd/transfer/releases/download/v1.0.2/transfer-v1.0.2-linux-amd64.tar.gz; \
   tar -zxf transfer-v1.0.2-linux-amd64.tar.gz && rm -f transfer-v1.0.2-linux-amd64.tar.gz
 RUN wget https://hub.fastgit.org/covrom/xml2json/releases/download/1.0/xml2json; chmod +x xml2json  
+
+#gitdiff.sh: dict容器未被替换?? #apk add sed
+RUN apk --update add sed \
+      && rm -rf /tmp/src && rm -rf /var/cache/apk/*
+
 COPY --from=builder /src/lang-replacement /generate
 COPY --from=builder /src/godiff /generate
 ADD ./generate/tpl/ /generate/tpl/
 ADD ./generate/gitdiff.sh /generate
-# TODO dictReplace.txt mnt in
+# dictReplace.txt
 ADD ./generate/dictReplace.txt /generate
+ADD ./generate/dict_fications.txt /generate
 ADD ./entry.sh /generate
 RUN find /generate
 

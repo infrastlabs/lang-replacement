@@ -1,19 +1,44 @@
 cur=$(cd "$(dirname "$0")"; pwd)
 cd $cur
 
-REPO="https://gitee.com/g-devops/fk-portainer"
-BRANCH="br-v29-lang"
+# REPO="https://gitee.com/g-devops/fk-portainer"
+# BRANCH="br-lang3"
 # git clone -b $BRANCH $REPO portainer
-# export SOURCE=portainer/app
-# export CMP1=055c57
-# export CMP2=origin/br-v29-lang
+# # export SOURCE=portainer/app
+# # export CMP1=055c57
+# # export CMP2=origin/br-v29-lang
 
-export SOURCE="/_ext/working/_ct/fk-portainer/app"
+
+# git clone $GENERATE_REPO $srcGenerate #each newDir, just normal clone.
+# repo
+function getRepo(){
+    errExit(){
+        echo "$1"
+        exit 1
+    }
+    if [ ! -d $srcGenerate ]; then
+        git clone $GENERATE_REPO $srcGenerate #--depth=1
+    else
+        cd $srcGenerate; 
+            git fetch
+            # if both tag:
+            git fetch origin tag $CMP1
+            git fetch origin tag $CMP2 #if branch, with err, just ignore
+    fi
+}
+# getRepo
+
+GENERATE_REPO="https://gitee.com/g-devops/fk-portainer"
+mkdir -p $cur/.cache; srcGenerate=$cur/.cache/pt0_dict
+# export SOURCE="/_ext/working/_ct/fk-portainer/app"
 # export SOURCE="/_ext/bbox/_ee/fk-portainer/app"
-export CMP1=604f2823428aa26401b5b0f1ba118eb494325edb
-export CMP2=br-lang2 #origin/br-v29-lang
-# export SOURCE="portainer/app"
+export CMP1=2.9.1
+export CMP2=origin/br-lang3 #origin/br-v29-lang
+export SOURCE=$srcGenerate/app
 # export CMP1=604f2823428aa26401b5b0f1ba118eb494325edb #origin/br-v29-lang
 # export CMP2=origin/br-lang2
+
+
+getRepo
 export OUTPUT="$cur/portainer_zh.xml"
-./gitdiff.sh
+$cur/gitdiff.sh

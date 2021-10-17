@@ -6,7 +6,7 @@
 
 <expect><![CDATA[text="Registries"]]></expect>|<expect><![CDATA[text="Registries仓库"]]></expect>
 <expect><![CDATA[-text="Stacks"]]></expect>|<expect><![CDATA[-text="应用Stacks"]]></expect>
-<expect><![CDATA[获取容噟����������������������������明细失败]]></expect>|<expect><![CDATA[获取容器明细失败]]></expect>
+#<expect><![CDATA[获取容噟����������������������������明细失败]]></expect>|<expect><![CDATA[获取容器明细失败]]></expect>
 
 
 
@@ -15,25 +15,25 @@
 <expect><![CDATA[text="Users"]]></expect>|<expect><![CDATA[text="用户列表"]]></expect>
 <expect><![CDATA[text="Templates"]]></expect>|<expect><![CDATA[text="模板列表"]]></expect>
 <expect><![CDATA[Helm Repository]]></expect>|<expect><![CDATA[Helm仓库]]></expect>
-<expect><![CDATA[讐�证方式]]></expect>|<expect><![CDATA[认证方式]]></expect>
 <expect><![CDATA[text="Authentication"]]></expect>|<expect><![CDATA[text="用户认证"]]></expect>
+<expect><![CDATA[讐�证方式]]></expect>|<expect><![CDATA[认证方式]]></expect>
 <expect><![CDATA[全斐�宐�裐�]]></expect>|<expect><![CDATA[全新安装]]></expect>
 
 <expect><![CDATA[text="Environments"]]></expect>|<expect><![CDATA[text="节点列表"]]></expect>
 <expect><![CDATA[text="Templates"]]></expect>|<expect><![CDATA[text="模板列表"]]></expect>
 <expect><![CDATA[Login</span]]></expect>|<expect><![CDATA[登录</span]]></expect>
-<expect><![CDATA[修改寐�码]]></expect>|<expect><![CDATA[修改密码]]></expect>
 <expect><![CDATA[text="SSL certificate"]]></expect>|<expect><![CDATA[text="SSL认证"]]></expect>
+<expect><![CDATA[修改寐�码]]></expect>|<expect><![CDATA[修改密码]]></expect>
 <expect><![CDATA[刐�表丐�空【��]]></expect>|<expect><![CDATA[列表为空]]></expect>
 <expect><![CDATA[材�限讐�罐�]]></expect>|<expect><![CDATA[权限设置]]></expect>
 
 <expect><![CDATA[text="Volume details"]]></expect>|<expect><![CDATA[text="磁盘明细"]]></expect>
-<expect><![CDATA[驐�劐�����选项)]]></expect>|<expect><![CDATA[驱动选项)]]></expect>
 <expect><![CDATA[text="Network details"]]></expect>|<expect><![CDATA[text="网络明细"]]></expect>
 <expect><![CDATA[text="Dockerfile details"]]></expect>|<expect><![CDATA[text="Dockerfile明细"]]></expect>
 <expect><![CDATA[text="Image details"]]></expect>|<expect><![CDATA[text="镜像明细"]]></expect>
-<expect><![CDATA[析�廐�斐�弐�]]></expect>|<expect><![CDATA[构建方式]]></expect>
 <expect><![CDATA[text="Container details"]]></expect>|<expect><![CDATA[text="容器明细"]]></expect>
+<expect><![CDATA[驐�劐�����选项)]]></expect>|<expect><![CDATA[驱动选项)]]></expect>
+<expect><![CDATA[析�廐�斐�弐�]]></expect>|<expect><![CDATA[构建方式]]></expect>
 <expect><![CDATA[端口讐��������������������������置]]></expect>|<expect><![CDATA[端口配置]]></expect>
 
 

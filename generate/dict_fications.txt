@@ -1,0 +1,280 @@
+<expect><![CDATA[fications.error('An error occurred during build', { msg: 'Please check build logs output']]></expect>|<expect><![CDATA[fications.error('构建错误', { msg: '请检查构建日志']]></expect>
+<expect><![CDATA[fications.error('Deployment error', err, 'Failed to deploy stack']]></expect>|<expect><![CDATA[fications.error('部署错误', err, 'Stack部署失败']]></expect>
+<expect><![CDATA[fications.error('Deployment error', err, 'Unable to deploy stack']]></expect>|<expect><![CDATA[fications.error('部署错误', err, 'Stack部署失败2']]></expect>
+<expect><![CDATA[fications.error('Deployment error']]></expect>|<expect><![CDATA[fications.error('部署错误']]></expect>
+<expect><![CDATA[fications.error('Error', err, 'Unable to add environment to group']]></expect>|<expect><![CDATA[fications.error('Error', err, '添加节点到组失败']]></expect>
+<expect><![CDATA[fications.error('Error', err, 'Unable to remove environment from group']]></expect>|<expect><![CDATA[fications.error('Error', err, '组移除节点失败']]></expect>
+<expect><![CDATA[fications.error('Error', err, 'Unable to retrieve container details']]></expect>|<expect><![CDATA[fications.error('Error', err, '获取容器明细失败']]></expect>
+<expect><![CDATA[fications.error('Failed initializing features service']]></expect>|<expect><![CDATA[fications.error('Features服务初始失败']]></expect>
+<expect><![CDATA[fications.error('Failed loading environment']]></expect>|<expect><![CDATA[fications.error('节点加载失败']]></expect>
+<expect><![CDATA[fications.error('Failed loading page data']]></expect>|<expect><![CDATA[fications.error('分页加载失败']]></expect>
+<expect><![CDATA[fications.error('Failed loading templates', err, 'Unable to load custom templates']]></expect>|<expect><![CDATA[fications.error('模板加载失败', err, 'Unable to load custom templates']]></expect>
+<expect><![CDATA[fications.error('Failed removing template', err, 'Unable to remove custom template']]></expect>|<expect><![CDATA[fications.error('模板删除失败', err, 'Unable to remove custom template']]></expect>
+<expect><![CDATA[fications.error('Failue', err, 'Unable to create tag']]></expect>|<expect><![CDATA[fications.error('Failue', err, '创建标签失败']]></expect>
+<expect><![CDATA[fications.error('Failure', details, 'Container ' + attachId + ' is not running!']]></expect>|<expect><![CDATA[fications.error('Failure', details, '容器' + attachId + '未运行!']]></expect>
+<expect><![CDATA[fications.error('Failure', e, 'Failed saving settings']]></expect>|<expect><![CDATA[fications.error('Failure', e, '配置保存失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'An error occured during apps initialization.']]></expect>|<expect><![CDATA[fications.error('Failure', err, '应用初始错误']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'An error occured during environment snapshot']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点快照错误']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'An error occured during logout']]></expect>|<expect><![CDATA[fications.error('Failure', err, '登出错误']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'An error occured during network creation']]></expect>|<expect><![CDATA[fications.error('Failure', err, '网络创建错误']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'An error occured during volume creation']]></expect>|<expect><![CDATA[fications.error('Failure', err, '磁盘卷创建错误']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'A template with the same name already exists']]></expect>|<expect><![CDATA[fications.error('Failure', err, '已存在同名模板']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Connection error']]></expect>|<expect><![CDATA[fications.error('Failure', err, '连接错误']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Connection to LDAP failed']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'LDAP连接错误']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed applying changes']]></expect>|<expect><![CDATA[fications.error('Failure', err, '变更生效失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed loading auth activity logs']]></expect>|<expect><![CDATA[fications.error('Failure', err, '加载鉴权日志失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed loading certificate info']]></expect>|<expect><![CDATA[fications.error('Failure', err, '获取证书信息失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed loading user activity logs csv']]></expect>|<expect><![CDATA[fications.error('Failure', err, '加载csv用户日志失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed loading user activity logs']]></expect>|<expect><![CDATA[fications.error('Failure', err, '加载用户活动日志失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed redeploying application']]></expect>|<expect><![CDATA[fications.error('Failure', err, '应用重部署失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed redeploying stack']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack重部署失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed to delete template']]></expect>|<expect><![CDATA[fications.error('Failure', err, '模板删除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed to duplicate template']]></expect>|<expect><![CDATA[fications.error('Failure', err, '模板建副本失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Failed to load networks.']]></expect>|<expect><![CDATA[fications.error('Failure', err, '网络加载失败.']]></expect>
+<expect><![CDATA[fications.error('Failure', error, 'Failed to search users']]></expect>|<expect><![CDATA[fications.error('Failure', error, '查询用户失败']]></expect>
+<expect><![CDATA[fications.error('Failure', error, 'Failed to update node']]></expect>|<expect><![CDATA[fications.error('Failure', error, '节点更新失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to associate stack ']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack关联失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to build image']]></expect>|<expect><![CDATA[fications.error('Failure', err, '构建镜像失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to check for status']]></expect>|<expect><![CDATA[fications.error('Failure', err, '状态检查失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to clone config']]></expect>|<expect><![CDATA[fications.error('Failure', err, '配置克隆失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to conect your environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点连接失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to connect container to network']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器加入网络失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to connect to the Docker environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Docker连接失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to connect to the Kubernetes environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'K8S连接失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to connect your environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点连接失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create administrator user']]></expect>|<expect><![CDATA[fications.error('Failure', err, '管理员创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create config']]></expect>|<expect><![CDATA[fications.error('Failure', err, '配置创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create container']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create group']]></expect>|<expect><![CDATA[fications.error('Failure', err, '组创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create image']]></expect>|<expect><![CDATA[fications.error('Failure', err, '镜像创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create registries']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Registry创建失败2']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create registry']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Registry创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create secret']]></expect>|<expect><![CDATA[fications.error('Failure', err, '密钥创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create service']]></expect>|<expect><![CDATA[fications.error('Failure', err, '服务创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create stack']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create tag']]></expect>|<expect><![CDATA[fications.error('Failure', err, '标签创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create team']]></expect>|<expect><![CDATA[fications.error('Failure', err, '团队创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create user']]></expect>|<expect><![CDATA[fications.error('Failure', err, '用户创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to create webhook']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Webhook创建失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to de-associate environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点解除关联失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to delete webhook']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Webhook删除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to disconnect container from network']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器移除网络失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to download backup']]></expect>|<expect><![CDATA[fications.error('Failure', err, '下载备份失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to download image']]></expect>|<expect><![CDATA[fications.error('Failure', err, '下载镜像失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to download image(s)']]></expect>|<expect><![CDATA[fications.error('Failure', err, '下载镜像失败2']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to duplicate stack']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack建副本失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to exec into container']]></expect>|<expect><![CDATA[fications.error('Failure', err, '进入容器失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to force update service']]></expect>|<expect><![CDATA[fications.error('Failure', err, '强制更新服务失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to get user details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '获取用户明细失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to initialize cluster visualizer']]></expect>|<expect><![CDATA[fications.error('Failure', err, '初始集群视图失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to initialize view']]></expect>|<expect><![CDATA[fications.error('Failure', err, '初始视图失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to load dashboard data']]></expect>|<expect><![CDATA[fications.error('Failure', err, '加载仪表盘数据失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to load events']]></expect>|<expect><![CDATA[fications.error('Failure', err, '事件加载失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to load group details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '组明细加载失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to load groups']]></expect>|<expect><![CDATA[fications.error('Failure', err, '组加载失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to load view']]></expect>|<expect><![CDATA[fications.error('Failure', err, '视图加载失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to migrate stack']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack迁移失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to pull image']]></expect>|<expect><![CDATA[fications.error('Failure', err, '拉取镜像失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to pull image from repository']]></expect>|<expect><![CDATA[fications.error('Failure', err, '从仓库拉取镜像失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to push image to repository']]></expect>|<expect><![CDATA[fications.error('Failure', err, '镜像推送仓库失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to re-create container']]></expect>|<expect><![CDATA[fications.error('Failure', err, '重建容器失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove config']]></expect>|<expect><![CDATA[fications.error('Failure', err, '配置移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove container']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove group']]></expect>|<expect><![CDATA[fications.error('Failure', err, '组移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove image']]></expect>|<expect><![CDATA[fications.error('Failure', err, '镜像移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove network']]></expect>|<expect><![CDATA[fications.error('Failure', err, '网络移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove registry']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Registry移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove secret']]></expect>|<expect><![CDATA[fications.error('Failure', err, '密钥移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove service']]></expect>|<expect><![CDATA[fications.error('Failure', err, '服务移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove snapshot']]></expect>|<expect><![CDATA[fications.error('Failure', err, '快照移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove stack ']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove tag']]></expect>|<expect><![CDATA[fications.error('Failure', err, '标签移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove team']]></expect>|<expect><![CDATA[fications.error('Failure', err, '团队移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove user']]></expect>|<expect><![CDATA[fications.error('Failure', err, '用户移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to remove volume']]></expect>|<expect><![CDATA[fications.error('Failure', err, '磁盘卷移除失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to rename container']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器重命名失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to restore the backup']]></expect>|<expect><![CDATA[fications.error('Failure', err, '备份数据还原失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve access control information']]></expect>|<expect><![CDATA[fications.error('Failure', err, '权限配置获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve accesses']]></expect>|<expect><![CDATA[fications.error('Failure', err, '权限获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve agent information']]></expect>|<expect><![CDATA[fications.error('Failure', err, '代理节点信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></expect>|<expect><![CDATA[fications.error('Failure', err, '应用配置获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '集群明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster information']]></expect>|<expect><![CDATA[fications.error('Failure', err, '集群信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve config details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '配置明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve configs']]></expect>|<expect><![CDATA[fications.error('Failure', err, '配置获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container info']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container information']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器信息获取失败b']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container logs']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器日志获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve Containers']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers in network']]></expect>|<expect><![CDATA[fications.error('Failure', err, '网络内的容器获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container statistics']]></expect>|<expect><![CDATA[fications.error('Failure', err, '容器状态数据获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve custom template data']]></expect>|<expect><![CDATA[fications.error('Failure', err, '自定义模板数据获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve Custom Template file']]></expect>|<expect><![CDATA[fications.error('Failure', err, '自定义模板文件获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve Custom Templates']]></expect>|<expect><![CDATA[fications.error('Failure', err, '自定义模板获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve engine details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '引擎明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment groups']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点组获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environments']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve image details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '镜像明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve images']]></expect>|<expect><![CDATA[fications.error('Failure', err, '镜像获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve informations for macvlan']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Macvlan信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve network drivers']]></expect>|<expect><![CDATA[fications.error('Failure', err, '网络驱动获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve network info']]></expect>|<expect><![CDATA[fications.error('Failure', err, '网络信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve networks']]></expect>|<expect><![CDATA[fications.error('Failure', err, '网络获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve projects']]></expect>|<expect><![CDATA[fications.error('Failure', err, '项目获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve public settings']]></expect>|<expect><![CDATA[fications.error('Failure', err, '公共配置获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></expect>|<expect><![CDATA[fications.error('Failure', err, '镜像仓库获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registry details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '仓库明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve roles']]></expect>|<expect><![CDATA[fications.error('Failure', err, '角色获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve secret details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '密钥明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve secrets']]></expect>|<expect><![CDATA[fications.error('Failure', err, '密钥获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve service details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '服务明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve service information']]></expect>|<expect><![CDATA[fications.error('Failure', err, '服务信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve service logs']]></expect>|<expect><![CDATA[fications.error('Failure', err, '服务日志获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve services']]></expect>|<expect><![CDATA[fications.error('Failure', err, '服务获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve stack details']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve stacks']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stacks获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve tags']]></expect>|<expect><![CDATA[fications.error('Failure', err, '标签获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve task details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '任务明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve task logs']]></expect>|<expect><![CDATA[fications.error('Failure', err, '任务日志获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve team details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '团队明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve teams']]></expect>|<expect><![CDATA[fications.error('Failure', err, '团队获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve the ComposeSyntaxMaxVersion']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'ComposeSyntaxMaxVersion获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve user information']]></expect>|<expect><![CDATA[fications.error('Failure', err, '用户信息获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve user memberships']]></expect>|<expect><![CDATA[fications.error('Failure', err, '用户关联获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve users and teams']]></expect>|<expect><![CDATA[fications.error('Failure', err, '用户/组获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve volume details']]></expect>|<expect><![CDATA[fications.error('Failure', err, '磁盘明细获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve volume drivers']]></expect>|<expect><![CDATA[fications.error('Failure', err, '磁盘驱动获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve volumes']]></expect>|<expect><![CDATA[fications.error('Failure', err, '磁盘卷获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to retrive registry']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Registry获取失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to save application settings']]></expect>|<expect><![CDATA[fications.error('Failure', err, '应用配置保存失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to save stack settings']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Stack配置保存失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to scale service']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Scale服务失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to start stack']]></expect>|<expect><![CDATA[fications.error('Failure', err, '启动Stack失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to stop stack']]></expect>|<expect><![CDATA[fications.error('Failure', err, '停止Stack失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to tag image']]></expect>|<expect><![CDATA[fications.error('Failure', err, '打标签失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to test login']]></expect>|<expect><![CDATA[fications.error('Failure', err, '验证登录失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update access control']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新权限操作失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update accesses']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新权限失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update authentication settings']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新认证失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update custom template']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新自定义模板失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update environment']]></expect>|<expect><![CDATA[fications.error('Failure', err, '节点更新失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update group']]></expect>|<expect><![CDATA[fications.error('Failure', err, '组更新失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update registry']]></expect>|<expect><![CDATA[fications.error('Failure', err, 'Registry更新失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update restart policy']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新启动策略失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update settings']]></expect>|<expect><![CDATA[fications.error('Failure', err, '配置更新失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新组成员失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update user password']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更改密码失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update user permissions']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新用户权限失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update user role']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新用户角色失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to update user theme']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新主题失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to upload image']]></expect>|<expect><![CDATA[fications.error('Failure', err, '更新镜像失败']]></expect>
+<expect><![CDATA[fications.error('Failure', err, 'Unable to verify administrator account existence']]></expect>|<expect><![CDATA[fications.error('Failure', err, '验证Admin帐户存在性失败']]></expect>
+<expect><![CDATA[fications.error('Failure', e, 'Unable to inspect container']]></expect>|<expect><![CDATA[fications.error('Failure', e, 'Inspect容器失败']]></expect>
+<expect><![CDATA[fications.error('Failure', e, 'Unable to retrieve running containers']]></expect>|<expect><![CDATA[fications.error('Failure', e, '获取容器失败']]></expect>
+<expect><![CDATA[fications.error('Failure', e, 'Unable to retrieve volumes']]></expect>|<expect><![CDATA[fications.error('Failure', e, '获取磁盘卷失败']]></expect>
+<expect><![CDATA[fications.error('Failure', e, 'Unable to rollback service']]></expect>|<expect><![CDATA[fications.error('Failure', e, '回滚服务失败']]></expect>
+<expect><![CDATA[fications.error('Failure', e, 'Unable to update service']]></expect>|<expect><![CDATA[fications.error('Failure', e, '更新服务失败']]></expect>
+<expect><![CDATA[fications.error('Failure']]></expect>|<expect><![CDATA[fications.error('失败']]></expect>
+<expect><![CDATA[fications.error('Failure loading', err, 'Failed loading custom templates']]></expect>|<expect><![CDATA[fications.error('Failure loading', err, '加载自定义模板失败']]></expect>
+<expect><![CDATA[fications.error('Failure', { message: 'No previous config to rollback to.']]></expect>|<expect><![CDATA[fications.error('Failure', { message: '无Config可回滚']]></expect>
+<expect><![CDATA[fications.error('Failure', null, 'Invalid type URL parameter.']]></expect>|<expect><![CDATA[fications.error('Failure', null, 'URL参数无效']]></expect>
+<expect><![CDATA[fications.error('Failure', null, 'Stack name is required for duplication']]></expect>|<expect><![CDATA[fications.error('Failure', null, '建副本需要Stack名']]></expect>
+<expect><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></expect>|<expect><![CDATA[fications.error('Failure', true, '名字被占用']]></expect>
+<expect><![CDATA[fications.error('Failure', 'Unable to determine which action to do to create environment']]></expect>|<expect><![CDATA[fications.error('Failure', '创建节点，不知道如何操作']]></expect>
+<expect><![CDATA[fications.error('Unable to retrieve host information']]></expect>|<expect><![CDATA[fications.error('主机信息获取失败']]></expect>
+<expect><![CDATA[fications.success('Access control successfully updated']]></expect>|<expect><![CDATA[fications.success('权限控制更新成功']]></expect>
+<expect><![CDATA[fications.success('Access successfully updated']]></expect>|<expect><![CDATA[fications.success('权限更新成功']]></expect>
+<expect><![CDATA[fications.success('All users successfully added']]></expect>|<expect><![CDATA[fications.success('所有用户添加成功']]></expect>
+<expect><![CDATA[fications.success('All users successfully removed']]></expect>|<expect><![CDATA[fications.success('所有用户删除成功']]></expect>
+<expect><![CDATA[fications.success('Authentication settings updated']]></expect>|<expect><![CDATA[fications.success('认证配置已更新']]></expect>
+<expect><![CDATA[fications.success('Backup successfully downloaded']]></expect>|<expect><![CDATA[fications.success('备份已下载']]></expect>
+<expect><![CDATA[fications.success('Config successfully created']]></expect>|<expect><![CDATA[fications.success('配置创建成功']]></expect>
+<expect><![CDATA[fications.success('Config successfully removed']]></expect>|<expect><![CDATA[fications.success('配置删除成功']]></expect>
+<expect><![CDATA[fications.success('Connection to LDAP successful']]></expect>|<expect><![CDATA[fications.success('LDAP连接成功']]></expect>
+<expect><![CDATA[fications.success('Container joined network']]></expect>|<expect><![CDATA[fications.success('容器已加入网络']]></expect>
+<expect><![CDATA[fications.success('Container left network']]></expect>|<expect><![CDATA[fications.success('容器已离开网络']]></expect>
+<expect><![CDATA[fications.success('Container Removed']]></expect>|<expect><![CDATA[fications.success('容器已移除']]></expect>
+<expect><![CDATA[fications.success('Container successfully created']]></expect>|<expect><![CDATA[fications.success('容器创建成功']]></expect>
+<expect><![CDATA[fications.success('Container successfully re-created']]></expect>|<expect><![CDATA[fications.success('容器重建成功']]></expect>
+<expect><![CDATA[fications.success('Container successfully removed']]></expect>|<expect><![CDATA[fications.success('容器删除成功']]></expect>
+<expect><![CDATA[fications.success('Container successfully renamed']]></expect>|<expect><![CDATA[fications.success('容器更名成功']]></expect>
+<expect><![CDATA[fications.success('Custom template successfully created']]></expect>|<expect><![CDATA[fications.success('自定义模板创建成功']]></expect>
+<expect><![CDATA[fications.success('Custom template successfully updated']]></expect>|<expect><![CDATA[fications.success('自定义模板更新成功']]></expect>
+<expect><![CDATA[fications.success('Environment connected']]></expect>|<expect><![CDATA[fications.success('节点已连接']]></expect>
+<expect><![CDATA[fications.success('Environment created']]></expect>|<expect><![CDATA[fications.success('节点已创建']]></expect>
+<expect><![CDATA[fications.success('Environment de-associated']]></expect>|<expect><![CDATA[fications.success('节点已解除关联']]></expect>
+<expect><![CDATA[fications.success('Environment group successfully removed']]></expect>|<expect><![CDATA[fications.success('节点组删除成功']]></expect>
+<expect><![CDATA[fications.success('Environment successfully removed']]></expect>|<expect><![CDATA[fications.success('节点删除成功']]></expect>
+<expect><![CDATA[fications.success('Environment updated']]></expect>|<expect><![CDATA[fications.success('节点理会新成功']]></expect>
+<expect><![CDATA[fications.success('Group successfully created']]></expect>|<expect><![CDATA[fications.success('组创建成功']]></expect>
+<expect><![CDATA[fications.success('Group successfully updated']]></expect>|<expect><![CDATA[fications.success('组更新成功']]></expect>
+<expect><![CDATA[fications.success('Image created']]></expect>|<expect><![CDATA[fications.success('镜像已创建']]></expect>
+<expect><![CDATA[fications.success('Image(s) successfully downloaded']]></expect>|<expect><![CDATA[fications.success('镜像下载成功']]></expect>
+<expect><![CDATA[fications.success('Images successfully uploaded']]></expect>|<expect><![CDATA[fications.success('镜像上传成功']]></expect>
+<expect><![CDATA[fications.success('Image successfully built']]></expect>|<expect><![CDATA[fications.success('镜像构建成功']]></expect>
+<expect><![CDATA[fications.success('Image successfully deleted']]></expect>|<expect><![CDATA[fications.success('镜像删除成功']]></expect>
+<expect><![CDATA[fications.success('Image successfully downloaded']]></expect>|<expect><![CDATA[fications.success('镜像下载成功']]></expect>
+<expect><![CDATA[fications.success('Image successfully pulled']]></expect>|<expect><![CDATA[fications.success('镜像拉取成功']]></expect>
+<expect><![CDATA[fications.success('Image successfully pushed']]></expect>|<expect><![CDATA[fications.success('镜像推送成功']]></expect>
+<expect><![CDATA[fications.success('Image successfully removed']]></expect>|<expect><![CDATA[fications.success('镜像删除成功']]></expect>
+<expect><![CDATA[fications.success('Image successfully tagged']]></expect>|<expect><![CDATA[fications.success('镜像打标签成功']]></expect>
+<expect><![CDATA[fications.success('Network removed']]></expect>|<expect><![CDATA[fications.success('网络已移除']]></expect>
+<expect><![CDATA[fications.success('Network successfully created']]></expect>|<expect><![CDATA[fications.success('网络创建成功']]></expect>
+<expect><![CDATA[fications.success('Network successfully removed']]></expect>|<expect><![CDATA[fications.success('网络删除成功']]></expect>
+<expect><![CDATA[fications.success('Node successfully updated', 'Node updated']]></expect>|<expect><![CDATA[fications.success('更新节点成功', '节点已更新']]></expect>
+<expect><![CDATA[fications.success('Password successfully updated']]></expect>|<expect><![CDATA[fications.success('更新密码成功']]></expect>
+<expect><![CDATA[fications.success('Pulled and redeployed stack successfully']]></expect>|<expect><![CDATA[fications.success('Stack拉取及重部署成功']]></expect>
+<expect><![CDATA[fications.success('Registries successfully created']]></expect>|<expect><![CDATA[fications.success('Registy创建成功']]></expect>
+<expect><![CDATA[fications.success('Registry successfully created']]></expect>|<expect><![CDATA[fications.success('Registry创建成功']]></expect>
+<expect><![CDATA[fications.success('Registry successfully removed']]></expect>|<expect><![CDATA[fications.success('Registry删除成功']]></expect>
+<expect><![CDATA[fications.success('Registry successfully updated']]></expect>|<expect><![CDATA[fications.success('Registry更新成功']]></expect>
+<expect><![CDATA[fications.success('Removed template successfully']]></expect>|<expect><![CDATA[fications.success('模板已删除']]></expect>
+<expect><![CDATA[fications.success('Restart policy updated']]></expect>|<expect><![CDATA[fications.success('启动策略已更新']]></expect>
+<expect><![CDATA[fications.success('Saved settings successfully']]></expect>|<expect><![CDATA[fications.success('保存配置成功']]></expect>
+<expect><![CDATA[fications.success('Save stack settings successfully']]></expect>|<expect><![CDATA[fications.success('Stack保存成功']]></expect>
+<expect><![CDATA[fications.success('Secret successfully created']]></expect>|<expect><![CDATA[fications.success('密钥创建成功']]></expect>
+<expect><![CDATA[fications.success('Secret successfully removed']]></expect>|<expect><![CDATA[fications.success('密钥删除成功']]></expect>
+<expect><![CDATA[fications.success('Service successfully created']]></expect>|<expect><![CDATA[fications.success('服务创建成功']]></expect>
+<expect><![CDATA[fications.success('Service successfully deleted']]></expect>|<expect><![CDATA[fications.success('服务删除成功']]></expect>
+<expect><![CDATA[fications.success('Service successfully removed']]></expect>|<expect><![CDATA[fications.success('服务删除成功']]></expect>
+<expect><![CDATA[fications.success('Service successfully scaled', 'New replica count: ']]></expect>|<expect><![CDATA[fications.success('Scale服务成功', '新副本数: ']]></expect>
+<expect><![CDATA[fications.success('Service successfully updated']]></expect>|<expect><![CDATA[fications.success('服务更新成功']]></expect>
+<expect><![CDATA[fications.success('Service successfully updated', 'Service updated']]></expect>|<expect><![CDATA[fications.success('服务更新成功', '服务已更新']]></expect>
+<expect><![CDATA[fications.success('Settings updated']]></expect>|<expect><![CDATA[fications.success('Settings 已更新']]></expect>
+<expect><![CDATA[fications.success('Snapshot successfully removed']]></expect>|<expect><![CDATA[fications.success('快照删除成功']]></expect>
+<expect><![CDATA[fications.success('Stack successfully associated']]></expect>|<expect><![CDATA[fications.success('Stack关联成功']]></expect>
+<expect><![CDATA[fications.success('Stack successfully deployed']]></expect>|<expect><![CDATA[fications.success('Stack部署成功']]></expect>
+<expect><![CDATA[fications.success('Stack successfully duplicated']]></expect>|<expect><![CDATA[fications.success('Stack建立副本成功']]></expect>
+<expect><![CDATA[fications.success('Stack successfully migrated']]></expect>|<expect><![CDATA[fications.success('Stack迁移成功']]></expect>
+<expect><![CDATA[fications.success('Stack successfully removed']]></expect>|<expect><![CDATA[fications.success('Stack删除成功']]></expect>
+<expect><![CDATA[fications.success('Success', 'Environment successfully added to group']]></expect>|<expect><![CDATA[fications.success('Success', '节点已添加到组']]></expect>
+<expect><![CDATA[fications.success('Success', 'Environment successfully removed from group']]></expect>|<expect><![CDATA[fications.success('Success', '节点已从组里删除']]></expect>
+<expect><![CDATA[fications.success('Success', 'Environments updated']]></expect>|<expect><![CDATA[fications.success('Success', '节点已更新']]></expect>
+<expect><![CDATA[fications.success('Success', 'Password successfully updated']]></expect>|<expect><![CDATA[fications.success('Success', '更新密码成功']]></expect>
+<expect><![CDATA[fications.success('Success', 'Service successfully rolled back']]></expect>|<expect><![CDATA[fications.success('Success', '服务回滚成功']]></expect>
+<expect><![CDATA[fications.success('Success', 'User theme successfully updated']]></expect>|<expect><![CDATA[fications.success('Success', '主题更新成功']]></expect>
+<expect><![CDATA[fications.success('Tag successfully created']]></expect>|<expect><![CDATA[fications.success('Tag创建成功']]></expect>
+<expect><![CDATA[fications.success('Tag successfully deleted']]></expect>|<expect><![CDATA[fications.success('Tag删除成功']]></expect>
+<expect><![CDATA[fications.success('Tag successfully rsuccessfully updatedemoved']]></expect>|<expect><![CDATA[fications.success('Tag 删除成功']]></expect>
+<expect><![CDATA[fications.success('Team successfully created']]></expect>|<expect><![CDATA[fications.success('团队创建成功']]></expect>
+<expect><![CDATA[fications.success('Team successfully deleted']]></expect>|<expect><![CDATA[fications.success('团队删除成功']]></expect>
+<expect><![CDATA[fications.success('Team successfully removed']]></expect>|<expect><![CDATA[fications.success('团队删除成功']]></expect>
+<expect><![CDATA[fications.success('The backup has successfully been restored']]></expect>|<expect><![CDATA[fications.success('备份数据还原成功']]></expect>
+<expect><![CDATA[fications.success('User added to team']]></expect>|<expect><![CDATA[fications.success('用户已添加到组']]></expect>
+<expect><![CDATA[fications.success('User is now team leader']]></expect>|<expect><![CDATA[fications.success('用户已变更为组长']]></expect>
+<expect><![CDATA[fications.success('User is now team member']]></expect>|<expect><![CDATA[fications.success('用户已变更为组员']]></expect>
+<expect><![CDATA[fications.success('User removed from team']]></expect>|<expect><![CDATA[fications.success('用户已从组里移除']]></expect>
+<expect><![CDATA[fications.success('User successfully created']]></expect>|<expect><![CDATA[fications.success('用户创建成功']]></expect>
+<expect><![CDATA[fications.success('User successfully deleted']]></expect>|<expect><![CDATA[fications.success('用户删除成功']]></expect>
+<expect><![CDATA[fications.success('User successfully removed']]></expect>|<expect><![CDATA[fications.success('用户移除成功']]></expect>
+<expect><![CDATA[fications.success('User successfully updated']]></expect>|<expect><![CDATA[fications.success('用户更新成功']]></expect>
+<expect><![CDATA[fications.success('Volume successfully created']]></expect>|<expect><![CDATA[fications.success('磁盘卷创建成功']]></expect>
+<expect><![CDATA[fications.success('Volume successfully removed']]></expect>|<expect><![CDATA[fications.success('磁盘卷删除成功']]></expect>
+<expect><![CDATA[fications.warning('', 'Cannot download a untagged image']]></expect>|<expect><![CDATA[fications.warning('', '无tag镜像不能下载']]></expect>
+<expect><![CDATA[fications.warning('', 'Cannot download images from different nodes at the same time']]></expect>|<expect><![CDATA[fications.warning('', '不能同时从多个节点下载']]></expect>

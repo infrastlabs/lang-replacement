@@ -75,7 +75,7 @@ function doOne(){
         let i+=1
         # echo $i
         cmp1=$(cat $tmp/oneDel.txt |sed -n "$i"p |sed "s/^\-//g")
-        cmp2=$(echo "$line" |sed "s/^\+//g")
+        cmp2=$(echo "$line" |sed "s/^\+//g") ##TODO: dict容器未被替换?? #apk add sed
         
         # debug
         # echo "$cmp1 ||| $cmp2"  ##./main ${cmp1} ${cmp2} ${equal=true/false}
@@ -118,8 +118,9 @@ $cur/transfer -f -s $tmp/root.json -t $OUTPUT
 # rm -rf $tmp
 
 function dictReplace(){
+    local dict=$1
     echo "==[dictReplace]==============="
-    cat $cur/dictReplace.txt |grep -v "^#" |grep -v "^$" | while read one; do
+    cat $dict |grep -v "^#" |grep -v "^$" | while read one; do
         # echo $one
         f1=$(echo $one |cut -d'|' -f1)
         f2=$(echo $one |cut -d'|' -f2)
@@ -130,4 +131,5 @@ function dictReplace(){
         sed -i "s^$f1^$f2^g" $OUTPUT #$cur/portainer_zh.xml 
     done
 }
-dictReplace
+dictReplace $cur/dictReplace.txt
+dictReplace $cur/dict_fications.txt

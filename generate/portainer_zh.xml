@@ -2,8 +2,17 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[节点连接失败]]></expect>
-        <target><![CDATA[Failed loading environment]]></target>
+        <expect><![CDATA[主机文件管理]]></expect>
+        <target><![CDATA[Host browser]]></target>
+      </replace>
+    </item>
+    <name>agent/components/host-browser/hostBrowser.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('加载节点失败']]></expect>
+        <target><![CDATA[fications.error('Failed loading environment']]></target>
       </replace>
     </item>
     <name>docker/__module.js</name>
@@ -11,8 +20,8 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[获取节点信息失败]]></expect>
-        <target><![CDATA[Unable to retrieve agent information]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve agent information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve agent information']]></target>
       </replace>
     </item>
     <name>docker/components/dashboard-cluster-agent-info/dashboardClusterAgentInfoController.js</name>
@@ -20,15 +29,48 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[容器已删除]]></expect>
-        <target><![CDATA[Container successfully removed]]></target>
+        <expect><![CDATA[fications.error('Failure']]></expect>
+        <target><![CDATA[fications.error('Failure']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[容器删除失败]]></expect>
-        <target><![CDATA[Unable to remove container]]></target>
+        <expect><![CDATA[fications.success('Container 删除成功']]></expect>
+        <target><![CDATA[fications.success('Container successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove container']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove container']]></target>
       </replace>
     </item>
     <name>docker/components/datatables/containers-datatable/actions/containersDatatableActionsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Service scaled成功', '新副本数: ']]></expect>
+        <target><![CDATA[fications.success('Service successfully scaled', 'New replica count: ']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to scale service']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to scale service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Service 更新成功']]></expect>
+        <target><![CDATA[fications.success('Service successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to force update service']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to force update service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Service 删除成功']]></expect>
+        <target><![CDATA[fications.success('Service successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove service']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove service']]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/services-datatable/actions/servicesDatatableActionsController.js</name>
   </file>
   <file>
     <item>
@@ -84,12 +126,25 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[获取仓库失败]]></expect>
-        <target><![CDATA[Unable to retrieve registries]]></target>
+        <expect><![CDATA[fications.success('Node 更新成功', 'Node updated']]></expect>
+        <target><![CDATA[fications.success('Node successfully updated', 'Node updated']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[获取镜像失败]]></expect>
-        <target><![CDATA[Unable to retrieve images]]></target>
+        <expect><![CDATA[fications.error('Failure', error, 'Failed to update node']]></expect>
+        <target><![CDATA[fications.error('Failure', error, 'Failed to update node']]></target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/swarm-node-details-panel/swarm-node-details-panel-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve images']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve images']]></target>
       </replace>
     </item>
     <name>docker/components/imageRegistry/por-image-registry.controller.js</name>
@@ -97,8 +152,8 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[获取]]></expect>
-        <target><![CDATA[Unable to retrieve informations for]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve informations for macvlan']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve informations for macvlan']]></target>
       </replace>
     </item>
     <name>docker/components/network-macvlan-form/networkMacvlanFormController.js</name>
@@ -106,16 +161,16 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[获取配置失败]]></expect>
-        <target><![CDATA[Unable to retrieve configs]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve configs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve configs']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[配置删除成功]]></expect>
-        <target><![CDATA[Config successfully removed]]></target>
+        <expect><![CDATA[fications.success('Config 删除成功']]></expect>
+        <target><![CDATA[fications.success('Config successfully removed']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[获取配置失败]]></expect>
-        <target><![CDATA[Unable to remove config]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove config']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove config']]></target>
       </replace>
     </item>
     <name>docker/views/configs/configsController.js</name>
@@ -123,20 +178,58 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[未运行]]></expect>
-        <target><![CDATA[is not running]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to clone config']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to clone config']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[获取容器明细失败]]></expect>
-        <target><![CDATA[Unable to retrieve container details]]></target>
+        <expect><![CDATA[fications.success('Config 创建成功']]></expect>
+        <target><![CDATA[fications.success('Config successfully created']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[不能进入容器]]></expect>
-        <target><![CDATA[Unable to exec into container]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create config']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create config']]></target>
+      </replace>
+    </item>
+    <name>docker/views/configs/create/createConfigController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Config 删除成功']]></expect>
+        <target><![CDATA[fications.success('Config successfully removed']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[获取容器明细失败]]></expect>
-        <target><![CDATA[Unable to retrieve container details]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove config']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove config']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve config details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve config details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/configs/edit/configController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', details, 'Container ' + attachId + ' is not running!']]></expect>
+        <target><![CDATA[fications.error('Failure', details, 'Container ' + attachId + ' is not running!']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Error', err, '不能获取容器明细']]></expect>
+        <target><![CDATA[fications.error('Error', err, 'Unable to retrieve container details']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to exec into container']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to exec into container']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Connection error']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Connection error']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Error', err, '不能获取容器明细']]></expect>
+        <target><![CDATA[fications.error('Error', err, 'Unable to retrieve container details']]></target>
       </replace>
     </item>
     <name>docker/views/containers/console/containerConsoleController.js</name>
@@ -153,8 +246,8 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[获取容器失败]]></expect>
-        <target><![CDATA[Unable to retrieve containers]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers']]></target>
       </replace>
     </item>
     <name>docker/views/containers/containersController.js</name>
@@ -162,20 +255,44 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[获取仓库失败]]></expect>
-        <target><![CDATA[Unable to retrive registry]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrive registry']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrive registry']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[获取容器失败]]></expect>
-        <target><![CDATA[Unable to retrieve container]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[获取网络失败]]></expect>
-        <target><![CDATA[Unable to retrieve networks]]></target>
+        <expect><![CDATA[fications.error('Failure', e, 'Unable to retrieve volumes']]></expect>
+        <target><![CDATA[fications.error('Failure', e, 'Unable to retrieve volumes']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[获取容器失败]]></expect>
-        <target><![CDATA[Unable to retrieve containers]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve networks']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve networks']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', e, 'Unable to retrieve running containers']]></expect>
+        <target><![CDATA[fications.error('Failure', e, 'Unable to retrieve running containers']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve engine details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve engine details']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 已移除']]></expect>
+        <target><![CDATA[fications.success('Container Removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create container']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create container']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 创建成功']]></expect>
+        <target><![CDATA[fications.success('Container successfully created']]></target>
       </replace>
     </item>
     <name>docker/views/containers/create/createContainerController.js</name>
@@ -200,11 +317,187 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[获取容器信息失败]]></expect>
-        <target><![CDATA[Unable to retrieve container info]]></target>
+        <expect><![CDATA[操作]]></expect>
+        <target><![CDATA[Actions]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器状态]]></expect>
+        <target><![CDATA[Container status]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[创建镜像]]></expect>
+        <target><![CDATA[Create image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="容器明细"]]></expect>
+        <target><![CDATA[text="Container details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器网络]]></expect>
+        <target><![CDATA[Connected networks]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/edit/container.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container info']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container info']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure']]></expect>
+        <target><![CDATA[fications.error('Failure']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 更名成功']]></expect>
+        <target><![CDATA[fications.success('Container successfully renamed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to rename container']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to rename container']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 已离开网络']]></expect>
+        <target><![CDATA[fications.success('Container left network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to disconnect container from network']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to disconnect container from network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 已加入网络']]></expect>
+        <target><![CDATA[fications.success('Container joined network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to connect container to network']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to connect container to network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 已创建']]></expect>
+        <target><![CDATA[fications.success('Image created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 删除成功']]></expect>
+        <target><![CDATA[fications.success('Container successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove container']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove container']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 重建成功']]></expect>
+        <target><![CDATA[fications.success('Container successfully re-created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to re-create container']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to re-create container']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Restart 策略已更新']]></expect>
+        <target><![CDATA[fications.success('Restart policy updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update restart policy']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update restart policy']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve networks']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve networks']]></target>
       </replace>
     </item>
     <name>docker/views/containers/edit/containerController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', e, 'Unable to inspect container']]></expect>
+        <target><![CDATA[fications.error('Failure', e, 'Unable to inspect container']]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/inspect/containerInspectController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container logs']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container logs']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container information']]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/logs/containerLogsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container statistics']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container statistics']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container statistics']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container statistics']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve container information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve container information']]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/stats/containerStatsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[节点信息]]></expect>
+        <target><![CDATA[Environment info]]></target>
+      </replace>
+    </item>
+    <name>docker/views/dashboard/dashboard.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to load dashboard data']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to load dashboard data']]></target>
+      </replace>
+    </item>
+    <name>docker/views/dashboard/dashboardController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('保存配置成功']]></expect>
+        <target><![CDATA[fications.success('Saved settings successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', e, 'Failed saving settings']]></expect>
+        <target><![CDATA[fications.error('Failure', e, 'Failed saving settings']]></target>
+      </replace>
+    </item>
+    <name>docker/views/docker-features-configuration/docker-features-configuration.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[主机文件管理]]></expect>
+        <target><![CDATA[Host and Filesystem]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[容器安全设置]]></expect>
+        <target><![CDATA[Docker Security Settings]]></target>
+      </replace>
+    </item>
+    <name>docker/views/docker-features-configuration/docker-features-configuration.html</name>
   </file>
   <file>
     <item>
@@ -214,6 +507,149 @@
       </replace>
     </item>
     <name>docker/views/events/events.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to load events']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to load events']]></target>
+      </replace>
+    </item>
+    <name>docker/views/events/eventsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Unable to retrieve host information']]></expect>
+        <target><![CDATA[fications.error('Unable to retrieve host information']]></target>
+      </replace>
+    </item>
+    <name>docker/views/host/host-browser-view/host-browser-view-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve engine details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve engine details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/host/host-view-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('构建错误', { msg: '请检查构建日志']]></expect>
+        <target><![CDATA[fications.error('An error occurred during build', { msg: 'Please check build logs output']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 构建成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully built']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to build image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to build image']]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/build/buildImageController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[构建方式]]></expect>
+        <target><![CDATA[Build method]]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/build/buildimage.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[镜像标签]]></expect>
+        <target><![CDATA[Image tags]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[打标签]]></expect>
+        <target><![CDATA[Tag the image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="镜像明细"]]></expect>
+        <target><![CDATA[text="Image details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="Dockerfile明细"]]></expect>
+        <target><![CDATA[text="Dockerfile details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[镜像层]]></expect>
+        <target><![CDATA[Image layers]]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/edit/image.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Image 打标签成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully tagged']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to tag image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to tag image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 推送成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully pushed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to push image to repository']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to push image to repository']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 拉取成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully pulled']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to pull image from repository']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to pull image from repository']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 删除成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully deleted']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Tag 删除成功']]></expect>
+        <target><![CDATA[fications.success('Tag successfully deleted']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 删除成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully deleted']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 下载成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully downloaded']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to download image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to download image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.warning('', '无tag镜像不能下载']]></expect>
+        <target><![CDATA[fications.warning('', 'Cannot download a untagged image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve image details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve image details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/edit/imageController.js</name>
   </file>
   <file>
     <item>
@@ -231,16 +667,44 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[拉取镜像失败]]></expect>
-        <target><![CDATA[Unable to pull image]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to pull image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to pull image']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[镜像已拉取]]></expect>
-        <target><![CDATA[Image successfully pulled]]></target>
+        <expect><![CDATA[fications.success('Image 拉取成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully pulled']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[拉取镜像失败]]></expect>
-        <target><![CDATA[Unable to pull image]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to pull image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to pull image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.warning('', '无tag镜像不能下载']]></expect>
+        <target><![CDATA[fications.warning('', 'Cannot download a untagged image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.warning('', '不能同时从多个节点下载']]></expect>
+        <target><![CDATA[fications.warning('', 'Cannot download images from different nodes at the same time']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image(s) 下载成功']]></expect>
+        <target><![CDATA[fications.success('Image(s) successfully downloaded']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to download image(s)']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to download image(s)']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Image 删除成功']]></expect>
+        <target><![CDATA[fications.success('Image successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove image']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve images']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve images']]></target>
       </replace>
     </item>
     <name>docker/views/images/imagesController.js</name>
@@ -248,8 +712,29 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[创建成功]]></expect>
-        <target><![CDATA[successfully created]]></target>
+        <expect><![CDATA[fications.success('Images 上传成功']]></expect>
+        <target><![CDATA[fications.success('Images successfully uploaded']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to upload image']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to upload image']]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/import/importImageController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Network 创建成功']]></expect>
+        <target><![CDATA[fications.success('Network successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'An error occured during network creation']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'An error occured during network creation']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve network drivers']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve network drivers']]></target>
       </replace>
     </item>
     <name>docker/views/networks/create/createNetworkController.js</name>
@@ -282,6 +767,52 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[text="网络明细"]]></expect>
+        <target><![CDATA[text="Network details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[网络选项]]></expect>
+        <target><![CDATA[Network options]]></target>
+      </replace>
+    </item>
+    <name>docker/views/networks/edit/network.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Network 已移除']]></expect>
+        <target><![CDATA[fications.success('Network removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove network']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Container 已离开网络']]></expect>
+        <target><![CDATA[fications.success('Container left network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to disconnect container from network']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to disconnect container from network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers in network']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers in network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers in network']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve containers in network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve network info']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve network info']]></target>
+      </replace>
+    </item>
+    <name>docker/views/networks/edit/networkController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[text="网络"]]></expect>
         <target><![CDATA[text="Networks"]]></target>
       </replace>
@@ -291,8 +822,16 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[删除成功]]></expect>
-        <target><![CDATA[successfully removed]]></target>
+        <expect><![CDATA[fications.success('Network 删除成功']]></expect>
+        <target><![CDATA[fications.success('Network successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove network']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove network']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve networks']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve networks']]></target>
       </replace>
     </item>
     <name>docker/views/networks/networksController.js</name>
@@ -300,8 +839,38 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[创建成功]]></expect>
-        <target><![CDATA[successfully created]]></target>
+        <expect><![CDATA[fications.error('Unable to retrieve host information']]></expect>
+        <target><![CDATA[fications.error('Unable to retrieve host information']]></target>
+      </replace>
+    </item>
+    <name>docker/views/nodes/node-browser/node-browser-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Access 更新成功']]></expect>
+        <target><![CDATA[fications.success('Access successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update accesses']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update accesses']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registry details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve registry details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/registries/access/registryAccessController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Secret 创建成功']]></expect>
+        <target><![CDATA[fications.success('Secret successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create secret']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create secret']]></target>
       </replace>
     </item>
     <name>docker/views/secrets/create/createSecretController.js</name>
@@ -309,8 +878,33 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[删除成功]]></expect>
-        <target><![CDATA[successfully removed]]></target>
+        <expect><![CDATA[fications.success('Secret 删除成功']]></expect>
+        <target><![CDATA[fications.success('Secret successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove secret']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove secret']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve secret details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve secret details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/secrets/edit/secretController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Secret 删除成功']]></expect>
+        <target><![CDATA[fications.success('Secret successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove secret']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove secret']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve secrets']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve secrets']]></target>
       </replace>
     </item>
     <name>docker/views/secrets/secretsController.js</name>
@@ -318,14 +912,174 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[创建成功]]></expect>
-        <target><![CDATA[successfully created]]></target>
+        <expect><![CDATA[fications.success('Service 创建成功']]></expect>
+        <target><![CDATA[fications.success('Service successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create service']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to initialize view']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to initialize view']]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/create/createServiceController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to delete webhook']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to delete webhook']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create webhook']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create webhook']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Success', 'Service 回滚成功']]></expect>
+        <target><![CDATA[fications.success('Success', 'Service successfully rolled back']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', { message: 'No previous config to rollback to.']]></expect>
+        <target><![CDATA[fications.error('Failure', { message: 'No previous config to rollback to.']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', e, 'Unable to rollback service']]></expect>
+        <target><![CDATA[fications.error('Failure', e, 'Unable to rollback service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Service 更新成功', 'Service 已更新']]></expect>
+        <target><![CDATA[fications.success('Service successfully updated', 'Service updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', e, 'Unable to update service']]></expect>
+        <target><![CDATA[fications.error('Failure', e, 'Unable to update service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Service 删除成功']]></expect>
+        <target><![CDATA[fications.success('Service successfully deleted']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove service']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Service 更新成功']]></expect>
+        <target><![CDATA[fications.success('Service successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to force update service']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to force update service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve service details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve service details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/serviceController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve service logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve service logs']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve service logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve service logs']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve service information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve service information']]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/logs/serviceLogsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve services']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve services']]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/servicesController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster details']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/swarm/swarmController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve cluster information']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to initialize cluster visualizer']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to initialize cluster visualizer']]></target>
+      </replace>
+    </item>
+    <name>docker/views/swarm/visualizer/swarmVisualizerController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve task details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve task details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/tasks/edit/taskController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve task logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve task logs']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve task logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve task logs']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve task details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve task details']]></target>
+      </replace>
+    </item>
+    <name>docker/views/tasks/logs/taskLogsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Volume 创建成功']]></expect>
+        <target><![CDATA[fications.success('Volume successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'An error occured during volume creation']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'An error occured during volume creation']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve volume drivers']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve volume drivers']]></target>
       </replace>
     </item>
     <name>docker/views/volumes/create/createVolumeController.js</name>
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[驱动设置]]></expect>
+        <target><![CDATA[Driver configuration]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[驱动选项)]]></expect>
         <target><![CDATA[Driver options]]></target>
@@ -340,12 +1094,33 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[删除成功]]></expect>
-        <target><![CDATA[successfully removed]]></target>
+        <expect><![CDATA[text="磁盘明细"]]></expect>
+        <target><![CDATA[text="Volume details"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/edit/volume.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Snapshot 删除成功']]></expect>
+        <target><![CDATA[fications.success('Snapshot successfully removed']]></target>
       </replace>
       <replace>
-        <expect><![CDATA[删除成功]]></expect>
-        <target><![CDATA[successfully removed]]></target>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove snapshot']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove snapshot']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Volume 删除成功']]></expect>
+        <target><![CDATA[fications.success('Volume successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove volume']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove volume']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve volume details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve volume details']]></target>
       </replace>
     </item>
     <name>docker/views/volumes/edit/volumeController.js</name>
@@ -362,8 +1137,55 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[fications.success('Volume 删除成功']]></expect>
+        <target><![CDATA[fications.success('Volume successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove volume']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove volume']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve volumes']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve volumes']]></target>
+      </replace>
+    </item>
+    <name>docker/views/volumes/volumesController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[加载中。。]]></expect>
+        <target><![CDATA[Loading Portainer...]]></target>
+      </replace>
+    </item>
+    <name>index.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Create access"]]></expect>
+        <target><![CDATA[text="Create access"]]></target>
+      </replace>
+    </item>
+    <name>kubernetes/views/resource-pools/access/resourcePoolAccess.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[会话过期，请重新登录~]]></expect>
         <target><![CDATA[Your session has expired]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Features service初始失败']]></expect>
+        <target><![CDATA[fications.error('Failed initializing features service']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('加载节点失败']]></expect>
+        <target><![CDATA[fications.error('Failed loading environment']]></target>
       </replace>
     </item>
     <name>portainer/__module.js</name>
@@ -376,6 +1198,15 @@
       </replace>
     </item>
     <name>portainer/components/accessControlForm/porAccessControlForm.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve access control information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve access control information']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/accessControlForm/porAccessControlFormController.js</name>
   </file>
   <file>
     <item>
@@ -413,11 +1244,205 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[fications.success('Access control 更新成功']]></expect>
+        <target><![CDATA[fications.success('Access control successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update access control']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update access control']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve access control information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve access control information']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/accessControlPanel/porAccessControlPanelController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Create access"]]></expect>
+        <target><![CDATA[text="Create access"]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/accessManagement/porAccessManagement.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve accesses']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve accesses']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/accessManagement/porAccessManagementController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve Custom Templates']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve Custom Templates']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/custom-template-selector/custom-template-selector.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[列表为空。]]></expect>
+        <target><![CDATA[No templates available.]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/custom-templates-list/customTemplatesList.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Success', '节点已添加到组']]></expect>
+        <target><![CDATA[fications.success('Success', 'Environment successfully added to group']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Error', err, '不能添加节点到组']]></expect>
+        <target><![CDATA[fications.error('Error', err, 'Unable to add environment to group']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Success', '节点已从组里删除']]></expect>
+        <target><![CDATA[fications.success('Success', 'Environment successfully removed from group']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Error', err, '不能组里移除节点']]></expect>
+        <target><![CDATA[fications.error('Error', err, 'Unable to remove environment from group']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/group-form/groupFormController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Stack拉取及重部署成功']]></expect>
+        <target><![CDATA[fications.success('Pulled and redeployed stack successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed redeploying application']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed redeploying application']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('保存stack配置成功']]></expect>
+        <target><![CDATA[fications.success('Save stack settings successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to save application settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to save application settings']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/kubernetes-app-git-form/kubernetes-app-git-form.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Stack拉取及重部署成功']]></expect>
+        <target><![CDATA[fications.success('Pulled and redeployed stack successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed redeploying application']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed redeploying application']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('保存stack配置成功']]></expect>
+        <target><![CDATA[fications.success('Save stack settings successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to save application settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to save application settings']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/kubernetes-redeploy-app-git-form/kubernetes-redeploy-app-git-form.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Stack拉取及重部署成功']]></expect>
+        <target><![CDATA[fications.success('Pulled and redeployed stack successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed redeploying stack']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed redeploying stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('保存stack配置成功']]></expect>
+        <target><![CDATA[fications.success('Save stack settings successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to save stack settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to save stack settings']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/stack-redeploy-git-form/stack-redeploy-git-form.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[帐号设置]]></expect>
         <target><![CDATA[my account]]></target>
       </replace>
     </item>
     <name>portainer/components/header-content.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'An error occured during environment snapshot']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'An error occured during environment snapshot']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/information-panel-offline/informationPanelOfflineController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', null, 'Stack name is required for duplication']]></expect>
+        <target><![CDATA[fications.error('Failure', null, 'Stack name is required for duplication']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/stack-duplication-form/stack-duplication-form-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed to duplicate template']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed to duplicate template']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/template-list/template-list-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[列表为空。]]></expect>
+        <target><![CDATA[No templates available.]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/template-list/templateList.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Success', 'User theme 更新成功']]></expect>
+        <target><![CDATA[fications.success('Success', 'User theme successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update user theme']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update user theme']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to get user details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to get user details']]></target>
+      </replace>
+    </item>
+    <name>portainer/components/theme/theme-settings.controller.js</name>
   </file>
   <file>
     <item>
@@ -431,11 +1456,346 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve accesses']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve accesses']]></target>
+      </replace>
+    </item>
+    <name>portainer/rbac/components/access-viewer/access-viewer.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve roles']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve roles']]></target>
+      </replace>
+    </item>
+    <name>portainer/rbac/views/roles/roles.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment details']]></target>
+      </replace>
+    </item>
+    <name>portainer/services/nameValidator.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', error, 'Failed to search users']]></expect>
+        <target><![CDATA[fications.error('Failure', error, 'Failed to search users']]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-custom-group-search/ldap-custom-group-search.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', error, 'Failed to search users']]></expect>
+        <target><![CDATA[fications.error('Failure', error, 'Failed to search users']]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-custom-user-search/ldap-custom-user-search.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', error, 'Failed to search users']]></expect>
+        <target><![CDATA[fications.error('Failure', error, 'Failed to search users']]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-group-search/ldap-group-search.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to test login']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to test login']]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-settings-test-login/ldap-settings-test-login.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', error, 'Failed to search users']]></expect>
+        <target><![CDATA[fications.error('Failure', error, 'Failed to search users']]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-user-search/ldap-user-search.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed applying changes']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed applying changes']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed loading certificate info']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed loading certificate info']]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/general/ssl-certificate/ssl-certificate.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="SSL认证"]]></expect>
+        <target><![CDATA[text="SSL certificate"]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/general/ssl-certificate/ssl-certificate.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed loading user activity logs csv']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed loading user activity logs csv']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed loading user activity logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed loading user activity logs']]></target>
+      </replace>
+    </item>
+    <name>portainer/user-activity/activity-logs-view/activity-logs-view.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed loading auth activity logs']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed loading auth activity logs']]></target>
+      </replace>
+    </item>
+    <name>portainer/user-activity/auth-logs-view/auth-logs-view.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[修改密码]]></expect>
         <target><![CDATA[Change user password]]></target>
       </replace>
     </item>
     <name>portainer/views/account/account.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Success', 'Password 更新成功']]></expect>
+        <target><![CDATA[fications.success('Success', 'Password successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure']]></expect>
+        <target><![CDATA[fications.error('Failure']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Success', 'User theme 更新成功']]></expect>
+        <target><![CDATA[fications.success('Success', 'User theme successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure']]></expect>
+        <target><![CDATA[fications.error('Failure']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/account/accountController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[登录</span]]></expect>
+        <target><![CDATA[Login</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[登录中。。]]></expect>
+        <target><![CDATA[Login in progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[认证中。。]]></expect>
+        <target><![CDATA[Authentication in progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/auth/auth.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure']]></expect>
+        <target><![CDATA[fications.error('Failure']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve public settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve public settings']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/auth/authController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Custom template 创建成功']]></expect>
+        <target><![CDATA[fications.success('Custom template successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'A template with the same name already exists']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'A template with the same name already exists']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure loading', err, 'Failed loading custom templates']]></expect>
+        <target><![CDATA[fications.error('Failure loading', err, 'Failed loading custom templates']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/custom-templates/create-custom-template-view/createCustomTemplateViewController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="模板列表"]]></expect>
+        <target><![CDATA[text="Templates"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/custom-templates/custom-templates-view/customTemplatesView.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failed loading templates', err, 'Unable to load custom templates']]></expect>
+        <target><![CDATA[fications.error('Failed loading templates', err, 'Unable to load custom templates']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Template 已删除']]></expect>
+        <target><![CDATA[fications.success('Removed template successfully']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failed removing template', err, 'Unable to remove custom template']]></expect>
+        <target><![CDATA[fications.error('Failed removing template', err, 'Unable to remove custom template']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 部署成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully deployed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Deployment 错误', err, 'Stack部署失败']]></expect>
+        <target><![CDATA[fications.error('Deployment error', err, 'Failed to deploy stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed to load networks.']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed to load networks.']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Failed to delete template']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Failed to delete template']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/custom-templates/custom-templates-view/customTemplatesViewController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve custom template data']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve custom template data']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Custom template 更新成功']]></expect>
+        <target><![CDATA[fications.success('Custom template successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update custom template']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update custom template']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure loading', err, 'Failed loading custom templates']]></expect>
+        <target><![CDATA[fications.error('Failure loading', err, 'Failed loading custom templates']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/custom-templates/edit-custom-template-view/editCustomTemplateViewController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Registries仓库"]]></expect>
+        <target><![CDATA[text="Registries"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoint-registries/registries.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoint-registries/registriesController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Access 更新成功']]></expect>
+        <target><![CDATA[fications.success('Access successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update accesses']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update accesses']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/access/endpointAccessController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create tag']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create tag']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已创建']]></expect>
+        <target><![CDATA[fications.success('Environment created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已创建']]></expect>
+        <target><![CDATA[fications.success('Environment created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已创建']]></expect>
+        <target><![CDATA[fications.success('Environment created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已创建']]></expect>
+        <target><![CDATA[fications.success('Environment created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to load groups']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to load groups']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/create/createEndpointController.js</name>
   </file>
   <file>
     <item>
@@ -449,8 +1809,37 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[节点管理]]></expect>
-        <target><![CDATA[Environment management]]></target>
+        <expect><![CDATA[fications.error('Failue', err, 'Unable to create tag']]></expect>
+        <target><![CDATA[fications.error('Failue', err, 'Unable to create tag']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已解除关联']]></expect>
+        <target><![CDATA[fications.success('Environment de-associated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to de-associate environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to de-associate environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Environment updated']]></expect>
+        <target><![CDATA[fications.success('Environment updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment details']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/edit/endpointController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="节点列表"]]></expect>
+        <target><![CDATA[text="Environments"]]></target>
       </replace>
     </item>
     <name>portainer/views/endpoints/endpoints.html</name>
@@ -458,11 +1847,254 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[正在连接节点，反向节点有轮询耗时，请稍后。。]]></expect>
+        <expect><![CDATA[fications.success('节点删除成功']]></expect>
+        <target><![CDATA[fications.success('Environment successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/endpointsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Access 更新成功']]></expect>
+        <target><![CDATA[fications.success('Access successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update accesses']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update accesses']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to load view']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to load view']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/groups/access/groupAccessController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Group 创建成功']]></expect>
+        <target><![CDATA[fications.success('Group successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create group']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create group']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failue', err, 'Unable to create tag']]></expect>
+        <target><![CDATA[fications.error('Failue', err, 'Unable to create tag']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve tags']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve tags']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/groups/create/createGroupController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Group 更新成功']]></expect>
+        <target><![CDATA[fications.success('Group successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update group']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update group']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failue', err, 'Unable to create tag']]></expect>
+        <target><![CDATA[fications.error('Failue', err, 'Unable to create tag']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to load group details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to load group details']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/groups/edit/groupController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace    />
+    </item>
+    <name>portainer/views/groups/groups.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('节点组删除成功']]></expect>
+        <target><![CDATA[fications.success('Environment group successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove group']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove group']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment groups']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment groups']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/groups/groupsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[正在连接，反向节点有轮询耗时 请稍后。。]]></expect>
         <target><![CDATA[Connecting to the Edge environment...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="节点列表"]]></expect>
+        <target><![CDATA[text="Environments"]]></target>
       </replace>
     </item>
     <name>portainer/views/home/home.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Success', '节点已更新']]></expect>
+        <target><![CDATA[fications.success('Success', 'Environments updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'An error occured during environment snapshot']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'An error occured during environment snapshot']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment information']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('加载分页失败']]></expect>
+        <target><![CDATA[fications.error('Failed loading page data']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/home/homeController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[全新安装]]></expect>
+        <target><![CDATA[New Portainer installation]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[由备份数据导入]]></expect>
+        <target><![CDATA[Restore Portainer from backup]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/init/admin/initAdmin.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create administrator user']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create administrator user']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to verify administrator account existence']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to verify administrator account existence']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to restore the backup']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to restore the backup']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('The backup 还原成功']]></expect>
+        <target><![CDATA[fications.success('The backup has successfully been restored']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to check for status']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to check for status']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/init/admin/initAdminController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', 'Unable to determine which action to do to create environment']]></expect>
+        <target><![CDATA[fications.error('Failure', 'Unable to determine which action to do to create environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to connect to the Docker environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to connect to the Docker environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to connect to the Kubernetes environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to connect to the Kubernetes environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to connect to the Docker environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to connect to the Docker environment']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/init/endpoint/initEndpointController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[正在登出。。]]></expect>
+        <target><![CDATA[Logout in progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/logout/logout.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'An error occured during logout']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'An error occured during logout']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/logout/logoutController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve projects']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve projects']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Registries 创建成功']]></expect>
+        <target><![CDATA[fications.success('Registries successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create registries']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create registries']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Registry 创建成功']]></expect>
+        <target><![CDATA[fications.success('Registry successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create registry']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create registry']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/registries/create/createRegistryController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Registry 更新成功']]></expect>
+        <target><![CDATA[fications.success('Registry successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update registry']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update registry']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registry details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve registry details']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/registries/edit/registryController.js</name>
   </file>
   <file>
     <item>
@@ -476,6 +2108,27 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[fications.success('Registry 删除成功']]></expect>
+        <target><![CDATA[fications.success('Registry successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove registry']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove registry']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve registries']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/registries/registriesController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="用户认证"]]></expect>
+        <target><![CDATA[text="Authentication"]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[认证方式]]></expect>
         <target><![CDATA[Authentication method]]></target>
       </replace>
@@ -485,15 +2138,77 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[fications.success('LDAP连接成功']]></expect>
+        <target><![CDATA[fications.success('Connection to LDAP successful']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Connection to LDAP failed']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Connection to LDAP failed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('认证配置已更新']]></expect>
+        <target><![CDATA[fications.success('Authentication settings updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update authentication settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update authentication settings']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/settings/authentication/settingsAuthenticationController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[应用设置]]></expect>
         <target><![CDATA[Application settings]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[应用模板]]></expect>
+        <target><![CDATA[App Templates]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[Helm仓库]]></expect>
+        <target><![CDATA[Helm Repository]]></target>
       </replace>
       <replace>
         <expect><![CDATA[容器隐藏]]></expect>
         <target><![CDATA[Hidden containers]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[数据备份]]></expect>
+        <target><![CDATA[Backup Portainer]]></target>
+      </replace>
     </item>
     <name>portainer/views/settings/settings.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('备份已下载']]></expect>
+        <target><![CDATA[fications.success('Backup successfully downloaded']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to download backup']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to download backup']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Settings 已更新']]></expect>
+        <target><![CDATA[fications.success('Settings updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update settings']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve application settings']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/settings/settingsController.js</name>
   </file>
   <file>
     <item>
@@ -507,6 +2222,126 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve user memberships']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve user memberships']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/sidebar/sidebarController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 部署成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully deployed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Deployment 错误', err, 'Stack不能部署']]></expect>
+        <target><![CDATA[fications.error('Deployment error', err, 'Unable to deploy stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve Custom Template file']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve Custom Template file']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve the ComposeSyntaxMaxVersion']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve the ComposeSyntaxMaxVersion']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve Containers']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve Containers']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/stacks/create/createStackController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="容器"]]></expect>
+        <target><![CDATA[text="Containers"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/stacks/edit/stack.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 建立副本成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully duplicated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to duplicate stack']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to duplicate stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 迁移成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully migrated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to migrate stack']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to migrate stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 删除成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove stack ']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove stack ']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 关联成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully associated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to associate stack ']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to associate stack ']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 部署成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully deployed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create stack']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to stop stack']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to stop stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to start stack']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to start stack']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve environments']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environments']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve stack details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve stack details']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', null, 'Invalid type URL parameter.']]></expect>
+        <target><![CDATA[fications.error('Failure', null, 'Invalid type URL parameter.']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve stack details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve stack details']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve stack details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve stack details']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve the ComposeSyntaxMaxVersion']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve the ComposeSyntaxMaxVersion']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/stacks/edit/stackController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[-text="应用Stacks"]]></expect>
         <target><![CDATA[-text="Stacks"]]></target>
       </replace>
@@ -516,9 +2351,138 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[用户组管理]]></expect>
-        <target><![CDATA[Teams management]]></target>
+        <expect><![CDATA[fications.success('Stack 删除成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully removed']]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove stack ']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove stack ']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve stacks']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve stacks']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/stacks/stacksController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[添加标签]]></expect>
+        <target><![CDATA[Add a new tag]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/tags/tags.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Tag successfully removed']]></expect>
+        <target><![CDATA[fications.success('Tag successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove tag']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove tag']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Tag 创建成功']]></expect>
+        <target><![CDATA[fications.success('Tag successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create tag']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create tag']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve tags']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve tags']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/tags/tagsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Team组明细"]]></expect>
+        <target><![CDATA[text="Team details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[text="用户列表"]]></expect>
+        <target><![CDATA[text="Users"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[团队成员]]></expect>
+        <target><![CDATA[Team members]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/teams/edit/team.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('User 已变更为组长']]></expect>
+        <target><![CDATA[fications.success('User is now team leader']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update user role']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update user role']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('User 已变更为组员']]></expect>
+        <target><![CDATA[fications.success('User is now team member']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update user role']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update user role']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('All users 添加成功']]></expect>
+        <target><![CDATA[fications.success('All users successfully added']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('User 已添加到组']]></expect>
+        <target><![CDATA[fications.success('User added to team']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('All users 删除成功']]></expect>
+        <target><![CDATA[fications.success('All users successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('User 已从组里移除']]></expect>
+        <target><![CDATA[fications.success('User removed from team']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update team members']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Team 删除成功']]></expect>
+        <target><![CDATA[fications.success('Team successfully deleted']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove team']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove team']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve team details']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve team details']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/teams/edit/teamController.js</name>
+  </file>
+  <file>
+    <item>
       <replace>
         <expect><![CDATA[添加用户组]]></expect>
         <target><![CDATA[Add a new team]]></target>
@@ -529,9 +2493,30 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[应用模板]]></expect>
-        <target><![CDATA[Templates]]></target>
+        <expect><![CDATA[fications.success('Team 创建成功']]></expect>
+        <target><![CDATA[fications.success('Team successfully created']]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create team']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create team']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Team 删除成功']]></expect>
+        <target><![CDATA[fications.success('Team successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove team']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove team']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve teams']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve teams']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/teams/teamsController.js</name>
+  </file>
+  <file>
+    <item>
       <replace>
         <expect><![CDATA[基础设置]]></expect>
         <target><![CDATA[Configuration]]></target>
@@ -545,11 +2530,44 @@
         <target><![CDATA[Volume mapping]]></target>
       </replace>
       <replace>
-        <expect><![CDATA[应用模板]]></expect>
-        <target><![CDATA[Templates]]></target>
+        <expect><![CDATA[text="模板列表"]]></expect>
+        <target><![CDATA[text="Templates"]]></target>
       </replace>
     </item>
     <name>portainer/views/templates/templates.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('Container 创建成功']]></expect>
+        <target><![CDATA[fications.success('Container successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure']]></expect>
+        <target><![CDATA[fications.error('Failure']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 部署成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully deployed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Deployment 错误']]></expect>
+        <target><![CDATA[fications.error('Deployment error']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Stack 部署成功']]></expect>
+        <target><![CDATA[fications.success('Stack successfully deployed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Deployment 错误']]></expect>
+        <target><![CDATA[fications.error('Deployment error']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'An error occured during apps initialization.']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'An error occured during apps initialization.']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/templates/templatesController.js</name>
   </file>
   <file>
     <item>
@@ -563,18 +2581,149 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[用户管理]]></expect>
-        <target><![CDATA[Users]]></target>
+        <expect><![CDATA[fications.success('User 更新成功']]></expect>
+        <target><![CDATA[fications.success('User successfully updated']]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update user permissions']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update user permissions']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('Password 更新成功']]></expect>
+        <target><![CDATA[fications.success('Password successfully updated']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to update user password']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to update user password']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('User 删除成功']]></expect>
+        <target><![CDATA[fications.success('User successfully deleted']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove user']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove user']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve user information']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve user information']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/users/edit/userController.js</name>
+  </file>
+  <file>
+    <item>
       <replace>
         <expect><![CDATA[添加用户]]></expect>
         <target><![CDATA[Add a new user]]></target>
       </replace>
       <replace>
-        <expect><![CDATA[用户管理]]></expect>
-        <target><![CDATA[Users]]></target>
+        <expect><![CDATA[text="用户列表"]]></expect>
+        <target><![CDATA[text="Users"]]></target>
       </replace>
     </item>
     <name>portainer/views/users/users.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.success('User 创建成功']]></expect>
+        <target><![CDATA[fications.success('User successfully created']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to create user']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to create user']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('User 移除成功']]></expect>
+        <target><![CDATA[fications.success('User successfully removed']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to remove user']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to remove user']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to retrieve users and teams']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve users and teams']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/users/usersController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></expect>
+        <target><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已连接']]></expect>
+        <target><![CDATA[fications.success('Environment connected']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to connect your environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to connect your environment']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoint-aci/wizard-aci.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></expect>
+        <target><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已连接']]></expect>
+        <target><![CDATA[fications.success('Environment connected']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to connect your environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to connect your environment']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已连接']]></expect>
+        <target><![CDATA[fications.success('Environment connected']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to connect your environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to connect your environment']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoint-docker/wizard-docker.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></expect>
+        <target><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.success('节点已连接']]></expect>
+        <target><![CDATA[fications.success('Environment connected']]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[fications.error('Failure', err, 'Unable to conect your environment']]></expect>
+        <target><![CDATA[fications.error('Failure', err, 'Unable to conect your environment']]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoint-kubernetes/wizard-kubernetes.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Wizard指引"]]></expect>
+        <target><![CDATA[text="Environment Wizard"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoints.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[text="Wizard指引"]]></expect>
+        <target><![CDATA[text="Environment Wizard"]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-view.html</name>
   </file>
 </root>
