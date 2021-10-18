@@ -24,9 +24,11 @@ function doOneLine(){
     cat $lineAnayFile |grep -v "^$" |while read rep0; do 
 
         local rep0=$(echo $rep0 |sed "s/ >>>>> />>>>>/g")
+        rep0=$(echo $rep0 |sed "s^>>>>>^|||||^g") #trans >>>>> to |||||
+        rep0=$(echo $rep0 |sed "s^>^\\>^g") #rep > to \>  ## |sed "s^>^\\\\\\\>^g" #</i\\>Copy link
         # echo $rep0
         OLD_IFS="$IFS"
-        IFS=">>>>>"
+        IFS="|||||"
         local arr=($rep0)
         IFS="$OLD_IFS"
 
@@ -90,7 +92,7 @@ function doOne(){
 }
 
 # git --no-pager diff $CMP1 $CMP2 --numstat . |grep "^+++" > $tmp/addList.txt
-# debug="|grep sidebar |grep -v docker"
+# debug="|grep sidebar |grep -v docker"  ##|grep "/service.html" 
 cat $cur/tpl/_root.json >$tmp/root.txt
 git --no-pager diff $CMP1 $CMP2 . |grep "^+++" > $tmp/addList.txt
 cat $tmp/addList.txt | while read one; do

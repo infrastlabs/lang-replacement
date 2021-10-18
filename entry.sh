@@ -15,9 +15,13 @@ function getRepo(){
     else
         cd $srcGenerate; 
             git fetch
+            echo "更新repo, 如有branch/tag对不上的err, 请ignore"
             # if both tag:
             git fetch origin tag $CMP1
-            git fetch origin tag $CMP2
+            git fetch origin tag $CMP2 
+            #pull branch.
+            git fetch origin $CMP1
+            git fetch origin $CMP2
     fi
 }
 getRepo
