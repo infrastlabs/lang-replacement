@@ -39,6 +39,7 @@ ADD ./generate/gitdiff.sh /generate
 # dictReplace.txt
 ADD ./generate/dictReplace.txt /generate
 ADD ./generate/dict_fications.txt /generate
+ADD ./generate/dict_button_th_placeholer.txt /generate
 ADD ./entry.sh /generate
 RUN find /generate
 

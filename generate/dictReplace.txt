@@ -21,7 +21,7 @@
 
 <expect><![CDATA[text="Environments"]]></expect>|<expect><![CDATA[text="节点列表"]]></expect>
 <expect><![CDATA[text="Templates"]]></expect>|<expect><![CDATA[text="模板列表"]]></expect>
-<expect><![CDATA[Login</span]]></expect>|<expect><![CDATA[登录</span]]></expect>
+#<expect><![CDATA[Login</span]]></expect>|<expect><![CDATA[登录</span]]></expect>
 <expect><![CDATA[text="SSL certificate"]]></expect>|<expect><![CDATA[text="SSL认证"]]></expect>
 <expect><![CDATA[修改寐�码]]></expect>|<expect><![CDATA[修改密码]]></expect>
 <expect><![CDATA[刐�表丐�空【��]]></expect>|<expect><![CDATA[列表为空]]></expect>

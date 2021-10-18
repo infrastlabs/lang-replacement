@@ -41,6 +41,7 @@ $ cat output/portainer_zh.xml |./generate/xml2json |jq ".[].file[].name" |wc
 ## 汉化TODO
 
 - @@@         已改 x416 (*.html: x31; Noti@@@: x385)
+- text=" #x268个； 部分手工改了
 - 
 - </button  > 按钮 x412 ./app
   - ./portainer x150 DONE1;
@@ -48,7 +49,7 @@ $ cat output/portainer_zh.xml |./generate/xml2json |jq ".[].file[].name" |wc
 - <th>        表头 x278 ./app
   - ./portainer  x50   <th: > x80
   - ./docker     x113; <th: > x172 #quick: 非单行的，仅词组可替换；DONE1
-- placeholder      x387
+- placeholder      x387 (无需汉化， 已汉化两个：查询。。)
   - ./portainer  x141 ##placeholder="{{ $ctrl.placeholder }}" #连续多个..
   - ./docker     x128 #已批替换 DONE1
 - 
@@ -58,6 +59,28 @@ $ cat output/portainer_zh.xml |./generate/xml2json |jq ".[].file[].name" |wc
   - </label>   x809 #双列左列label描述
   - </a>       x780 
 
+
+## button_th_placeholder
+
+```bash
+$ cat portainer_zh_dict_button_th_placeholer.xml |grep expect  |sort -u |awk '$1=$1' |wc
+    297     686   15811
+
+$ cat portainer_zh_dict_button_th_placeholer.xml |grep expect  |sort -u |awk '$1=$1' |while read one; do echo "$one|$one"; done  > dict_button_th_placeholer.txt
+
+# 改后1: 已改文件数 x158 > x269
+$ cat output/portainer_zh.xml |./generate/xml2json |jq ".[].file[].name" |wc
+    269     269   16852
+
+# # TODO: > DONE
+# btn: 主要按钮已汉化; DONE; 
+# th: 汉化后未生效?? #已生效，未改全> 已全改
+# placement: 暂不用动
+
+
+# TODO2:
+有时生成dict_zh.xml乱码的问题..
+```
 
 ## notifications汉化字典: DONE;
 

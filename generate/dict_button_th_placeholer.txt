@@ -1,0 +1,300 @@
+<expect><![CDATA[>Apply changes</button]]></expect>|<expect><![CDATA[>应用配置</button]]></expect>
+<expect><![CDATA[Apply changes]]></expect>|<expect><![CDATA[应用配置]]></expect>
+<expect><![CDATA[>Apply Changes</span]]></expect>|<expect><![CDATA[>应用配置</span]]></expect>
+<expect><![CDATA[>Associate</span]]></expect>|<expect><![CDATA[>关联</span]]></expect>
+<expect><![CDATA[>Association in progress...</span]]></expect>|<expect><![CDATA[>关联中。。</span]]></expect>
+<expect><![CDATA[>Attaching...</span]]></expect>|<expect><![CDATA[>Attach中。。</span]]></expect>
+<expect><![CDATA[>Attach to Container</span]]></expect>|<expect><![CDATA[>Attach容器</span]]></expect>
+<expect><![CDATA[>Build the image</span]]></expect>|<expect><![CDATA[>构建镜像</span]]></expect>
+<expect><![CDATA[>Cancel</a]]></expect>|<expect><![CDATA[>取消</a]]></expect>
+<expect><![CDATA[Category]]></expect>|<expect><![CDATA[类别]]></expect>
+<expect><![CDATA[Connecting environment...]]></expect>|<expect><![CDATA[节点连接中。。]]></expect>
+<expect><![CDATA[>Connecting...</span]]></expect>|<expect><![CDATA[>连接中。。</span]]></expect>
+<expect><![CDATA[>Connect</span]]></expect>|<expect><![CDATA[>连接</span]]></expect>
+<expect><![CDATA[Copy as Custom]]></expect>|<expect><![CDATA[拷贝为自定义]]]></expect>
+<expect><![CDATA[>Create config</button]]></expect>|<expect><![CDATA[>创建配置</button]]></expect>
+<expect><![CDATA[>Create custom template</span]]></expect>|<expect><![CDATA[>创建自定义模板</span]]></expect>
+<expect><![CDATA[Create template from stack]]></expect>|<expect><![CDATA[从Stack创建模板]]></expect>
+<expect><![CDATA[>Create the network</span]]></expect>|<expect><![CDATA[>创建网络</span]]></expect>
+<expect><![CDATA[>Create the secret</span]]></expect>|<expect><![CDATA[>创建密钥</span]]></expect>
+<expect><![CDATA[>Create the service</span]]></expect>|<expect><![CDATA[>创建服务</span]]></expect>
+<expect><![CDATA[>Create the volume</span]]></expect>|<expect><![CDATA[>创建磁盘卷</span]]></expect>
+<expect><![CDATA[>Creating access...</span]]></expect>|<expect><![CDATA[>创建权限。。</span]]></expect>
+<expect><![CDATA[>Creating environment...</span]]></expect>|<expect><![CDATA[>创建节点。。</span]]></expect>
+<expect><![CDATA[>Creating network...</span]]></expect>|<expect><![CDATA[>创建网络。。</span]]></expect>
+<expect><![CDATA[>Creating secret...</span]]></expect>|<expect><![CDATA[>创建密钥。。</span]]></expect>
+<expect><![CDATA[>Creating service...</span]]></expect>|<expect><![CDATA[>创建服务。。</span]]></expect>
+<expect><![CDATA[>Creating tag...</span]]></expect>|<expect><![CDATA[>创建标签。。</span]]></expect>
+<expect><![CDATA[>Creating team...</span]]></expect>|<expect><![CDATA[>创建团队。。</span]]></expect>
+<expect><![CDATA[>Creating user...</span]]></expect>|<expect><![CDATA[>创建用户。。</span]]></expect>
+<expect><![CDATA[>Creating volume...</span]]></expect>|<expect><![CDATA[>创建磁盘卷。。</span]]></expect>
+<expect><![CDATA[Creation Date]]></expect>|<expect><![CDATA[创建时间]]></expect>
+<expect><![CDATA[>Creation in progress...</span]]></expect>|<expect><![CDATA[>创建中。。</span]]></expect>
+<expect><![CDATA[>De-associate</span]]></expect>|<expect><![CDATA[>解除关联</span]]></expect>
+<expect><![CDATA[> Default</button]]></expect>|<expect><![CDATA[> 默认</button]]></expect>
+<expect><![CDATA[>Delete</button]]></expect>|<expect><![CDATA[>删除</button]]></expect>
+<expect><![CDATA[Delete this stack]]></expect>|<expect><![CDATA[删除Stack]]></expect>
+<expect><![CDATA[Delete this user]]></expect>|<expect><![CDATA[删除用户]]></expect>
+<expect><![CDATA[>Deletion in progress...</span]]></expect>|<expect><![CDATA[>删除中。。</span]]></expect>
+<expect><![CDATA[Deployment in progress...]]></expect>|<expect><![CDATA[部署中。。]]></expect>
+<expect><![CDATA[>Deployment in progress...</span]]></expect>|<expect><![CDATA[>部署中。。</span]]></expect>
+<expect><![CDATA[>Deploy the container</span]]></expect>|<expect><![CDATA[>部署容器</span]]></expect>
+<expect><![CDATA[Deploy the stack]]></expect>|<expect><![CDATA[部署Stack]]></expect>
+<expect><![CDATA[>Deploy the stack</span]]></expect>|<expect><![CDATA[>部署Stack</span]]></expect>
+<expect><![CDATA[>Detach</span]]></expect>|<expect><![CDATA[>Detach</span]]></expect>
+<expect><![CDATA[>Disconnect</span]]></expect>|<expect><![CDATA[>断开连接</span]]></expect>
+<expect><![CDATA[Display User/Group matching]]></expect>|<expect><![CDATA[显示配置的用户/组]]></expect>
+<expect><![CDATA[Display Users]]></expect>|<expect><![CDATA[显示用户]]></expect>
+<expect><![CDATA[>Download backup</span]]></expect>|<expect><![CDATA[>下载备份</span]]></expect>
+<expect><![CDATA[>Downloading backup</span]]></expect>|<expect><![CDATA[>下载备份中</span]]></expect>
+<expect><![CDATA[>Download in progress...</span]]></expect>|<expect><![CDATA[>下载中。。</span]]></expect>
+<expect><![CDATA[Duplication in progress...]]></expect>|<expect><![CDATA[副本建立中。。]]></expect>
+##<expect><![CDATA[@@]]></expect>|<expect><![CDATA[@@]]></expect>
+<expect><![CDATA[>Export in progress...</span]]></expect>|<expect><![CDATA[>导出中。。</span]]></expect>
+<expect><![CDATA[>Export</span]]></expect>|<expect><![CDATA[>导出</span]]></expect>
+<expect><![CDATA[>Export this image</span]]></expect>|<expect><![CDATA[>导出镜像</span]]></expect>
+<expect><![CDATA[>Hide</button]]></expect>|<expect><![CDATA[>隐藏</button]]></expect>
+<expect><![CDATA[</i> Add additional server]]></expect>|<expect><![CDATA[</i> 添加新服务]]></expect>
+<expect><![CDATA[</i>Add all users]]></expect>|<expect><![CDATA[</i>添加所有用户]]></expect>
+<expect><![CDATA[</i> Add an environment variable]]></expect>|<expect><![CDATA[</i> 添加环境变量]]></expect>
+<expect><![CDATA[</i> add another entry]]></expect>|<expect><![CDATA[</i> 新加入口]]></expect>
+<expect><![CDATA[</i> add another group]]></expect>|<expect><![CDATA[</i> 新加组]]></expect>
+<expect><![CDATA[</i>Add config]]></expect>|<expect><![CDATA[</i>添加配置]]></expect>
+<expect><![CDATA[</i>Add container]]></expect>|<expect><![CDATA[</i>添加容器]]></expect>
+<expect><![CDATA[</i>Add Custom Template]]></expect>|<expect><![CDATA[</i>添加自定义模板]]></expect>
+<expect><![CDATA[</i> Add environment]]></expect>|<expect><![CDATA[</i>添加节点]]></expect>
+<expect><![CDATA[</i>Add environment]]></expect>|<expect><![CDATA[</i>添加节点]]></expect>
+<expect><![CDATA[</i>Add filter]]></expect>|<expect><![CDATA[</i>添加过滤器]]></expect>
+<expect><![CDATA[</i>Add group]]></expect>|<expect><![CDATA[</i>添加组]]></expect>
+<expect><![CDATA[</i> add group search configuration]]></expect>|<expect><![CDATA[</i> 添加组查询配置]]></expect>
+<expect><![CDATA[</i>Add network]]></expect>|<expect><![CDATA[</i>添加网络]]></expect>
+<expect><![CDATA[</i>Add registry]]></expect>|<expect><![CDATA[</i>添加仓库]]></expect>
+<expect><![CDATA[</i>Add secret]]></expect>|<expect><![CDATA[</i>添加密钥]]></expect>
+<expect><![CDATA[</i>Add service]]></expect>|<expect><![CDATA[</i>添加服务]]></expect>
+<expect><![CDATA[</i>Add stack]]></expect>|<expect><![CDATA[</i>添加Stack]]></expect>
+<expect><![CDATA[</i>Add template]]></expect>|<expect><![CDATA[</i>添加模板]]></expect>
+<expect><![CDATA[</i> add user search configuration]]></expect>|<expect><![CDATA[</i> 添加用户查询配置]]></expect>
+<expect><![CDATA[</i> Add value]]></expect>|<expect><![CDATA[</i> 添加值]]></expect>
+<expect><![CDATA[</i>Add volume]]></expect>|<expect><![CDATA[</i>添加卷]]></expect>
+<expect><![CDATA[</i>Build a new image]]></expect>|<expect><![CDATA[</i>构建新镜像]]></expect>
+<expect><![CDATA[</i>Clone config]]></expect>|<expect><![CDATA[</i>克隆配置]]></expect>
+<expect><![CDATA[</i> Connect]]></expect>|<expect><![CDATA[</i>连接]]></expect>
+<expect><![CDATA[</i>Connect]]></expect>|<expect><![CDATA[</i>连接]]></expect>
+<expect><![CDATA[></i>Copy</button]]></expect>|<expect><![CDATA[></i>拷贝</button]]></expect>
+<expect><![CDATA[</i> Copy]]></expect>|<expect><![CDATA[</i> 拷贝2]]></expect>
+<expect><![CDATA[</i>Copy link]]></expect>|<expect><![CDATA[</i>拷贝链接]]></expect>
+<expect><![CDATA[</i>Copy selected lines]]></expect>|<expect><![CDATA[</i>拷贝选中行]]></expect>
+<expect><![CDATA[</i> Create access]]></expect>|<expect><![CDATA[</i>创建权限]]></expect>
+<expect><![CDATA[</i> Create tag]]></expect>|<expect><![CDATA[</i>创建标签]]></expect>
+<expect><![CDATA[</i> Create team]]></expect>|<expect><![CDATA[</i>创建团队]]></expect>
+<expect><![CDATA[</i> Create user]]></expect>|<expect><![CDATA[</i>创建用户]]></expect>
+<expect><![CDATA[</i>Delete the service]]></expect>|<expect><![CDATA[</i>删除服务]]></expect>
+<expect><![CDATA[</i>Delete this config]]></expect>|<expect><![CDATA[</i>删除配置]]></expect>
+<expect><![CDATA[</i>Delete this image]]></expect>|<expect><![CDATA[</i>删除镜像]]></expect>
+<expect><![CDATA[</i>Delete this network]]></expect>|<expect><![CDATA[</i>删除网络]]></expect>
+<expect><![CDATA[</i>Delete this secret]]></expect>|<expect><![CDATA[</i>删除密钥]]></expect>
+<expect><![CDATA[</i>Delete this team]]></expect>|<expect><![CDATA[</i>删除团队]]></expect>
+<expect><![CDATA[</i> Download logs]]></expect>|<expect><![CDATA[</i>下载日志]]></expect>
+<expect><![CDATA[</i> Duplicate]]></expect>|<expect><![CDATA[</i>副本]]></expect>
+<expect><![CDATA[</i>Export as CSV]]></expect>|<expect><![CDATA[</i>导出CSV]]></expect>
+<expect><![CDATA[</i> Export backup]]></expect>|<expect><![CDATA[</i>导入备份]]></expect>
+<expect><![CDATA[</i> Hide]]></expect>|<expect><![CDATA[</i> 隐藏]]></expect>
+<expect><![CDATA[</i>Import]]></expect>|<expect><![CDATA[</i>导入]]></expect>
+<expect><![CDATA[</i>Kill]]></expect>|<expect><![CDATA[</i>杀死]]></expect>
+<expect><![CDATA[></i>Kill]]></expect>|<expect><![CDATA[></i>杀死]]></expect>
+<expect><![CDATA[</i> Leave network]]></expect>|<expect><![CDATA[</i>离开网络]]></expect>
+<expect><![CDATA[</i>Leave Network]]></expect>|<expect><![CDATA[</i>离开网络]]></expect>
+<expect><![CDATA[</i> Load variables from .env file]]></expect>|<expect><![CDATA[</i>从.env文件加载]]></expect>
+<expect><![CDATA[>Image building in progress...</span]]></expect>|<expect><![CDATA[>镜像构建中。。</span]]></expect>
+<expect><![CDATA[>Images uploading in progress...</span]]></expect>|<expect><![CDATA[>镜像上传中。。</span]]></expect>
+<expect><![CDATA[</i> Migrate]]></expect>|<expect><![CDATA[</i>迁移]]></expect>
+<expect><![CDATA[>In progress...]]></expect>|<expect><![CDATA[>进行中。。]]></expect>
+<expect><![CDATA[In progress...]]></expect>|<expect><![CDATA[进行中。。]]></expect>
+<expect><![CDATA[IP Address]]></expect>|<expect><![CDATA[IP地址]]></expect>
+<expect><![CDATA[IPAM Driver]]></expect>|<expect><![CDATA[IPAM驱动]]></expect>
+<expect><![CDATA[</i>Pause]]></expect>|<expect><![CDATA[</i>暂停]]></expect>
+<expect><![CDATA[</i> Pull and redeploy]]></expect>|<expect><![CDATA[</i>拉取并重部署]]></expect>
+<expect><![CDATA[IPV4 IPAM Gateway]]></expect>|<expect><![CDATA[IPV4网关]]></expect>
+<expect><![CDATA[IPV4 IPAM Subnet]]></expect>|<expect><![CDATA[IPV4子网]]></expect>
+<expect><![CDATA[IPV6 IPAM Gateway]]></expect>|<expect><![CDATA[IPV6网关]]></expect>
+<expect><![CDATA[IPV6 IPAM Subnet]]></expect>|<expect><![CDATA[IPV6子网]]></expect>
+<expect><![CDATA[</i>Recreate]]></expect>|<expect><![CDATA[</i>重建]]></expect>
+<expect><![CDATA[</i>Refresh]]></expect>|<expect><![CDATA[</i>刷新]]></expect>
+<expect><![CDATA[</i>Remove all users]]></expect>|<expect><![CDATA[</i>移除所有用户]]></expect>
+<expect><![CDATA[</i> Remove config]]></expect>|<expect><![CDATA[</i>移除配置]]></expect>
+<expect><![CDATA[</i>Remove]]></expect>|<expect><![CDATA[</i>移除]]></expect>
+<expect><![CDATA[</i> Remove secret]]></expect>|<expect><![CDATA[</i>移除密钥]]></expect>
+<expect><![CDATA[</i>Remove this volume]]></expect>|<expect><![CDATA[</i>移除磁盘卷]]></expect>
+<expect><![CDATA[</i> Remove value]]></expect>|<expect><![CDATA[</i> 移除值]]></expect>
+<expect><![CDATA[</i>Restart]]></expect>|<expect><![CDATA[</i>重启]]></expect>
+<expect><![CDATA[</i>Resume]]></expect>|<expect><![CDATA[</i>恢复]]></expect>
+<expect><![CDATA[</i>Rollback the service]]></expect>|<expect><![CDATA[</i>回滚服务]]></expect>
+<expect><![CDATA[</i> Show]]></expect>|<expect><![CDATA[</i> 显示]]></expect>
+<expect><![CDATA[</i> Skip]]></expect>|<expect><![CDATA[</i> 跳过]]></expect>
+<expect><![CDATA[</i>Start]]></expect>|<expect><![CDATA[</i>启动]]></expect>
+<expect><![CDATA[</i>Stop]]></expect>|<expect><![CDATA[</i>停止]]></expect>
+<expect><![CDATA[</i>Unselect]]></expect>|<expect><![CDATA[</i>取消选择]]></expect>
+<expect><![CDATA[</i>Update]]></expect>|<expect><![CDATA[</i>更新]]></expect>
+<expect><![CDATA[</i>Update the service]]></expect>|<expect><![CDATA[</i>更新服务]]></expect>
+<expect><![CDATA[>Joining network...</span]]></expect>|<expect><![CDATA[>加入网络。。</span]]></expect>
+<expect><![CDATA[>Join network</span]]></expect>|<expect><![CDATA[>加入网络</span]]></expect>
+<expect><![CDATA[Last Update]]></expect>|<expect><![CDATA[上次更新]]></expect>
+<expect><![CDATA[>Leaving network...</span]]></expect>|<expect><![CDATA[>离开网络。。</span]]></expect>
+<expect><![CDATA[Migration in progress...]]></expect>|<expect><![CDATA[迁移中。。]]></expect>
+<expect><![CDATA[Mount point]]></expect>|<expect><![CDATA[挂载点]]></expect>
+<expect><![CDATA[>Override</button]]></expect>|<expect><![CDATA[>覆盖</button]]></expect>
+# <expect><![CDATA[placeholder="Define or paste the content of your config here"]]></expect>|<expect><![CDATA[placeholder="Define or paste the content of your config here"]]></expect>
+# <expect><![CDATA[placeholder="Define or paste the content of your Dockerfile here"]]></expect>|<expect><![CDATA[placeholder="Define or paste the content of your Dockerfile here"]]></expect>
+# <expect><![CDATA[placeholder="Dockerfile"]]></expect>|<expect><![CDATA[placeholder="Dockerfile"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 0"]]></expect>|<expect><![CDATA[placeholder="e.g. 0"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 10.0.1.1"]]></expect>|<expect><![CDATA[placeholder="e.g. 10.0.1.1"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 1.0.0.1, 2606:4700:4700::1001"]]></expect>|<expect><![CDATA[placeholder="e.g. 1.0.0.1, 2606:4700:4700::1001"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 1.1.1.1, 2606:4700:4700::1111"]]></expect>|<expect><![CDATA[placeholder="e.g. 1.1.1.1, 2606:4700:4700::1111"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 12-34-56-78-9a-bc"]]></expect>|<expect><![CDATA[placeholder="e.g. 12-34-56-78-9a-bc"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 172.20.0.0/16"]]></expect>|<expect><![CDATA[placeholder="e.g. 172.20.0.0/16"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 172.20.0.7"]]></expect>|<expect><![CDATA[placeholder="e.g. 172.20.0.7"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 172.20.10.11"]]></expect>|<expect><![CDATA[placeholder="e.g. 172.20.10.11"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 172.20.10.128/25"]]></expect>|<expect><![CDATA[placeholder="e.g. 172.20.10.128/25"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 1"]]></expect>|<expect><![CDATA[placeholder="e.g. 1"]]></expect>
+# #<expect><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></expect>|<expect><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></expect>
+# <expect><![CDATA[placeholder="e.g. 2001:db8::1"]]></expect>|<expect><![CDATA[placeholder="e.g. 2001:db8::1"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 2001:db8::/48"]]></expect>|<expect><![CDATA[placeholder="e.g. 2001:db8::/48"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 2001:db8::/64"]]></expect>|<expect><![CDATA[placeholder="e.g. 2001:db8::/64"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 3" style="margin-left: 20px;"]]></expect>|<expect><![CDATA[placeholder="e.g. 3" style="margin-left: 20px;"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 80, 80-88, ip:80 or ip:80-88 (optional)"]]></expect>|<expect><![CDATA[placeholder="e.g. 80, 80-88, ip:80 or ip:80-88 (optional)"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 8080"]]></expect>|<expect><![CDATA[placeholder="e.g. 8080"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 80"]]></expect>|<expect><![CDATA[placeholder="e.g. 80"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 80 or 1.2.3.4:80 (optional)"]]></expect>|<expect><![CDATA[placeholder="e.g. 80 or 1.2.3.4:80 (optional)"]]></expect>
+# <expect><![CDATA[placeholder="e.g. 80 or 80-88"]]></expect>|<expect><![CDATA[placeholder="e.g. 80 or 80-88"]]></expect>
+# <expect><![CDATA[placeholder="e.g. a:b:c:d::1234"]]></expect>|<expect><![CDATA[placeholder="e.g. a:b:c:d::1234"]]></expect>
+# <expect><![CDATA[placeholder="e.g. bar"]]></expect>|<expect><![CDATA[placeholder="e.g. bar"]]></expect>
+# <expect><![CDATA[placeholder="e.g. bar" ng-change="$ctrl.updateLabel(label)"]]></expect>|<expect><![CDATA[placeholder="e.g. bar" ng-change="$ctrl.updateLabel(label)"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /bin/sh -c"]]></expect>|<expect><![CDATA[placeholder="e.g. /bin/sh -c"]]></expect>
+# <expect><![CDATA[placeholder="e.g. com.docker.network.bridge.enable_icc"]]></expect>|<expect><![CDATA[placeholder="e.g. com.docker.network.bridge.enable_icc"]]></expect>
+# <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>|<expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+# <expect><![CDATA[placeholder="e.g. com.example.foo" ng-change="$ctrl.updateLabel(label)"]]></expect>|<expect><![CDATA[placeholder="e.g. com.example.foo" ng-change="$ctrl.updateLabel(label)"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /dev/tty0"]]></expect>|<expect><![CDATA[placeholder="e.g. /dev/tty0"]]></expect>
+# <expect><![CDATA[placeholder="e.g. driverName" ng-if="availableNetworkDrivers.length === 0"]]></expect>|<expect><![CDATA[placeholder="e.g. driverName" ng-if="availableNetworkDrivers.length === 0"]]></expect>
+# <expect><![CDATA[placeholder="e.g. driverName" ng-if="availableVolumeDrivers.length === 0"]]></expect>|<expect><![CDATA[placeholder="e.g. driverName" ng-if="availableVolumeDrivers.length === 0"]]></expect>
+# <expect><![CDATA[placeholder="e.g. eth0 or ens160 ..."]]></expect>|<expect><![CDATA[placeholder="e.g. eth0 or ens160 ..."]]></expect>
+# <expect><![CDATA[placeholder="e.g. example.com"]]></expect>|<expect><![CDATA[placeholder="e.g. example.com"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /export/share, :/export/share, /share or :/share"]]></expect>|<expect><![CDATA[placeholder="e.g. /export/share, :/export/share, /share or :/share"]]></expect>
+# <expect><![CDATA[placeholder="e.g. FOO"]]></expect>|<expect><![CDATA[placeholder="e.g. FOO"]]></expect>
+# <expect><![CDATA[placeholder="e.g. host:IP"]]></expect>|<expect><![CDATA[placeholder="e.g. host:IP"]]></expect>
+# <expect><![CDATA[placeholder="e.g. '-logtostderr' '--housekeeping_interval=5s' or /usr/bin/nginx -t -c /mynginx.conf"]]></expect>|<expect><![CDATA[placeholder="e.g. '-logtostderr' '--housekeeping_interval=5s' or /usr/bin/nginx -t -c /mynginx.conf"]]></expect>
+# <expect><![CDATA[placeholder="e.g. manager"]]></expect>|<expect><![CDATA[placeholder="e.g. manager"]]></expect>
+# <expect><![CDATA[placeholder="e.g. mountpoint"]]></expect>|<expect><![CDATA[placeholder="e.g. mountpoint"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /myapp"]]></expect>|<expect><![CDATA[placeholder="e.g. /myapp"]]></expect>
+# <expect><![CDATA[placeholder="e.g. my.cifs-server.com OR xxx.xxx.xxx.xxx"]]></expect>|<expect><![CDATA[placeholder="e.g. my.cifs-server.com OR xxx.xxx.xxx.xxx"]]></expect>
+# <expect><![CDATA[placeholder="e.g. myConfig"]]></expect>|<expect><![CDATA[placeholder="e.g. myConfig"]]></expect>
+# <expect><![CDATA[placeholder="e.g. myContainer"]]></expect>|<expect><![CDATA[placeholder="e.g. myContainer"]]></expect>
+# <expect><![CDATA[placeholder="e.g. myImage:myTag"]]></expect>|<expect><![CDATA[placeholder="e.g. myImage:myTag"]]></expect>
+# <expect><![CDATA[placeholder="e.g. myNetwork"]]></expect>|<expect><![CDATA[placeholder="e.g. myNetwork"]]></expect>
+# <expect><![CDATA[placeholder="e.g. my.nfs-server.com OR xxx.xxx.xxx.xxx"]]></expect>|<expect><![CDATA[placeholder="e.g. my.nfs-server.com OR xxx.xxx.xxx.xxx"]]></expect>
+# <expect><![CDATA[placeholder="e.g. my-router=172.20.10.129"]]></expect>|<expect><![CDATA[placeholder="e.g. my-router=172.20.10.129"]]></expect>
+# <expect><![CDATA[placeholder="e.g. my-router=2001:db8::1"]]></expect>|<expect><![CDATA[placeholder="e.g. my-router=2001:db8::1"]]></expect>
+# <expect><![CDATA[placeholder="e.g. mySecret"]]></expect>|<expect><![CDATA[placeholder="e.g. mySecret"]]></expect>
+# <expect><![CDATA[placeholder="e.g. myService"]]></expect>|<expect><![CDATA[placeholder="e.g. myService"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /myshare"]]></expect>|<expect><![CDATA[placeholder="e.g. /myshare"]]></expect>
+# <expect><![CDATA[placeholder="e.g. myVolume"]]></expect>|<expect><![CDATA[placeholder="e.g. myVolume"]]></expect>
+# <expect><![CDATA[placeholder="e.g. nginx"]]></expect>|<expect><![CDATA[placeholder="e.g. nginx"]]></expect>
+# <expect><![CDATA[placeholder="e.g. node.labels.datacenter"]]></expect>|<expect><![CDATA[placeholder="e.g. node.labels.datacenter"]]></expect>
+# <expect><![CDATA[placeholder="e.g. node.role"]]></expect>|<expect><![CDATA[placeholder="e.g. node.role"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /path/in/container"]]></expect>|<expect><![CDATA[placeholder="e.g. /path/in/container"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /path/on/host"]]></expect>|<expect><![CDATA[placeholder="e.g. /path/on/host"]]></expect>
+# <expect><![CDATA[placeholder="e.g. ps aux"]]></expect>|<expect><![CDATA[placeholder="e.g. ps aux"]]></expect>
+# <expect><![CDATA[placeholder="e.g. registry:port/myImage:myTag"]]></expect>|<expect><![CDATA[placeholder="e.g. registry:port/myImage:myTag"]]></expect>
+# <expect><![CDATA[placeholder="e.g. rw,noatime,tcp ..."]]></expect>|<expect><![CDATA[placeholder="e.g. rw,noatime,tcp ..."]]></expect>
+# <expect><![CDATA[placeholder="e.g. spread"]]></expect>|<expect><![CDATA[placeholder="e.g. spread"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /tmp/portainer/data"]]></expect>|<expect><![CDATA[placeholder="e.g. /tmp/portainer/data"]]></expect>
+# <expect><![CDATA[placeholder="e.g. true"]]></expect>|<expect><![CDATA[placeholder="e.g. true"]]></expect>
+# <expect><![CDATA[placeholder="e.g. /usr/bin/nginx -t -c /mynginx.conf"]]></expect>|<expect><![CDATA[placeholder="e.g. /usr/bin/nginx -t -c /mynginx.conf"]]></expect>
+# <expect><![CDATA[placeholder="e.g. web01"]]></expect>|<expect><![CDATA[placeholder="e.g. web01"]]></expect>
+# <expect><![CDATA[placeholder="Enter no of lines..."]]></expect>|<expect><![CDATA[placeholder="Enter no of lines..."]]></expect>
+# <expect><![CDATA[placeholder="Filter..."]]></expect>|<expect><![CDATA[placeholder="Filter..."]]></expect>
+# <expect><![CDATA[placeholder="https://myhost.mydomain/myimage.tar.gz"]]></expect>|<expect><![CDATA[placeholder="https://myhost.mydomain/myimage.tar.gz"]]></expect>
+# <expect><![CDATA[placeholder="/path/in/container"]]></expect>|<expect><![CDATA[placeholder="/path/in/container"]]></expect>
+# <expect><![CDATA[placeholder="root"]]></expect>|<expect><![CDATA[placeholder="root"]]></expect>
+<expect><![CDATA[placeholder="Search..." auto-focus ng-model-options="{ debounce: 300 }"]]></expect>|<expect><![CDATA[placeholder="查询。。" auto-focus ng-model-options="{ debounce: 300 }"]]></expect>
+<expect><![CDATA[placeholder="Search..."]]></expect>|<expect><![CDATA[placeholder="查询。。"]]></expect>
+<expect><![CDATA[Published Ports]]></expect>|<expect><![CDATA[端口发布]]></expect>
+<expect><![CDATA[>Pull the image</span]]></expect>|<expect><![CDATA[>拉取镜像</span]]></expect>
+<expect><![CDATA[Quick actions]]></expect>|<expect><![CDATA[便捷操作]]></expect>
+<expect><![CDATA[>Read only</th]]></expect>|<expect><![CDATA[>Read only</th]]></expect>
+<expect><![CDATA[>Recreation in progress...</span]]></expect>|<expect><![CDATA[>重建中。。</span]]></expect>
+<expect><![CDATA[>Reloading Page...</span]]></expect>|<expect><![CDATA[>页面重加载。。</span]]></expect>
+<expect><![CDATA[>Reset changes</a]]></expect>|<expect><![CDATA[>变更重置</a]]></expect>
+<expect><![CDATA[>Restore Portainer</span]]></expect>|<expect><![CDATA[>Portainer还原</span]]></expect>
+<expect><![CDATA[>Restoring Portainer...</span]]></expect>|<expect><![CDATA[>Portainer还原。。</span]]></expect>
+<expect><![CDATA[Retrieve projects]]></expect>|<expect><![CDATA[获取项目]]></expect>
+<expect><![CDATA[>Rollback in progress...</span]]></expect>|<expect><![CDATA[>回滚中。。</span]]></expect>
+<expect><![CDATA[Save backup settings</span]]></expect>|<expect><![CDATA[保存备份设置</span]]></expect>
+<expect><![CDATA[>Save</button]]></expect>|<expect><![CDATA[>保存</button]]></expect>
+<expect><![CDATA[>Save configuration</span]]></expect>|<expect><![CDATA[>保存配置</span]]></expect>
+<expect><![CDATA[Save settings]]></expect>|<expect><![CDATA[保存设置]]></expect>
+<expect><![CDATA[>Save settings</span]]></expect>|<expect><![CDATA[>保存设置</span]]></expect>
+<expect><![CDATA[>Saving in progress...</span]]></expect>|<expect><![CDATA[>保存中。。</span]]></expect>
+<expect><![CDATA[>Saving...</span]]></expect>|<expect><![CDATA[>保存中。。</span]]></expect>
+<expect><![CDATA[Scheduling Mode]]></expect>|<expect><![CDATA[调度模式]]></expect>
+<expect><![CDATA[>Select file</button]]></expect>|<expect><![CDATA[>选择文件</button]]></expect>
+<expect><![CDATA[Select file]]></expect>|<expect><![CDATA[选择文件]]></expect>
+<expect><![CDATA[>Show</button]]></expect>|<expect><![CDATA[>显示</button]]></expect>
+<expect><![CDATA[Start this stack]]></expect>|<expect><![CDATA[启动Stack]]></expect>
+<expect><![CDATA[Start Wizard]]></expect>|<expect><![CDATA[开始Wizard]]></expect>
+<expect><![CDATA[Stop this stack]]></expect>|<expect><![CDATA[停止Stack]]></expect>
+<expect><![CDATA[>Tag</button]]></expect>|<expect><![CDATA[>标签</button]]></expect>
+<expect><![CDATA[>Test connectivity</span]]></expect>|<expect><![CDATA[>测试连接</span]]></expect>
+<expect><![CDATA[>Testing connectivity...</span]]></expect>|<expect><![CDATA[>测试连接。。</span]]></expect>
+<expect><![CDATA[>Testing...</span]]></expect>|<expect><![CDATA[>测试中。。</span]]></expect>
+<expect><![CDATA[>Test</span]]></expect>|<expect><![CDATA[>测试</span]]></expect>
+<expect><![CDATA[th>Container Name</th]]></expect>|<expect><![CDATA[th>容器名</th]]></expect>
+<expect><![CDATA[th>Container port</th]]></expect>|<expect><![CDATA[th>容器端口</th]]></expect>
+<expect><![CDATA[th>File name</th]]></expect>|<expect><![CDATA[th>文件名</th]]></expect>
+<expect><![CDATA[th>Gateway</th]]></expect>|<expect><![CDATA[th>网关</th]]></expect>
+<expect><![CDATA[th>GID</th]]></expect>|<expect><![CDATA[th>GID</th]]></expect>
+<expect><![CDATA[th>Hostname</th]]></expect>|<expect><![CDATA[th>主机名</th]]></expect>
+<expect><![CDATA[th>Host port</th]]></expect>|<expect><![CDATA[th>主机端口</th]]></expect>
+<expect><![CDATA[th>Host/volume</th]]></expect>|<expect><![CDATA[th>主机/卷</th]]></expect>
+<expect><![CDATA[th>ID</th]]></expect>|<expect><![CDATA[th>ID</th]]></expect>
+<expect><![CDATA[th>IP address</th]]></expect>|<expect><![CDATA[th>IP地址</th]]></expect>
+<expect><![CDATA[th>IP</th]]></expect>|<expect><![CDATA[th>IP</th]]></expect>
+<expect><![CDATA[th>IPv4 Address</th]]></expect>|<expect><![CDATA[th>IPv4地址</th]]></expect>
+<expect><![CDATA[th>IPv6 Address</th]]></expect>|<expect><![CDATA[th>IPv6地址</th]]></expect>
+<expect><![CDATA[th>Label</th]]></expect>|<expect><![CDATA[th>标签</th]]></expect>
+<expect><![CDATA[th>MacAddress</th]]></expect>|<expect><![CDATA[th>Mac地址</th]]></expect>
+<expect><![CDATA[th>MAC Address</th]]></expect>|<expect><![CDATA[th>MAC地址2</th]]></expect>
+<expect><![CDATA[th>Mode</th]]></expect>|<expect><![CDATA[th>模式</th]]></expect>
+<expect><![CDATA[th>Mounted At</th]]></expect>|<expect><![CDATA[th>挂载点</th]]></expect>
+<expect><![CDATA[th>Name</th]]></expect>|<expect><![CDATA[th>名字</th]]></expect>
+<expect><![CDATA[th>Network</th]]></expect>|<expect><![CDATA[th>网络</th]]></expect>
+<expect><![CDATA[th>Operator</th]]></expect>|<expect><![CDATA[th>操作者</th]]></expect>
+<expect><![CDATA[th>Option</th]]></expect>|<expect><![CDATA[th>选项</th]]></expect>
+<expect><![CDATA[th>Path in container</th]]></expect>|<expect><![CDATA[th>容器内路径</th]]></expect>
+<expect><![CDATA[th>Protocol</th]]></expect>|<expect><![CDATA[th>协议</th]]></expect>
+<expect><![CDATA[th>Publish mode</th]]></expect>|<expect><![CDATA[th>发布模式</th]]></expect>
+<expect><![CDATA[th>Read-only</th]]></expect>|<expect><![CDATA[th>只读</th]]></expect>
+<expect><![CDATA[th>Size</th]]></expect>|<expect><![CDATA[th>尺寸</th]]></expect>
+<expect><![CDATA[th>Source</th]]></expect>|<expect><![CDATA[th>原</th]]></expect>
+<expect><![CDATA[th>Strategy</th]]></expect>|<expect><![CDATA[th>策略</th]]></expect>
+<expect><![CDATA[th>Target</th]]></expect>|<expect><![CDATA[th>目标</th]]></expect>
+<expect><![CDATA[th>UID</th]]></expect>|<expect><![CDATA[th>UID</th]]></expect>
+<expect><![CDATA[th>Value</th]]></expect>|<expect><![CDATA[th>值</th]]></expect>
+<expect><![CDATA[th>Vendor</th]]></expect>|<expect><![CDATA[th>厂商</th]]></expect>
+<expect><![CDATA[>Toggle Dropdown</span]]></expect>|<expect><![CDATA[>Toggle Dropdown</span]]></expect>
+<expect><![CDATA[>Type</th]]></expect>|<expect><![CDATA[>类别</th]]></expect>
+<expect><![CDATA[>Update</button]]></expect>|<expect><![CDATA[>更新</button]]></expect>
+<expect><![CDATA[>Update environment</span]]></expect>|<expect><![CDATA[>更新节点</span]]></expect>
+<expect><![CDATA[>Update in progress...</span]]></expect>|<expect><![CDATA[>更新中。。</span]]></expect>
+<expect><![CDATA[>Update password</button]]></expect>|<expect><![CDATA[>更新密码</button]]></expect>
+<expect><![CDATA[>Update registry</span]]></expect>|<expect><![CDATA[>更新仓库</span]]></expect>
+<expect><![CDATA[>Update theme</button]]></expect>|<expect><![CDATA[>更新主题</button]]></expect>
+<expect><![CDATA[>Update the stack</span]]></expect>|<expect><![CDATA[>更新Stack</span]]></expect>
+<expect><![CDATA[>Update the template</span]]></expect>|<expect><![CDATA[>更新模板</span]]></expect>
+<expect><![CDATA[>Updating environment...</span]]></expect>|<expect><![CDATA[>更新节点。。</span]]></expect>
+<expect><![CDATA[>Updating registry...</span]]></expect>|<expect><![CDATA[>更新仓库。。</span]]></expect>
+<expect><![CDATA[>Upload</span]]></expect>|<expect><![CDATA[>上传</span]]></expect>
+<expect><![CDATA[>username</button]]></expect>|<expect><![CDATA[>用户名</button]]></expect>
+<expect><![CDATA[>Login in progress...</span]]></expect>|<expect><![CDATA[>登录中。。</span]]></expect>
+
+#handAdd
+<expect><![CDATA[></i> Login</span]]></expect>|<expect><![CDATA[></i> 登录</span]]></expect>

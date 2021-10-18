@@ -52,7 +52,12 @@ function getRepo(){
 getRepo
 
 # dict portainer_zh.xml
-curl -O https://gitee.com/g-devops/lang-replacement/raw/dev/output/portainer_zh.xml
+echo -e "\n\n==get newest portainer_zh.xml============\n"
+curl -qO https://gitee.com/g-devops/lang-replacement/raw/dev/output/portainer_zh.xml
+cat portainer_zh.xml |wc
+echo -e "已获取最新portainer_zh.xml, 请注意获取到dict的行数(避免无效数据)\n(sleep 5)\n\n\n"; sleep 5
+
+
 
 # REPLACE
 rm -rf portainer; cp -a pt0 portainer

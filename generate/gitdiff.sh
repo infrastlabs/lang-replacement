@@ -91,10 +91,11 @@ function doOne(){
     # echo ">>> $onefile"
 }
 
-# git --no-pager diff $CMP1 $CMP2 --numstat . |grep "^+++" > $tmp/addList.txt
+# git --no-pager diff $CMP1 $CMP2 --numstat . |grep "^+++" > $tmp/addList.txt 
+#|grep "ldap-user-search-item" 
 # debug="|grep sidebar |grep -v docker"  ##|grep "/service.html" 
 cat $cur/tpl/_root.json >$tmp/root.txt
-git --no-pager diff $CMP1 $CMP2 . |grep "^+++" > $tmp/addList.txt
+Recreation in progress...git --no-pager diff $CMP1 $CMP2 . |grep "^+++" > $tmp/addList.txt
 cat $tmp/addList.txt | while read one; do
     file=$(echo ${one##*app/})
     doOne "$file"
@@ -135,3 +136,4 @@ function dictReplace(){
 }
 dictReplace $cur/dictReplace.txt
 dictReplace $cur/dict_fications.txt
+dictReplace $cur/dict_button_th_placeholer.txt

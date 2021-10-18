@@ -20,11 +20,124 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[>更新</button]]></expect>
+        <target><![CDATA[>Update</button]]></target>
+      </replace>
+    </item>
+    <name>docker/components/container-restart-policy/container-restart-policy.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', err, '代理节点信息获取失败']]></expect>
         <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve agent information']]></target>
       </replace>
     </item>
     <name>docker/components/dashboard-cluster-agent-info/dashboardClusterAgentInfoController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加配置]]></expect>
+        <target><![CDATA[</i>Add config]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[创建时间]]></expect>
+        <target><![CDATA[Creation Date]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/configs-datatable/configsDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>加入网络</span]]></expect>
+        <target><![CDATA[>Join network</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>加入网络。。</span]]></expect>
+        <target><![CDATA[>Joining network...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>网络</th]]></expect>
+        <target><![CDATA[th>Network</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IP地址]]></expect>
+        <target><![CDATA[IP Address]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>网关</th]]></expect>
+        <target><![CDATA[th>Gateway</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>MAC地址2</th]]></expect>
+        <target><![CDATA[th>MAC Address</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>离开网络]]></expect>
+        <target><![CDATA[</i> Leave network]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>离开网络。。</span]]></expect>
+        <target><![CDATA[>Leaving network...</span]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/container-networks-datatable/containerNetworksDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。" auto-focus ng-model-options="{ debounce: 300 }"]]></expect>
+        <target><![CDATA[placeholder="Search..." auto-focus ng-model-options="{ debounce: 300 }"]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/container-processes-datatable/containerProcessesDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>启动]]></expect>
+        <target><![CDATA[</i>Start]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>停止]]></expect>
+        <target><![CDATA[</i>Stop]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>杀死]]></expect>
+        <target><![CDATA[</i>Kill]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>重启]]></expect>
+        <target><![CDATA[</i>Restart]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>暂停]]></expect>
+        <target><![CDATA[</i>Pause]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>恢复]]></expect>
+        <target><![CDATA[</i>Resume]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加容器]]></expect>
+        <target><![CDATA[</i>Add container]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/containers-datatable/actions/containersDatatableActions.html</name>
   </file>
   <file>
     <item>
@@ -42,6 +155,196 @@
       </replace>
     </item>
     <name>docker/components/datatables/containers-datatable/actions/containersDatatableActionsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[便捷操作]]></expect>
+        <target><![CDATA[Quick actions]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IP地址]]></expect>
+        <target><![CDATA[IP Address]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[端口发布]]></expect>
+        <target><![CDATA[Published Ports]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/containers-datatable/containersDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[类别]]></expect>
+        <target><![CDATA[Category]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/events-datatable/eventsDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>Toggle Dropdown</span]]></expect>
+        <target><![CDATA[>Toggle Dropdown</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>构建新镜像]]></expect>
+        <target><![CDATA[</i>Build a new image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>导入]]></expect>
+        <target><![CDATA[</i>Import]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>导出</span]]></expect>
+        <target><![CDATA[>Export</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>导出中。。</span]]></expect>
+        <target><![CDATA[>Export in progress...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/images-datatable/imagesDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IP地址]]></expect>
+        <target><![CDATA[IP Address]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/macvlan-nodes-datatable/macvlanNodesDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加网络]]></expect>
+        <target><![CDATA[</i>Add network]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IPAM驱动]]></expect>
+        <target><![CDATA[IPAM Driver]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IPV4子网]]></expect>
+        <target><![CDATA[IPV4 IPAM Subnet]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IPV4网关]]></expect>
+        <target><![CDATA[IPV4 IPAM Gateway]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IPV6子网]]></expect>
+        <target><![CDATA[IPV6 IPAM Subnet]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IPV6网关]]></expect>
+        <target><![CDATA[IPV6 IPAM Gateway]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/networks-datatable/networksDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[上次更新]]></expect>
+        <target><![CDATA[Last Update]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/node-tasks-datatable/nodeTasksDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[IP地址]]></expect>
+        <target><![CDATA[IP Address]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/nodes-datatable/nodesDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加密钥]]></expect>
+        <target><![CDATA[</i>Add secret]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[创建时间]]></expect>
+        <target><![CDATA[Creation Date]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/secrets-datatable/secretsDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[上次更新]]></expect>
+        <target><![CDATA[Last Update]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/service-tasks-datatable/serviceTasksDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>更新]]></expect>
+        <target><![CDATA[</i>Update]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加服务]]></expect>
+        <target><![CDATA[</i>Add service]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/services-datatable/actions/servicesDatatableActions.html</name>
   </file>
   <file>
     <item>
@@ -71,6 +374,61 @@
       </replace>
     </item>
     <name>docker/components/datatables/services-datatable/actions/servicesDatatableActionsController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[调度模式]]></expect>
+        <target><![CDATA[Scheduling Mode]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[端口发布]]></expect>
+        <target><![CDATA[Published Ports]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[上次更新]]></expect>
+        <target><![CDATA[Last Update]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/services-datatable/servicesDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[上次更新]]></expect>
+        <target><![CDATA[Last Update]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/tasks-datatable/tasksDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加卷]]></expect>
+        <target><![CDATA[</i>Add volume]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="查询。。"]]></expect>
+        <target><![CDATA[placeholder="Search..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[挂载点]]></expect>
+        <target><![CDATA[Mount point]]></target>
+      </replace>
+    </item>
+    <name>docker/components/datatables/volumes-datatable/volumesDatatable.html</name>
   </file>
   <file>
     <item>
@@ -108,6 +466,32 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[th>名字</th]]></expect>
+        <target><![CDATA[th>Name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>厂商</th]]></expect>
+        <target><![CDATA[th>Vendor</th]]></target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/devices-panel/devices-panel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>厂商</th]]></expect>
+        <target><![CDATA[th>Vendor</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>尺寸</th]]></expect>
+        <target><![CDATA[th>Size</th]]></target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/disks-panel/disks-panel.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[容器信息]]></expect>
         <target><![CDATA[Engine Details]]></target>
       </replace>
@@ -126,6 +510,19 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo" ng-change="$ctrl.updateLabel(label)"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo" ng-change="$ctrl.updateLabel(label)"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar" ng-change="$ctrl.updateLabel(label)"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar" ng-change="$ctrl.updateLabel(label)"]]></target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/node-labels-table/node-labels-table.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.success('更新节点成功', '节点已更新']]></expect>
         <target><![CDATA[fications.success('Node successfully updated', 'Node updated']]></target>
       </replace>
@@ -135,6 +532,19 @@
       </replace>
     </item>
     <name>docker/components/host-view-panels/swarm-node-details-panel/swarm-node-details-panel-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[应用配置]]></expect>
+        <target><![CDATA[Apply changes]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>变更重置</a]]></expect>
+        <target><![CDATA[>Reset changes</a]]></target>
+      </replace>
+    </item>
+    <name>docker/components/host-view-panels/swarm-node-details-panel/swarm-node-details-panel.html</name>
   </file>
   <file>
     <item>
@@ -152,11 +562,92 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[placeholder="e.g. myImage:myTag"]]></expect>
+        <target><![CDATA[placeholder="e.g. myImage:myTag"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. registry:port/myImage:myTag"]]></expect>
+        <target><![CDATA[placeholder="e.g. registry:port/myImage:myTag"]]></target>
+      </replace>
+    </item>
+    <name>docker/components/imageRegistry/por-image-registry.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="Filter..."]]></expect>
+        <target><![CDATA[placeholder="Filter..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="Enter no of lines..."]]></expect>
+        <target><![CDATA[placeholder="Enter no of lines..."]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>下载日志]]></expect>
+        <target><![CDATA[</i> Download logs]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[></i>拷贝</button]]></expect>
+        <target><![CDATA[></i>Copy</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>拷贝选中行]]></expect>
+        <target><![CDATA[</i>Copy selected lines]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>取消选择]]></expect>
+        <target><![CDATA[</i>Unselect]]></target>
+      </replace>
+    </item>
+    <name>docker/components/log-viewer/logViewer.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. eth0 or ens160 ..."]]></expect>
+        <target><![CDATA[placeholder="e.g. eth0 or ens160 ..."]]></target>
+      </replace>
+    </item>
+    <name>docker/components/network-macvlan-form/networkMacvlanForm.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', err, 'Macvlan信息获取失败']]></expect>
         <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve informations for macvlan']]></target>
       </replace>
     </item>
     <name>docker/components/network-macvlan-form/networkMacvlanFormController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. my.cifs-server.com OR xxx.xxx.xxx.xxx"]]></expect>
+        <target><![CDATA[placeholder="e.g. my.cifs-server.com OR xxx.xxx.xxx.xxx"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /myshare"]]></expect>
+        <target><![CDATA[placeholder="e.g. /myshare"]]></target>
+      </replace>
+    </item>
+    <name>docker/components/volumesCIFSForm/volumesCifsForm.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. my.nfs-server.com OR xxx.xxx.xxx.xxx"]]></expect>
+        <target><![CDATA[placeholder="e.g. my.nfs-server.com OR xxx.xxx.xxx.xxx"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /export/share, :/export/share, /share or :/share"]]></expect>
+        <target><![CDATA[placeholder="e.g. /export/share, :/export/share, /share or :/share"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. rw,noatime,tcp ..."]]></expect>
+        <target><![CDATA[placeholder="e.g. rw,noatime,tcp ..."]]></target>
+      </replace>
+    </item>
+    <name>docker/components/volumesNFSForm/volumesnfsForm.html</name>
   </file>
   <file>
     <item>
@@ -195,6 +686,44 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[placeholder="e.g. myConfig"]]></expect>
+        <target><![CDATA[placeholder="e.g. myConfig"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="Define or paste the content of your config here"]]></expect>
+        <target><![CDATA[placeholder="Define or paste the content of your config here"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建配置</button]]></expect>
+        <target><![CDATA[>Create config</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/configs/create/createconfig.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>删除配置]]></expect>
+        <target><![CDATA[</i>Delete this config]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>克隆配置]]></expect>
+        <target><![CDATA[</i>Clone config]]></target>
+      </replace>
+    </item>
+    <name>docker/views/configs/edit/config.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.success('配置删除成功']]></expect>
         <target><![CDATA[fications.success('Config successfully removed']]></target>
       </replace>
@@ -208,6 +737,23 @@
       </replace>
     </item>
     <name>docker/views/configs/edit/configController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>Attach容器</span]]></expect>
+        <target><![CDATA[>Attach to Container</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>Detach</span]]></expect>
+        <target><![CDATA[>Detach</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>Attach中。。</span]]></expect>
+        <target><![CDATA[>Attaching...</span]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/console/attach.html</name>
   </file>
   <file>
     <item>
@@ -233,6 +779,31 @@
       </replace>
     </item>
     <name>docker/views/containers/console/containerConsoleController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. ps aux"]]></expect>
+        <target><![CDATA[placeholder="e.g. ps aux"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="root"]]></expect>
+        <target><![CDATA[placeholder="root"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>连接</span]]></expect>
+        <target><![CDATA[>Connect</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>断开连接</span]]></expect>
+        <target><![CDATA[>Disconnect</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>连接中。。</span]]></expect>
+        <target><![CDATA[>Connecting...</span]]></target>
+      </replace>
+    </item>
+    <name>docker/views/containers/console/exec.html</name>
   </file>
   <file>
     <item>
@@ -300,6 +871,10 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[placeholder="e.g. myContainer"]]></expect>
+        <target><![CDATA[placeholder="e.g. myContainer"]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[镜像设置]]></expect>
         <target><![CDATA[Image configuration]]></target>
       </replace>
@@ -308,8 +883,120 @@
         <target><![CDATA[Network ports configuration]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[placeholder="e.g. 80, 80-88, ip:80 or ip:80-88 (optional)"]]></expect>
+        <target><![CDATA[placeholder="e.g. 80, 80-88, ip:80 or ip:80-88 (optional)"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 80 or 80-88"]]></expect>
+        <target><![CDATA[placeholder="e.g. 80 or 80-88"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>部署容器</span]]></expect>
+        <target><![CDATA[>Deploy the container</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>部署中。。</span]]></expect>
+        <target><![CDATA[>Deployment in progress...</span]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[高级选项设置]]></expect>
         <target><![CDATA[Advanced container settings]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>默认</button]]></expect>
+        <target><![CDATA[> Default</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>覆盖</button]]></expect>
+        <target><![CDATA[>Override</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. '-logtostderr' '--housekeeping_interval=5s' or /usr/bin/nginx -t -c /mynginx.conf"]]></expect>
+        <target><![CDATA[placeholder="e.g. '-logtostderr' '--housekeeping_interval=5s' or /usr/bin/nginx -t -c /mynginx.conf"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /bin/sh -c"]]></expect>
+        <target><![CDATA[placeholder="e.g. /bin/sh -c"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /myapp"]]></expect>
+        <target><![CDATA[placeholder="e.g. /myapp"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. nginx"]]></expect>
+        <target><![CDATA[placeholder="e.g. nginx"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. FOO"]]></expect>
+        <target><![CDATA[placeholder="e.g. FOO"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /path/in/container"]]></expect>
+        <target><![CDATA[placeholder="e.g. /path/in/container"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /path/on/host"]]></expect>
+        <target><![CDATA[placeholder="e.g. /path/on/host"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. web01"]]></expect>
+        <target><![CDATA[placeholder="e.g. web01"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. example.com"]]></expect>
+        <target><![CDATA[placeholder="e.g. example.com"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 12-34-56-78-9a-bc"]]></expect>
+        <target><![CDATA[placeholder="e.g. 12-34-56-78-9a-bc"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 172.20.0.7"]]></expect>
+        <target><![CDATA[placeholder="e.g. 172.20.0.7"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. a:b:c:d::1234"]]></expect>
+        <target><![CDATA[placeholder="e.g. a:b:c:d::1234"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 1.1.1.1, 2606:4700:4700::1111"]]></expect>
+        <target><![CDATA[placeholder="e.g. 1.1.1.1, 2606:4700:4700::1111"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 1.0.0.1, 2606:4700:4700::1001"]]></expect>
+        <target><![CDATA[placeholder="e.g. 1.0.0.1, 2606:4700:4700::1001"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. host:IP"]]></expect>
+        <target><![CDATA[placeholder="e.g. host:IP"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /dev/tty0"]]></expect>
+        <target><![CDATA[placeholder="e.g. /dev/tty0"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /dev/tty0"]]></expect>
+        <target><![CDATA[placeholder="e.g. /dev/tty0"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. FOO"]]></expect>
+        <target><![CDATA[placeholder="e.g. FOO"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
       </replace>
     </item>
     <name>docker/views/containers/create/createcontainer.html</name>
@@ -319,6 +1006,42 @@
       <replace>
         <expect><![CDATA[操作]]></expect>
         <target><![CDATA[Actions]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>启动]]></expect>
+        <target><![CDATA[</i>Start]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>停止]]></expect>
+        <target><![CDATA[</i>Stop]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[></i>杀死]]></expect>
+        <target><![CDATA[></i>Kill]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>重启]]></expect>
+        <target><![CDATA[</i>Restart]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>暂停]]></expect>
+        <target><![CDATA[</i>Pause]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>恢复]]></expect>
+        <target><![CDATA[</i>Resume]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>重建]]></expect>
+        <target><![CDATA[</i>Recreate]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>重建中。。</span]]></expect>
+        <target><![CDATA[>Recreation in progress...</span]]></target>
       </replace>
       <replace>
         <expect><![CDATA[容器状态]]></expect>
@@ -331,6 +1054,14 @@
       <replace>
         <expect><![CDATA[text="容器明细"]]></expect>
         <target><![CDATA[text="Container details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>主机/卷</th]]></expect>
+        <target><![CDATA[th>Host/volume</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>容器内路径</th]]></expect>
+        <target><![CDATA[th>Path in container</th]]></target>
       </replace>
       <replace>
         <expect><![CDATA[容器网络]]></expect>
@@ -496,6 +1227,14 @@
         <expect><![CDATA[容器安全设置]]></expect>
         <target><![CDATA[Docker Security Settings]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[>保存配置</span]]></expect>
+        <target><![CDATA[>Save configuration</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>保存中。。</span]]></expect>
+        <target><![CDATA[>Saving...</span]]></target>
+      </replace>
     </item>
     <name>docker/views/docker-features-configuration/docker-features-configuration.html</name>
   </file>
@@ -555,8 +1294,40 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[placeholder="e.g. myImage:myTag"]]></expect>
+        <target><![CDATA[placeholder="e.g. myImage:myTag"]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[构建方式]]></expect>
         <target><![CDATA[Build method]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="Define or paste the content of your Dockerfile here"]]></expect>
+        <target><![CDATA[placeholder="Define or paste the content of your Dockerfile here"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="Dockerfile"]]></expect>
+        <target><![CDATA[placeholder="Dockerfile"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="https://myhost.mydomain/myimage.tar.gz"]]></expect>
+        <target><![CDATA[placeholder="https://myhost.mydomain/myimage.tar.gz"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="Dockerfile"]]></expect>
+        <target><![CDATA[placeholder="Dockerfile"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>构建镜像</span]]></expect>
+        <target><![CDATA[>Build the image</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>镜像构建中。。</span]]></expect>
+        <target><![CDATA[>Image building in progress...</span]]></target>
       </replace>
     </item>
     <name>docker/views/images/build/buildimage.html</name>
@@ -572,8 +1343,24 @@
         <target><![CDATA[Tag the image]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[>标签</button]]></expect>
+        <target><![CDATA[>Tag</button]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[text="镜像明细"]]></expect>
         <target><![CDATA[text="Image details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>删除镜像]]></expect>
+        <target><![CDATA[</i>Delete this image]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>导出镜像</span]]></expect>
+        <target><![CDATA[>Export this image</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>导出中。。</span]]></expect>
+        <target><![CDATA[>Export in progress...</span]]></target>
       </replace>
       <replace>
         <expect><![CDATA[text="Dockerfile明细"]]></expect>
@@ -658,6 +1445,14 @@
         <target><![CDATA[Pull image]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[>拉取镜像</span]]></expect>
+        <target><![CDATA[>Pull the image</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>下载中。。</span]]></expect>
+        <target><![CDATA[>Download in progress...</span]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[text="镜像"]]></expect>
         <target><![CDATA[text="Images"]]></target>
       </replace>
@@ -725,6 +1520,23 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>上传</span]]></expect>
+        <target><![CDATA[>Upload</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>镜像上传中。。</span]]></expect>
+        <target><![CDATA[>Images uploading in progress...</span]]></target>
+      </replace>
+    </item>
+    <name>docker/views/images/import/importimage.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.success('网络创建成功']]></expect>
         <target><![CDATA[fications.success('Network successfully created']]></target>
       </replace>
@@ -746,20 +1558,84 @@
         <target><![CDATA[Add network]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[placeholder="e.g. myNetwork"]]></expect>
+        <target><![CDATA[placeholder="e.g. myNetwork"]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[网络配置]]></expect>
         <target><![CDATA[Driver configuration]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[placeholder="e.g. driverName" ng-if="availableNetworkDrivers.length === 0"]]></expect>
+        <target><![CDATA[placeholder="e.g. driverName" ng-if="availableNetworkDrivers.length === 0"]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[网络驱动)]]></expect>
         <target><![CDATA[Driver options]]></target>
       </replace>
       <replace>
         <expect><![CDATA[网络驱动)]]></expect>
         <target><![CDATA[Driver options]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.docker.network.bridge.enable_icc"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.docker.network.bridge.enable_icc"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. true"]]></expect>
+        <target><![CDATA[placeholder="e.g. true"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 172.20.0.0/16"]]></expect>
+        <target><![CDATA[placeholder="e.g. 172.20.0.0/16"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 172.20.10.11"]]></expect>
+        <target><![CDATA[placeholder="e.g. 172.20.10.11"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 172.20.10.128/25"]]></expect>
+        <target><![CDATA[placeholder="e.g. 172.20.10.128/25"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. my-router=172.20.10.129"]]></expect>
+        <target><![CDATA[placeholder="e.g. my-router=172.20.10.129"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 2001:db8::/48"]]></expect>
+        <target><![CDATA[placeholder="e.g. 2001:db8::/48"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 2001:db8::1"]]></expect>
+        <target><![CDATA[placeholder="e.g. 2001:db8::1"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 2001:db8::/64"]]></expect>
+        <target><![CDATA[placeholder="e.g. 2001:db8::/64"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. my-router=2001:db8::1"]]></expect>
+        <target><![CDATA[placeholder="e.g. my-router=2001:db8::1"]]></target>
       </replace>
       <replace>
         <expect><![CDATA[高级网络配置]]></expect>
         <target><![CDATA[Advanced configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建网络</span]]></expect>
+        <target><![CDATA[>Create the network</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建网络。。</span]]></expect>
+        <target><![CDATA[>Creating network...</span]]></target>
       </replace>
     </item>
     <name>docker/views/networks/create/createnetwork.html</name>
@@ -771,8 +1647,32 @@
         <target><![CDATA[text="Network details"]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[</i>删除网络]]></expect>
+        <target><![CDATA[</i>Delete this network]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[网络选项]]></expect>
         <target><![CDATA[Network options]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>容器名</th]]></expect>
+        <target><![CDATA[th>Container Name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>IPv4地址</th]]></expect>
+        <target><![CDATA[th>IPv4 Address</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>IPv6地址</th]]></expect>
+        <target><![CDATA[th>IPv6 Address</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>Mac地址</th]]></expect>
+        <target><![CDATA[th>MacAddress</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>离开网络]]></expect>
+        <target><![CDATA[</i>Leave Network]]></target>
       </replace>
     </item>
     <name>docker/views/networks/edit/network.html</name>
@@ -878,6 +1778,40 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[placeholder="e.g. mySecret"]]></expect>
+        <target><![CDATA[placeholder="e.g. mySecret"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建密钥</span]]></expect>
+        <target><![CDATA[>Create the secret</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建密钥。。</span]]></expect>
+        <target><![CDATA[>Creating secret...</span]]></target>
+      </replace>
+    </item>
+    <name>docker/views/secrets/create/createsecret.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>删除密钥]]></expect>
+        <target><![CDATA[</i>Delete this secret]]></target>
+      </replace>
+    </item>
+    <name>docker/views/secrets/edit/secret.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.success('密钥删除成功']]></expect>
         <target><![CDATA[fications.success('Secret successfully removed']]></target>
       </replace>
@@ -925,6 +1859,540 @@
       </replace>
     </item>
     <name>docker/views/services/create/createServiceController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. myService"]]></expect>
+        <target><![CDATA[placeholder="e.g. myService"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 3" style="margin-left: 20px;"]]></expect>
+        <target><![CDATA[placeholder="e.g. 3" style="margin-left: 20px;"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 80 or 1.2.3.4:80 (optional)"]]></expect>
+        <target><![CDATA[placeholder="e.g. 80 or 1.2.3.4:80 (optional)"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 80"]]></expect>
+        <target><![CDATA[placeholder="e.g. 80"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建服务</span]]></expect>
+        <target><![CDATA[>Create the service</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建服务。。</span]]></expect>
+        <target><![CDATA[>Creating service...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /usr/bin/nginx -t -c /mynginx.conf"]]></expect>
+        <target><![CDATA[placeholder="e.g. /usr/bin/nginx -t -c /mynginx.conf"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /bin/sh -c"]]></expect>
+        <target><![CDATA[placeholder="e.g. /bin/sh -c"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /myapp"]]></expect>
+        <target><![CDATA[placeholder="e.g. /myapp"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. nginx"]]></expect>
+        <target><![CDATA[placeholder="e.g. nginx"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. FOO"]]></expect>
+        <target><![CDATA[placeholder="e.g. FOO"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /path/in/container"]]></expect>
+        <target><![CDATA[placeholder="e.g. /path/in/container"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /path/on/host"]]></expect>
+        <target><![CDATA[placeholder="e.g. /path/on/host"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. host:IP"]]></expect>
+        <target><![CDATA[placeholder="e.g. host:IP"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/create/createservice.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /path/in/container"]]></expect>
+        <target><![CDATA[placeholder="e.g. /path/in/container"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/create/includes/config.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. node.role"]]></expect>
+        <target><![CDATA[placeholder="e.g. node.role"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. manager"]]></expect>
+        <target><![CDATA[placeholder="e.g. manager"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. spread"]]></expect>
+        <target><![CDATA[placeholder="e.g. spread"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. node.labels.datacenter"]]></expect>
+        <target><![CDATA[placeholder="e.g. node.labels.datacenter"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/create/includes/resources-placement.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="/path/in/container"]]></expect>
+        <target><![CDATA[placeholder="/path/in/container"]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/create/includes/secret.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 1"]]></expect>
+        <target><![CDATA[placeholder="e.g. 1"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></expect>
+        <target><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></expect>
+        <target><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 0"]]></expect>
+        <target><![CDATA[placeholder="e.g. 0"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></expect>
+        <target><![CDATA[placeholder="e.g. 1m" ng-pattern="/^([0-9]+)(h]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/create/includes/update-restart.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>名字</th]]></expect>
+        <target><![CDATA[th>Name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>容器内路径</th]]></expect>
+        <target><![CDATA[th>Path in container</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>UID</th]]></expect>
+        <target><![CDATA[th>UID</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>GID</th]]></expect>
+        <target><![CDATA[th>GID</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>模式</th]]></expect>
+        <target><![CDATA[th>Mode</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /path/in/container"]]></expect>
+        <target><![CDATA[placeholder="e.g. /path/in/container"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除配置]]></expect>
+        <target><![CDATA[</i> Remove config]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/configs.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>名字</th]]></expect>
+        <target><![CDATA[th>Name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>操作者</th]]></expect>
+        <target><![CDATA[th>Operator</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>值</th]]></expect>
+        <target><![CDATA[th>Value</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. node.role"]]></expect>
+        <target><![CDATA[placeholder="e.g. node.role"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. manager"]]></expect>
+        <target><![CDATA[placeholder="e.g. manager"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/constraints.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>标签</th]]></expect>
+        <target><![CDATA[th>Label</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>值</th]]></expect>
+        <target><![CDATA[th>Value</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/containerlabels.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[应用配置]]></expect>
+        <target><![CDATA[Apply changes]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/environmentvariables.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>主机名</th]]></expect>
+        <target><![CDATA[th>Hostname</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>IP</th]]></expect>
+        <target><![CDATA[th>IP</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. example.com"]]></expect>
+        <target><![CDATA[placeholder="e.g. example.com"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 10.0.1.1"]]></expect>
+        <target><![CDATA[placeholder="e.g. 10.0.1.1"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/hosts.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/image.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>选项</th]]></expect>
+        <target><![CDATA[th>Option</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>值</th]]></expect>
+        <target><![CDATA[th>Value</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. FOO"]]></expect>
+        <target><![CDATA[placeholder="e.g. FOO"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/logging.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>类别</th]]></expect>
+        <target><![CDATA[>Type</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>原</th]]></expect>
+        <target><![CDATA[th>Source</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>目标</th]]></expect>
+        <target><![CDATA[th>Target</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>Read only</th]]></expect>
+        <target><![CDATA[>Read only</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /tmp/portainer/data"]]></expect>
+        <target><![CDATA[placeholder="e.g. /tmp/portainer/data"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /tmp/portainer/data"]]></expect>
+        <target><![CDATA[placeholder="e.g. /tmp/portainer/data"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[应用配置]]></expect>
+        <target><![CDATA[Apply changes]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/mounts.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>名字</th]]></expect>
+        <target><![CDATA[th>Name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>ID</th]]></expect>
+        <target><![CDATA[th>ID</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>IP地址</th]]></expect>
+        <target><![CDATA[th>IP address</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[应用配置]]></expect>
+        <target><![CDATA[Apply changes]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/networks.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>策略</th]]></expect>
+        <target><![CDATA[th>Strategy</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>值</th]]></expect>
+        <target><![CDATA[th>Value</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. node.role"]]></expect>
+        <target><![CDATA[placeholder="e.g. node.role"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. manager"]]></expect>
+        <target><![CDATA[placeholder="e.g. manager"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/placementPreferences.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[th>主机端口</th]]></expect>
+        <target><![CDATA[th>Host port</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>容器端口</th]]></expect>
+        <target><![CDATA[th>Container port</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>协议</th]]></expect>
+        <target><![CDATA[th>Protocol</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>发布模式</th]]></expect>
+        <target><![CDATA[th>Publish mode</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 8080"]]></expect>
+        <target><![CDATA[placeholder="e.g. 8080"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. 80"]]></expect>
+        <target><![CDATA[placeholder="e.g. 80"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/ports.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/resources.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/restart.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="/path/in/container"]]></expect>
+        <target><![CDATA[placeholder="/path/in/container"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>名字</th]]></expect>
+        <target><![CDATA[th>Name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>文件名</th]]></expect>
+        <target><![CDATA[th>File name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>UID</th]]></expect>
+        <target><![CDATA[th>UID</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>GID</th]]></expect>
+        <target><![CDATA[th>GID</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>模式</th]]></expect>
+        <target><![CDATA[th>Mode</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除密钥]]></expect>
+        <target><![CDATA[</i> Remove secret]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/secrets.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. com.example.foo"]]></expect>
+        <target><![CDATA[placeholder="e.g. com.example.foo"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. bar"]]></expect>
+        <target><![CDATA[placeholder="e.g. bar"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/servicelabels.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/includes/updateconfig.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>拷贝链接]]></expect>
+        <target><![CDATA[</i>Copy link]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>更新服务]]></expect>
+        <target><![CDATA[</i>Update the service]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新中。。</span]]></expect>
+        <target><![CDATA[>Update in progress...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>回滚服务]]></expect>
+        <target><![CDATA[</i>Rollback the service]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>回滚中。。</span]]></expect>
+        <target><![CDATA[>Rollback in progress...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>删除服务]]></expect>
+        <target><![CDATA[</i>Delete the service]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>删除中。。</span]]></expect>
+        <target><![CDATA[>Deletion in progress...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</button]]></expect>
+        <target><![CDATA[>Apply changes</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/services/edit/service.html</name>
   </file>
   <file>
     <item>
@@ -1034,6 +2502,19 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[>显示</button]]></expect>
+        <target><![CDATA[>Show</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>隐藏</button]]></expect>
+        <target><![CDATA[>Hide</button]]></target>
+      </replace>
+    </item>
+    <name>docker/views/swarm/visualizer/swarmvisualizer.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', err, '任务明细获取失败']]></expect>
         <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve task details']]></target>
       </replace>
@@ -1077,16 +2558,40 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[placeholder="e.g. myVolume"]]></expect>
+        <target><![CDATA[placeholder="e.g. myVolume"]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[驱动设置]]></expect>
         <target><![CDATA[Driver configuration]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[placeholder="e.g. driverName" ng-if="availableVolumeDrivers.length === 0"]]></expect>
+        <target><![CDATA[placeholder="e.g. driverName" ng-if="availableVolumeDrivers.length === 0"]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[驱动选项)]]></expect>
         <target><![CDATA[Driver options]]></target>
       </replace>
       <replace>
         <expect><![CDATA[驱动选项)]]></expect>
         <target><![CDATA[Driver options]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. mountpoint"]]></expect>
+        <target><![CDATA[placeholder="e.g. mountpoint"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[placeholder="e.g. /path/on/host"]]></expect>
+        <target><![CDATA[placeholder="e.g. /path/on/host"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建磁盘卷</span]]></expect>
+        <target><![CDATA[>Create the volume</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建磁盘卷。。</span]]></expect>
+        <target><![CDATA[>Creating volume...</span]]></target>
       </replace>
     </item>
     <name>docker/views/volumes/create/createvolume.html</name>
@@ -1096,6 +2601,22 @@
       <replace>
         <expect><![CDATA[text="磁盘明细"]]></expect>
         <target><![CDATA[text="Volume details"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除磁盘卷]]></expect>
+        <target><![CDATA[</i>Remove this volume]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>容器名</th]]></expect>
+        <target><![CDATA[th>Container Name</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>挂载点</th]]></expect>
+        <target><![CDATA[th>Mounted At</th]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[th>只读</th]]></expect>
+        <target><![CDATA[th>Read-only</th]]></target>
       </replace>
     </item>
     <name>docker/views/volumes/edit/volume.html</name>
@@ -1193,6 +2714,15 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/access-datatable/accessDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[权限设置]]></expect>
         <target><![CDATA[Access control]]></target>
       </replace>
@@ -1264,6 +2794,14 @@
         <expect><![CDATA[text="Create access"]]></expect>
         <target><![CDATA[text="Create access"]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[</i>创建权限]]></expect>
+        <target><![CDATA[</i> Create access]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建权限。。</span]]></expect>
+        <target><![CDATA[>Creating access...</span]]></target>
+      </replace>
     </item>
     <name>portainer/components/accessManagement/porAccessManagement.html</name>
   </file>
@@ -1279,6 +2817,15 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>拷贝2]]></expect>
+        <target><![CDATA[</i> Copy]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/copy-button/copy-button.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', err, '自定义模板获取失败']]></expect>
         <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve Custom Templates']]></target>
       </replace>
@@ -1288,11 +2835,186 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>添加自定义模板]]></expect>
+        <target><![CDATA[</i>Add Custom Template]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>删除</button]]></expect>
+        <target><![CDATA[>Delete</button]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[列表为空。]]></expect>
         <target><![CDATA[No templates available.]]></target>
       </replace>
     </item>
     <name>portainer/components/custom-templates-list/customTemplatesList.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加节点]]></expect>
+        <target><![CDATA[</i>Add environment]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/endpoints-datatable/endpointsDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加组]]></expect>
+        <target><![CDATA[</i>Add group]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/groups-datatable/groupsDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加仓库]]></expect>
+        <target><![CDATA[</i>Add registry]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/registries-datatable/registriesDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加Stack]]></expect>
+        <target><![CDATA[</i>Add stack]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/stacks-datatable/stacksDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/strings-datatable/strings-datatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/tags-datatable/tagsDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/teams-datatable/teamsDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/users-datatable/usersDatatable.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>刷新]]></expect>
+        <target><![CDATA[</i>Refresh]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/endpoint-list/endpointList.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>选择文件</button]]></expect>
+        <target><![CDATA[>Select file</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>选择文件</button]]></expect>
+        <target><![CDATA[>Select file</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>选择文件</button]]></expect>
+        <target><![CDATA[>Select file</button]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/endpointSecurity/porEndpointSecurity.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>移除值]]></expect>
+        <target><![CDATA[</i> Remove value]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加值]]></expect>
+        <target><![CDATA[</i> Add value]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/environment-variables-panel/environment-variables-simple-mode/environment-variables-simple-mode-item/environment-variables-simple-mode-item.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>添加环境变量]]></expect>
+        <target><![CDATA[</i> Add an environment variable]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>从.env文件加载]]></expect>
+        <target><![CDATA[</i> Load variables from .env file]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/environment-variables-panel/environment-variables-simple-mode/environment-variables-simple-mode.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/form-components/file-upload-form/file-upload-form.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>拷贝链接]]></expect>
+        <target><![CDATA[</i>Copy link]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/git-form/git-form-auto-update-fieldset/git-form-auto-update-fieldset.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[进行中。。]]></expect>
+        <target><![CDATA[In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/group-form/groupForm.html</name>
   </file>
   <file>
     <item>
@@ -1339,6 +3061,23 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[进行中。。]]></expect>
+        <target><![CDATA[In progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[保存设置]]></expect>
+        <target><![CDATA[Save settings]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[进行中。。]]></expect>
+        <target><![CDATA[In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/kubernetes-app-git-form/kubernetes-app-git-form.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.success('Stack拉取及重部署成功']]></expect>
         <target><![CDATA[fications.success('Pulled and redeployed stack successfully']]></target>
       </replace>
@@ -1356,6 +3095,102 @@
       </replace>
     </item>
     <name>portainer/components/forms/kubernetes-redeploy-app-git-form/kubernetes-redeploy-app-git-form.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[进行中。。]]></expect>
+        <target><![CDATA[In progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[保存设置]]></expect>
+        <target><![CDATA[Save settings]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[进行中。。]]></expect>
+        <target><![CDATA[In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/kubernetes-redeploy-app-git-form/kubernetes-redeploy-app-git-form.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[进行中。。]]></expect>
+        <target><![CDATA[In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/registry-form-azure/registry-form-azure.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/registry-form-custom/registry-form-custom.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/registry-form-dockerhub/registry-form-dockerhub.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[获取项目]]></expect>
+        <target><![CDATA[Retrieve projects]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/registry-form-gitlab/registry-form-gitlab.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/registry-form-proget/registry-form-proget.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/registry-form-quay/registry-form-quay.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[部署Stack]]></expect>
+        <target><![CDATA[Deploy the stack]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[部署中。。]]></expect>
+        <target><![CDATA[Deployment in progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>隐藏</button]]></expect>
+        <target><![CDATA[>Hide</button]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/stack-from-template-form/stackFromTemplateForm.html</name>
   </file>
   <file>
     <item>
@@ -1381,11 +3216,41 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>拉取并重部署]]></expect>
+        <target><![CDATA[</i> Pull and redeploy]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[保存设置]]></expect>
+        <target><![CDATA[Save settings]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>进行中。。]]></expect>
+        <target><![CDATA[>In progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/forms/stack-redeploy-git-form/stack-redeploy-git-form.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[帐号设置]]></expect>
         <target><![CDATA[my account]]></target>
       </replace>
     </item>
     <name>portainer/components/header-content.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>刷新]]></expect>
+        <target><![CDATA[</i>Refresh]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/information-panel-offline/informationPanelOffline.html</name>
   </file>
   <file>
     <item>
@@ -1403,11 +3268,45 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>显示]]></expect>
+        <target><![CDATA[</i> Show]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>隐藏]]></expect>
+        <target><![CDATA[</i> Hide]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/show-hide/show-hide.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', null, '建副本需要Stack名']]></expect>
         <target><![CDATA[fications.error('Failure', null, 'Stack name is required for duplication']]></target>
       </replace>
     </item>
     <name>portainer/components/stack-duplication-form/stack-duplication-form-controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>迁移]]></expect>
+        <target><![CDATA[</i> Migrate]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[迁移中。。]]></expect>
+        <target><![CDATA[Migration in progress...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>副本]]></expect>
+        <target><![CDATA[</i> Duplicate]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[副本建立中。。]]></expect>
+        <target><![CDATA[Duplication in progress...]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/stack-duplication-form/stack-duplication-form.html</name>
   </file>
   <file>
     <item>
@@ -1420,6 +3319,14 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[</i>添加模板]]></expect>
+        <target><![CDATA[</i>Add template]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[拷贝为自定义]]]></expect>
+        <target><![CDATA[Copy as Custom]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[列表为空。]]></expect>
         <target><![CDATA[No templates available.]]></target>
@@ -1449,6 +3356,10 @@
       <replace>
         <expect><![CDATA[主题切换]]></expect>
         <target><![CDATA[Change user theme]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新主题</button]]></expect>
+        <target><![CDATA[>Update theme</button]]></target>
       </replace>
     </item>
     <name>portainer/components/theme/theme-settings.html</name>
@@ -1483,11 +3394,46 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>添加新服务]]></expect>
+        <target><![CDATA[</i> Add additional server]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ad-settings/ad-settings.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>测试连接</span]]></expect>
+        <target><![CDATA[>Test connectivity</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>测试连接。。</span]]></expect>
+        <target><![CDATA[>Testing connectivity...</span]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-connectivity-check/ldap-connectivity-check.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', error, '查询用户失败']]></expect>
         <target><![CDATA[fications.error('Failure', error, 'Failed to search users']]></target>
       </replace>
     </item>
     <name>portainer/settings/authentication/ldap/ldap-custom-group-search/ldap-custom-group-search.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>添加组查询配置]]></expect>
+        <target><![CDATA[</i> add group search configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[显示配置的用户/组]]></expect>
+        <target><![CDATA[Display User/Group matching]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-custom-group-search/ldap-custom-group-search.html</name>
   </file>
   <file>
     <item>
@@ -1501,11 +3447,73 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>添加用户查询配置]]></expect>
+        <target><![CDATA[</i> add user search configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[显示用户]]></expect>
+        <target><![CDATA[Display Users]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-custom-user-search/ldap-custom-user-search.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', error, '查询用户失败']]></expect>
         <target><![CDATA[fications.error('Failure', error, 'Failed to search users']]></target>
       </replace>
     </item>
     <name>portainer/settings/authentication/ldap/ldap-group-search/ldap-group-search.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>添加组查询配置]]></expect>
+        <target><![CDATA[</i> add group search configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[显示配置的用户/组]]></expect>
+        <target><![CDATA[Display User/Group matching]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-group-search/ldap-group-search.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>添加新服务]]></expect>
+        <target><![CDATA[</i> Add additional server]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-settings-custom/ldap-settings-custom.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>新加入口]]></expect>
+        <target><![CDATA[</i> add another entry]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-settings-dn-builder/ldap-settings-dn-builder.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>添加新服务]]></expect>
+        <target><![CDATA[</i> Add additional server]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-settings-openldap/ldap-settings-openldap.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-settings-security/ldap-settings-security.html</name>
   </file>
   <file>
     <item>
@@ -1519,11 +3527,50 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[>测试</span]]></expect>
+        <target><![CDATA[>Test</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>测试中。。</span]]></expect>
+        <target><![CDATA[>Testing...</span]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-settings-test-login/ldap-settings-test-login.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>用户名</button]]></expect>
+        <target><![CDATA[>username</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>新加组]]></expect>
+        <target><![CDATA[</i> add another group]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-user-search-item/ldap-user-search-item.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', error, '查询用户失败']]></expect>
         <target><![CDATA[fications.error('Failure', error, 'Failed to search users']]></target>
       </replace>
     </item>
     <name>portainer/settings/authentication/ldap/ldap-user-search/ldap-user-search.controller.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>添加用户查询配置]]></expect>
+        <target><![CDATA[</i> add user search configuration]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[显示用户]]></expect>
+        <target><![CDATA[Display Users]]></target>
+      </replace>
+    </item>
+    <name>portainer/settings/authentication/ldap/ldap-user-search/ldap-user-search.html</name>
   </file>
   <file>
     <item>
@@ -1544,6 +3591,26 @@
         <expect><![CDATA[text="SSL认证"]]></expect>
         <target><![CDATA[text="SSL certificate"]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>应用配置</span]]></expect>
+        <target><![CDATA[>Apply Changes</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>保存中。。</span]]></expect>
+        <target><![CDATA[>Saving in progress...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>页面重加载。。</span]]></expect>
+        <target><![CDATA[>Reloading Page...</span]]></target>
+      </replace>
     </item>
     <name>portainer/settings/general/ssl-certificate/ssl-certificate.html</name>
   </file>
@@ -1563,6 +3630,15 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>导出CSV]]></expect>
+        <target><![CDATA[</i>Export as CSV]]></target>
+      </replace>
+    </item>
+    <name>portainer/user-activity/activity-logs-view/activity-logs-view.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', err, '加载鉴权日志失败']]></expect>
         <target><![CDATA[fications.error('Failure', err, 'Failed loading auth activity logs']]></target>
       </replace>
@@ -1572,8 +3648,21 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>导出CSV]]></expect>
+        <target><![CDATA[</i>Export as CSV]]></target>
+      </replace>
+    </item>
+    <name>portainer/user-activity/auth-logs-view/auth-logs-view.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[修改密码]]></expect>
         <target><![CDATA[Change user password]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新密码</button]]></expect>
+        <target><![CDATA[>Update password</button]]></target>
       </replace>
     </item>
     <name>portainer/views/account/account.html</name>
@@ -1606,12 +3695,12 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[登录</span]]></expect>
-        <target><![CDATA[Login</span]]></target>
+        <expect><![CDATA[></i>登录</span]]></expect>
+        <target><![CDATA[></i> Login</span]]></target>
       </replace>
       <replace>
-        <expect><![CDATA[登录中。。]]></expect>
-        <target><![CDATA[Login in progress...]]></target>
+        <expect><![CDATA[>登录中。。</span]]></expect>
+        <target><![CDATA[>Login in progress...</span]]></target>
       </replace>
       <replace>
         <expect><![CDATA[认证中。。]]></expect>
@@ -1632,6 +3721,23 @@
       </replace>
     </item>
     <name>portainer/views/auth/authController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建自定义模板</span]]></expect>
+        <target><![CDATA[>Create custom template</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建中。。</span]]></expect>
+        <target><![CDATA[>Creation in progress...</span]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/custom-templates/create-custom-template-view/createCustomTemplateView.html</name>
   </file>
   <file>
     <item>
@@ -1691,6 +3797,19 @@
       </replace>
     </item>
     <name>portainer/views/custom-templates/custom-templates-view/customTemplatesViewController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>更新模板</span]]></expect>
+        <target><![CDATA[>Update the template</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新中。。</span]]></expect>
+        <target><![CDATA[>Update in progress...</span]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/custom-templates/edit-custom-template-view/editCustomTemplateView.html</name>
   </file>
   <file>
     <item>
@@ -1803,8 +3922,69 @@
         <expect><![CDATA[节点类型]]></expect>
         <target><![CDATA[Environment type]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[</i>添加节点]]></expect>
+        <target><![CDATA[</i> Add environment]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建节点。。</span]]></expect>
+        <target><![CDATA[>Creating environment...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加节点]]></expect>
+        <target><![CDATA[</i> Add environment]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建节点。。</span]]></expect>
+        <target><![CDATA[>Creating environment...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加节点]]></expect>
+        <target><![CDATA[</i> Add environment]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建节点。。</span]]></expect>
+        <target><![CDATA[>Creating environment...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加节点]]></expect>
+        <target><![CDATA[</i> Add environment]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建节点。。</span]]></expect>
+        <target><![CDATA[>Creating environment...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>添加节点]]></expect>
+        <target><![CDATA[</i> Add environment]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建节点。。</span]]></expect>
+        <target><![CDATA[>Creating environment...</span]]></target>
+      </replace>
     </item>
     <name>portainer/views/endpoints/create/createendpoint.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[>解除关联</span]]></expect>
+        <target><![CDATA[>De-associate</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新节点</span]]></expect>
+        <target><![CDATA[>Update environment</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新节点。。</span]]></expect>
+        <target><![CDATA[>Updating environment...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>取消</a]]></expect>
+        <target><![CDATA[>Cancel</a]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/endpoints/edit/endpoint.html</name>
   </file>
   <file>
     <item>
@@ -1984,8 +4164,28 @@
         <target><![CDATA[New Portainer installation]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[</i>创建用户]]></expect>
+        <target><![CDATA[</i> Create user]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建用户。。</span]]></expect>
+        <target><![CDATA[>Creating user...</span]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[由备份数据导入]]></expect>
         <target><![CDATA[Restore Portainer from backup]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>Portainer还原</span]]></expect>
+        <target><![CDATA[>Restore Portainer</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>Portainer还原。。</span]]></expect>
+        <target><![CDATA[>Restoring Portainer...</span]]></target>
       </replace>
     </item>
     <name>portainer/views/init/admin/initAdmin.html</name>
@@ -2014,6 +4214,23 @@
       </replace>
     </item>
     <name>portainer/views/init/admin/initAdminController.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[</i>连接]]></expect>
+        <target><![CDATA[</i> Connect]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>连接中。。</span]]></expect>
+        <target><![CDATA[>Connecting...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>跳过]]></expect>
+        <target><![CDATA[</i> Skip]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/init/endpoint/initEndpoint.html</name>
   </file>
   <file>
     <item>
@@ -2082,6 +4299,19 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[>更新仓库</span]]></expect>
+        <target><![CDATA[>Update registry</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新仓库。。</span]]></expect>
+        <target><![CDATA[>Updating registry...</span]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/registries/edit/registry.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.success('Registry更新成功']]></expect>
         <target><![CDATA[fications.success('Registry successfully updated']]></target>
       </replace>
@@ -2132,6 +4362,14 @@
         <expect><![CDATA[认证方式]]></expect>
         <target><![CDATA[Authentication method]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[>保存设置</span]]></expect>
+        <target><![CDATA[>Save settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>保存中。。</span]]></expect>
+        <target><![CDATA[>Saving...</span]]></target>
+      </replace>
     </item>
     <name>portainer/views/settings/authentication/settingsAuthentication.html</name>
   </file>
@@ -2175,12 +4413,44 @@
         <target><![CDATA[Helm Repository]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[>保存设置</span]]></expect>
+        <target><![CDATA[>Save settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>保存中。。</span]]></expect>
+        <target><![CDATA[>Saving...</span]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[容器隐藏]]></expect>
         <target><![CDATA[Hidden containers]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[</i>添加过滤器]]></expect>
+        <target><![CDATA[</i>Add filter]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[数据备份]]></expect>
         <target><![CDATA[Backup Portainer]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>导入备份]]></expect>
+        <target><![CDATA[</i> Export backup]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[保存备份设置</span]]></expect>
+        <target><![CDATA[Save backup settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>下载备份</span]]></expect>
+        <target><![CDATA[>Download backup</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>下载备份中</span]]></expect>
+        <target><![CDATA[>Downloading backup</span]]></target>
       </replace>
     </item>
     <name>portainer/views/settings/settings.html</name>
@@ -2255,6 +4525,55 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>部署Stack</span]]></expect>
+        <target><![CDATA[>Deploy the stack</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>部署中。。</span]]></expect>
+        <target><![CDATA[>Deployment in progress...</span]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/stacks/create/createstack.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[启动Stack]]></expect>
+        <target><![CDATA[Start this stack]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[停止Stack]]></expect>
+        <target><![CDATA[Stop this stack]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[删除Stack]]></expect>
+        <target><![CDATA[Delete this stack]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[从Stack创建模板]]></expect>
+        <target><![CDATA[Create template from stack]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>关联</span]]></expect>
+        <target><![CDATA[>Associate</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>关联中。。</span]]></expect>
+        <target><![CDATA[>Association in progress...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新Stack</span]]></expect>
+        <target><![CDATA[>Update the stack</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>部署中。。</span]]></expect>
+        <target><![CDATA[>Deployment in progress...</span]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[text="容器"]]></expect>
         <target><![CDATA[text="Containers"]]></target>
@@ -2371,6 +4690,14 @@
         <expect><![CDATA[添加标签]]></expect>
         <target><![CDATA[Add a new tag]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[</i>创建标签]]></expect>
+        <target><![CDATA[</i> Create tag]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建标签。。</span]]></expect>
+        <target><![CDATA[>Creating tag...</span]]></target>
+      </replace>
     </item>
     <name>portainer/views/tags/tags.html</name>
   </file>
@@ -2406,12 +4733,28 @@
         <target><![CDATA[text="Team details"]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[</i>删除团队]]></expect>
+        <target><![CDATA[</i>Delete this team]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[text="用户列表"]]></expect>
         <target><![CDATA[text="Users"]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[</i>添加所有用户]]></expect>
+        <target><![CDATA[</i>Add all users]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[团队成员]]></expect>
         <target><![CDATA[Team members]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除所有用户]]></expect>
+        <target><![CDATA[</i>Remove all users]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>移除]]></expect>
+        <target><![CDATA[</i>Remove]]></target>
       </replace>
     </item>
     <name>portainer/views/teams/edit/team.html</name>
@@ -2487,6 +4830,14 @@
         <expect><![CDATA[添加用户组]]></expect>
         <target><![CDATA[Add a new team]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[</i>创建团队]]></expect>
+        <target><![CDATA[</i> Create team]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建团队。。</span]]></expect>
+        <target><![CDATA[>Creating team...</span]]></target>
+      </replace>
     </item>
     <name>portainer/views/teams/teams.html</name>
   </file>
@@ -2528,6 +4879,18 @@
       <replace>
         <expect><![CDATA[磁盘挂载]]></expect>
         <target><![CDATA[Volume mapping]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>部署容器</span]]></expect>
+        <target><![CDATA[>Deploy the container</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>部署中。。</span]]></expect>
+        <target><![CDATA[>Deployment in progress...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>隐藏</button]]></expect>
+        <target><![CDATA[>Hide</button]]></target>
       </replace>
       <replace>
         <expect><![CDATA[text="模板列表"]]></expect>
@@ -2572,8 +4935,20 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[>保存</button]]></expect>
+        <target><![CDATA[>Save</button]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[删除用户]]></expect>
+        <target><![CDATA[Delete this user]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[修改密码]]></expect>
         <target><![CDATA[Change user password]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>更新密码</button]]></expect>
+        <target><![CDATA[>Update password</button]]></target>
       </replace>
     </item>
     <name>portainer/views/users/edit/user.html</name>
@@ -2616,6 +4991,14 @@
       <replace>
         <expect><![CDATA[添加用户]]></expect>
         <target><![CDATA[Add a new user]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>创建用户]]></expect>
+        <target><![CDATA[</i> Create user]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>创建用户。。</span]]></expect>
+        <target><![CDATA[>Creating user...</span]]></target>
       </replace>
       <replace>
         <expect><![CDATA[text="用户列表"]]></expect>
@@ -2669,6 +5052,19 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>连接]]></expect>
+        <target><![CDATA[</i> Connect]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[节点连接中。。]]></expect>
+        <target><![CDATA[Connecting environment...]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoint-aci/wizard-aci.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', true, '名字被占用']]></expect>
         <target><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></target>
       </replace>
@@ -2694,6 +5090,35 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>连接]]></expect>
+        <target><![CDATA[</i>Connect]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[@@]]></expect>
+        <target><![CDATA[Connecting environment...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>连接]]></expect>
+        <target><![CDATA[</i>Connect]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[节点连接中。。]]></expect>
+        <target><![CDATA[Connecting environment...]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[</i>连接]]></expect>
+        <target><![CDATA[</i>Connect]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[节点连接中。。]]></expect>
+        <target><![CDATA[Connecting environment...]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoint-docker/wizard-docker.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', true, '名字被占用']]></expect>
         <target><![CDATA[fications.error('Failure', true, 'This name is been used, please try another one']]></target>
       </replace>
@@ -2711,11 +5136,45 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[</i>连接]]></expect>
+        <target><![CDATA[</i> Connect]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[节点连接中。。]]></expect>
+        <target><![CDATA[Connecting environment...]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-endpoints/wizard-endpoint-kubernetes/wizard-kubernetes.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[text="Wizard指引"]]></expect>
         <target><![CDATA[text="Environment Wizard"]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[开始Wizard]]></expect>
+        <target><![CDATA[Start Wizard]]></target>
+      </replace>
     </item>
     <name>portainer/views/wizard/wizard-endpoints/wizard-endpoints.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[选择文件]]></expect>
+        <target><![CDATA[Select file]]></target>
+      </replace>
+    </item>
+    <name>portainer/views/wizard/wizard-tls/wizard-tls.html</name>
   </file>
   <file>
     <item>

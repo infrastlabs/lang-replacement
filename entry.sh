@@ -32,6 +32,8 @@ file=dictReplace.txt; wget -qO /generate/$file https://gitee.com/g-devops/lang-r
 cat /generate/$file |wc
 file=dict_fications.txt; wget -qO /generate/$file https://gitee.com/g-devops/lang-replacement/raw/dev/generate/$file
 cat /generate/$file |wc
+file=dict_button_th_placeholer.txt; wget -qO /generate/$file https://gitee.com/g-devops/lang-replacement/raw/dev/generate/$file
+cat /generate/$file |wc
 echo -e "已获取最新replaceDict, 请注意获取到dict的行数(避免无效数据) \n准备clone仓库反向分析 生成替换字典：(sleep 5)"; sleep 5
 
 outPath="/output" && mkdir -p $outPath
