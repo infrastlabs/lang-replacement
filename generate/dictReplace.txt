@@ -41,5 +41,6 @@
 <expect><![CDATA[Connecting to the Edge environment...]]></expect>|<expect><![CDATA[正在连接，反向节点有轮询耗时 请稍后。。]]></expect>
 <expect><![CDATA[text="Environment Wizard"]]></expect>|<expect><![CDATA[text="Wizard指引"]]></expect>
 <expect><![CDATA[text="Team details"]]></expect>|<expect><![CDATA[text="Team组明细"]]></expect>
+<expect><![CDATA[text="PCI Devices"]]></expect>|<expect><![CDATA[text="PCI设备"]]></expect>
 
 
