@@ -48,7 +48,7 @@ RUN apk add libpng
 
 #############
 #just lastStage build ##echo 123: force new build.
-RUN echo 1234567890012; /entry.sh
+RUN echo 12345678900123456789.1; /entry.sh
 ##########################################
 # PT/API
 # FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.13.9-alpine3.10 as api
@@ -73,7 +73,8 @@ ENV \
     # TAG="2.9.1"
 
 # COPY . .
-RUN git clone --depth=1 -b $BRANCH$TAG $REPO pt0; cd pt0/api; ls -lh; \
+RUN echo 12; \
+  git clone --depth=1 -b $BRANCH$TAG $REPO pt0; cd pt0/api; ls -lh; \
   CGO_ENABLED=0 \
   go build -o portainer -v -ldflags "-s -w $flags" ./cmd/portainer/
 
