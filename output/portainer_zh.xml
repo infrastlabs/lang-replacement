@@ -38,7 +38,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -167,7 +167,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -209,7 +209,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -263,7 +263,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -321,7 +321,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -342,7 +342,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -426,7 +426,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -468,7 +468,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
@@ -2996,7 +2996,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[i>Columns</span]]></expect>
+        <expect><![CDATA[i>列表</span]]></expect>
         <target><![CDATA[i>Columns</span]]></target>
       </replace>
       <replace>
@@ -3048,7 +3048,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[></i> Settings</span]]></expect>
+        <expect><![CDATA[></i> 设置</span]]></expect>
         <target><![CDATA[></i> Settings</span]]></target>
       </replace>
       <replace>
