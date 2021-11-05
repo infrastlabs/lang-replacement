@@ -2845,8 +2845,8 @@
         <target><![CDATA[I want to restrict the management of this resource to one or more of my teams]]></target>
       </replace>
       <replace>
-        <expect><![CDATA[任何用户可管理]]></expect>
-        <target><![CDATA[I want any user with access to this environment to be able to manage this resource]]></target>
+        <expect><![CDATA[任何用户]]></expect>
+        <target><![CDATA[I want any user with access to this environment]]></target>
       </replace>
     </item>
     <name>portainer/components/accessControlPanel/porAccessControlPanel.html</name>
@@ -3090,11 +3090,11 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[>Available environments</div]]></expect>
+        <expect><![CDATA[>可用节点</div]]></expect>
         <target><![CDATA[>Available environments</div]]></target>
       </replace>
       <replace>
-        <expect><![CDATA[>Associated environments</div]]></expect>
+        <expect><![CDATA[>已关联节点</div]]></expect>
         <target><![CDATA[>Associated environments</div]]></target>
       </replace>
       <replace>
