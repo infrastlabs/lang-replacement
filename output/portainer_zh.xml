@@ -38,6 +38,14 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[</i>移除]]></expect>
         <target><![CDATA[</i>Remove]]></target>
       </replace>
@@ -159,6 +167,14 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[placeholder="查询。。"]]></expect>
         <target><![CDATA[placeholder="Search..."]]></target>
       </replace>
@@ -192,6 +208,14 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[</i>移除]]></expect>
         <target><![CDATA[</i>Remove]]></target>
@@ -238,6 +262,14 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[</i>移除]]></expect>
         <target><![CDATA[</i>Remove]]></target>
@@ -289,6 +321,14 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[placeholder="查询。。"]]></expect>
         <target><![CDATA[placeholder="Search..."]]></target>
       </replace>
@@ -301,6 +341,14 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[</i>移除]]></expect>
         <target><![CDATA[</i>Remove]]></target>
@@ -378,6 +426,14 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[placeholder="查询。。"]]></expect>
         <target><![CDATA[placeholder="Search..."]]></target>
       </replace>
@@ -411,6 +467,14 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[</i>移除]]></expect>
         <target><![CDATA[</i>Remove]]></target>
@@ -2932,6 +2996,19 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[i>Columns</span]]></expect>
+        <target><![CDATA[i>Columns</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[显示、隐藏]]></expect>
+        <target><![CDATA[Show / Hide Columns]]></target>
+      </replace>
+    </item>
+    <name>portainer/components/datatables/datatable-columns-visibility/datatable-columns-visibility.html</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[</i>移除]]></expect>
         <target><![CDATA[</i>Remove]]></target>
       </replace>
@@ -2970,6 +3047,14 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[></i> Settings</span]]></expect>
+        <target><![CDATA[></i> Settings</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[表配置]]></expect>
+        <target><![CDATA[Table settings]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[</i>移除]]></expect>
         <target><![CDATA[</i>Remove]]></target>
