@@ -46,4 +46,5 @@
 
 <expect><![CDATA[>Available environments</div]]></expect>|<expect><![CDATA[>可用节点</div]]></expect>
 <expect><![CDATA[>Associated environments</div]]></expect>|<expect><![CDATA[>已关联节点</div]]></expect>
-
+<expect><![CDATA[i>Columns</span]]></expect>|<expect><![CDATA[i>列表</span]]></expect>
+<expect><![CDATA[></i> Settings</span]]></expect>|<expect><![CDATA[></i> 设置</span]]></expect>
