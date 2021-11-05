@@ -44,3 +44,6 @@
 <expect><![CDATA[text="PCI Devices"]]></expect>|<expect><![CDATA[text="PCI设备"]]></expect>
 
 
+<expect><![CDATA[>Available environments</div]]></expect>|<expect><![CDATA[>可用节点</div]]></expect>
+<expect><![CDATA[>Associated environments</div]]></expect>|<expect><![CDATA[>已关联节点</div]]></expect>
+
