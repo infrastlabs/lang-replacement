@@ -466,8 +466,8 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[设备]]></expect>
-        <target><![CDATA[Devices]]></target>
+        <expect><![CDATA[text="PCI设备"]]></expect>
+        <target><![CDATA[text="PCI Devices"]]></target>
       </replace>
       <replace>
         <expect><![CDATA[th>名字</th]]></expect>
@@ -911,6 +911,14 @@
         <target><![CDATA[Advanced container settings]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[命令及日志]]></expect>
+        <target><![CDATA[Command & logging]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[运行及资源]]></expect>
+        <target><![CDATA[Runtime & Resources]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[> 默认</button]]></expect>
         <target><![CDATA[> Default</button]]></target>
       </replace>
@@ -1310,6 +1318,10 @@
         <target><![CDATA[Build method]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[上传压缩包或文件]]></expect>
+        <target><![CDATA[Upload a tarball or a Dockerfile from your computer]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[placeholder="Define or paste the content of your Dockerfile here"]]></expect>
         <target><![CDATA[placeholder="Define or paste the content of your Dockerfile here"]]></target>
       </replace>
@@ -1594,6 +1606,10 @@
         <target><![CDATA[placeholder="e.g. true"]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[配置项]]></expect>
+        <target><![CDATA[Network configuration]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[placeholder="e.g. 172.20.0.0/16"]]></expect>
         <target><![CDATA[placeholder="e.g. 172.20.0.0/16"]]></target>
       </replace>
@@ -1608,6 +1624,10 @@
       <replace>
         <expect><![CDATA[placeholder="e.g. my-router=172.20.10.129"]]></expect>
         <target><![CDATA[placeholder="e.g. my-router=172.20.10.129"]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[配置项]]></expect>
+        <target><![CDATA[Network configuration]]></target>
       </replace>
       <replace>
         <expect><![CDATA[placeholder="e.g. 2001:db8::/48"]]></expect>
@@ -1893,6 +1913,14 @@
       <replace>
         <expect><![CDATA[>创建服务。。</span]]></expect>
         <target><![CDATA[>Creating service...</span]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[命令及日志]]></expect>
+        <target><![CDATA[Command & Logging]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[更新及重启]]></expect>
+        <target><![CDATA[Update config & Restart]]></target>
       </replace>
       <replace>
         <expect><![CDATA[placeholder="e.g. /usr/bin/nginx -t -c /mynginx.conf"]]></expect>
@@ -2734,6 +2762,26 @@
         <expect><![CDATA[权限设置]]></expect>
         <target><![CDATA[Access control]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[管理员私有]]></expect>
+        <target><![CDATA[I want to restrict the management of this resource to administrators only]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[用户、团队私有]]></expect>
+        <target><![CDATA[I want to restrict the management of this resource to a set of users and/or teams]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[团队任何人]]></expect>
+        <target><![CDATA[I want any member of my team]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[可管理]]></expect>
+        <target><![CDATA[to be able to manage this resource]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[指定成员]]></expect>
+        <target><![CDATA[I want to restrict the management of this resource to one or more of my teams]]></target>
+      </replace>
     </item>
     <name>portainer/components/accessControlForm/porAccessControlForm.html</name>
   </file>
@@ -2775,6 +2823,30 @@
       <replace>
         <expect><![CDATA[权限设置]]></expect>
         <target><![CDATA[Access control]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[管理员私有]]></expect>
+        <target><![CDATA[I want to restrict the management of this resource to administrators only]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[用户、团队私有]]></expect>
+        <target><![CDATA[I want to restrict the management of this resource to a set of users and/or teams]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[团队任何人]]></expect>
+        <target><![CDATA[I want any member of my team]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[可管理]]></expect>
+        <target><![CDATA[to be able to manage this resource]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[指定成员]]></expect>
+        <target><![CDATA[I want to restrict the management of this resource to one or more of my teams]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[任何用户可管理]]></expect>
+        <target><![CDATA[I want any user with access to this environment to be able to manage this resource]]></target>
       </replace>
     </item>
     <name>portainer/components/accessControlPanel/porAccessControlPanel.html</name>
@@ -3018,6 +3090,14 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[>Available environments</div]]></expect>
+        <target><![CDATA[>Available environments</div]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>Associated environments</div]]></expect>
+        <target><![CDATA[>Associated environments</div]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[进行中。。]]></expect>
         <target><![CDATA[In progress...]]></target>
       </replace>
@@ -3132,6 +3212,10 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[自定义仓库明细]]></expect>
+        <target><![CDATA[Custom registry details]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[>进行中。。]]></expect>
         <target><![CDATA[>In progress...]]></target>
@@ -3931,6 +4015,10 @@
         <target><![CDATA[Environment type]]></target>
       </replace>
       <replace>
+        <expect><![CDATA[节点明细]]></expect>
+        <target><![CDATA[Environment details]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[</i>添加节点]]></expect>
         <target><![CDATA[</i> Add environment]]></target>
       </replace>
@@ -3975,6 +4063,10 @@
   </file>
   <file>
     <item>
+      <replace>
+        <expect><![CDATA[节点信息]]></expect>
+        <target><![CDATA[Edge information]]></target>
+      </replace>
       <replace>
         <expect><![CDATA[>解除关联</span]]></expect>
         <target><![CDATA[>De-associate</span]]></target>
