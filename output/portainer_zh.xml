@@ -3562,6 +3562,15 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[刷新快照，将在后台获取每个节点的最新信息，请等待。。]]></expect>
+        <target><![CDATA[Triggering a manual refresh will poll each environment to retrieve its information, this may take a few moments.]]></target>
+      </replace>
+    </item>
+    <name>portainer/services/modalService.js</name>
+  </file>
+  <file>
+    <item>
+      <replace>
         <expect><![CDATA[fications.error('Failure', err, '节点明细获取失败']]></expect>
         <target><![CDATA[fications.error('Failure', err, 'Unable to retrieve environment details']]></target>
       </replace>
