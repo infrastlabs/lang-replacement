@@ -647,6 +647,22 @@
   <file>
     <item>
       <replace>
+        <expect><![CDATA[日志查看选项]]></expect>
+        <target><![CDATA[Log viewer settings]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[自动刷新]]></expect>
+        <target><![CDATA[Auto-refresh logs]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[换行显示]]></expect>
+        <target><![CDATA[Wrap lines]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[时间戳]]></expect>
+        <target><![CDATA[Display timestamps]]></target>
+      </replace>
+      <replace>
         <expect><![CDATA[placeholder="Filter..."]]></expect>
         <target><![CDATA[placeholder="Filter..."]]></target>
       </replace>
