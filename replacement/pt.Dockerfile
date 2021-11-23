@@ -48,7 +48,7 @@ RUN apk add libpng
 
 #############
 #just lastStage build ##echo 123: force new build.
-RUN echo aa.1234; /entry.sh
+RUN echo aa.1234567; /entry.sh
 ##########################################
 # PT/API
 # FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.13.9-alpine3.10 as api
