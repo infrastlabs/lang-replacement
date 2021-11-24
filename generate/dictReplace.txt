@@ -48,3 +48,6 @@
 <expect><![CDATA[>Associated environments</div]]></expect>|<expect><![CDATA[>已关联节点</div]]></expect>
 <expect><![CDATA[i>Columns</span]]></expect>|<expect><![CDATA[i>列表</span]]></expect>
 <expect><![CDATA[></i> Settings</span]]></expect>|<expect><![CDATA[></i> 设置</span]]></expect>
+
+<expect><![CDATA[>Groups</sidebar-menu-item]]></expect>|<expect><![CDATA[>环境分组</sidebar-menu-item]]></expect>
+<expect><![CDATA[>Tags</sidebar-menu-item]]></expect>|<expect><![CDATA[>节点标签</sidebar-menu-item]]></expect>
