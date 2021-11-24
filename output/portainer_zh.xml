@@ -4696,6 +4696,14 @@
         <expect><![CDATA[节点管理]]></expect>
         <target><![CDATA[Environments]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[>环境分组</sidebar-menu-item]]></expect>
+        <target><![CDATA[>Groups</sidebar-menu-item]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[>节点标签</sidebar-menu-item]]></expect>
+        <target><![CDATA[>Tags</sidebar-menu-item]]></target>
+      </replace>
     </item>
     <name>portainer/views/sidebar/sidebar.html</name>
   </file>
@@ -5304,7 +5312,7 @@
         <target><![CDATA[</i>Connect]]></target>
       </replace>
       <replace>
-        <expect><![CDATA[@@]]></expect>
+        <expect><![CDATA[节点连接中。。]]></expect>
         <target><![CDATA[Connecting environment...]]></target>
       </replace>
       <replace>
