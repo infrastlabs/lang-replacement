@@ -3032,6 +3032,10 @@
         <expect><![CDATA[</i>添加节点]]></expect>
         <target><![CDATA[</i>Add environment]]></target>
       </replace>
+      <replace>
+        <expect><![CDATA[权限管理]]></expect>
+        <target><![CDATA[Manage access]]></target>
+      </replace>
     </item>
     <name>portainer/components/datatables/endpoints-datatable/endpointsDatatable.html</name>
   </file>
@@ -3044,6 +3048,10 @@
       <replace>
         <expect><![CDATA[</i>添加组]]></expect>
         <target><![CDATA[</i>Add group]]></target>
+      </replace>
+      <replace>
+        <expect><![CDATA[权限管理]]></expect>
+        <target><![CDATA[Manage access]]></target>
       </replace>
     </item>
     <name>portainer/components/datatables/groups-datatable/groupsDatatable.html</name>
