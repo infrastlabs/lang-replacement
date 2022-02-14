@@ -3586,7 +3586,7 @@
   <file>
     <item>
       <replace>
-        <expect><![CDATA[刷新快照，将获取所有节点的最新信息(空闲的反向节点，将在下次自动[5分钟]/手动刷新时更新)，请等待。。]]></expect>
+        <expect><![CDATA[手动刷新快照，将获取所有节点的最新信息(自动刷新间隔默认为5分钟)，请等待。。]]></expect>
         <target><![CDATA[Triggering a manual refresh will poll each environment to retrieve its information, this may take a few moments.]]></target>
       </replace>
     </item>
