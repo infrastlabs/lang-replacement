@@ -28,9 +28,17 @@ case "$cmd" in
         docker push $repo/$ns/$img
         ;; 
     pt) #在上一步基础上直接生成CN版 portainer-ce镜像.
-        img="portainer-cn:latest" #-v291
-        cd replacement; docker build $cache $pull -t $repo/$ns/$img -f pt.Dockerfile . 
+        rq=`date +%Y%m%d |sed "s/^..//"`
+        img="portainer-cn:v$rq" #-v291
+        # cd replacement; docker build $cache $pull -t $repo/$ns/$img -f pt.Dockerfile . 
+        pwd;
+        docker build $cache $pull -t $repo/$ns/$img -f replacement/pt.Dockerfile . 
         docker push $repo/$ns/$img
+
+        #latest 
+        latest=$repo/$ns/"portainer-cn:latest"
+        docker tag $repo/$ns/$img $latest
+        docker push  $latest
         ;;  
     slim) #*) >> node-slim
         img="lang-replacement:replace-slim" 
