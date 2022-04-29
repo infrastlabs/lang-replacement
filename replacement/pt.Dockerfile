@@ -1,6 +1,7 @@
 FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement:dict as bins
 FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement:cache as cache
 
+##PT-FRONTEND########################################
 # ref: dvp-ci-mgr.ui-frontend
 # FROM node:10.15.0-alpine AS builder
 # ref: docs-devops_vuepress
@@ -48,10 +49,10 @@ RUN apk add libpng
 
 #############
 #just lastStage build ##echo 123: force new build.
-RUN echo node.ab.23456789; /entry.sh
+RUN echo node.ab.3; /entry.sh
 
 
-##########################################
+##PT-BACKEND########################################
 # PT/API
 # FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.13.9-alpine3.10 as api
 # FROM golang:1.16.9-alpine3.14 as api
@@ -80,10 +81,46 @@ RUN echo golang.ab.234567; \
   CGO_ENABLED=0 \
   go build -o portainer -v -ldflags "-s -w $flags" ./cmd/portainer/
 
+##AGENT########################################
+# FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.13.9-alpine3.10 as api
+FROM golang:1.16.8-alpine3.14 as agent
+# use go modules
+ENV GO111MODULE=on
+ENV GOPROXY=https://goproxy.cn
+
+# Build
+RUN domain="mirrors.aliyun.com" \
+&& echo "http://$domain/alpine/v3.14/main" > /etc/apk/repositories \
+&& echo "http://$domain/alpine/v3.14/community" >> /etc/apk/repositories \
+&& apk add curl tree bash git upx
+#git: for build_ver
+
+# Copy in the go src
+WORKDIR /src
+ENV \
+    REPO="https://gitee.com/g-devops/fk-agent" \ 
+    BRANCH="sam-custom"
+    # TAG="2.9.1"
+
+RUN echo golang.a.1; \
+  git clone --depth=1 -b $BRANCH$TAG $REPO agent0; cd agent0; ls -lh; \
+  CGO_ENABLED=0 \
+  go build -o agent -v -ldflags "-s -w $flags" ./cmd/agent/
+
+RUN cd agent0; \
+  seq=$(date +%Y%m%d |sed "s/^20//g"); echo "seq: $seq"
+  rm -f /tmp/agent; upx -7 ./agent -o /tmp/agent; \
+  cat env.conf |grep -v "^# \|^$" > /tmp/env.conf; \
+  #v291-$seq
+  cd /tmp; tar -zcvf /src/agent0/agent-v291.tar.gz agent env.conf
+
 ##########################################
 FROM portainer/portainer-ce:2.9.1-alpine
 RUN rm -rf /public /portainer
 COPY --from=api /src/pt0/api/portainer /portainer
 COPY --from=builder /output/portainer/dist/public/ /public/
+# agent
+COPY --from=agent /src/agent0/agent-v291.tar.gz /public/static/agent-v291.tar.gz
+COPY --from=agent /src/agent0/_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
 RUN ls -lh /public
 
