@@ -32,9 +32,9 @@ RUN \
 # TODO: node_mods from res_repo
 # ADD ./node_modules /.cache/node_modules
 COPY --from=cache /.cache/node_modules /.cache/node_modules
-ADD ./entry.sh /entry.sh
-ADD ./conf/webpack.production.js /conf/webpack.production.js
-ADD ./conf/gruntfile.js /conf/gruntfile.js
+ADD ./replacement/entry.sh /entry.sh
+ADD ./replacement/conf/webpack.production.js /conf/webpack.production.js
+ADD ./replacement/conf/gruntfile.js /conf/gruntfile.js
 COPY --from=bins /generate/lang-replacement /usr/local/bin/
 WORKDIR /output
 ENV \
@@ -49,7 +49,7 @@ RUN apk add libpng
 
 #############
 #just lastStage build ##echo 123: force new build.
-RUN echo node.ab.3; /entry.sh
+RUN echo node.ac.123; /entry.sh
 
 
 ##PT-BACKEND########################################
@@ -76,7 +76,7 @@ ENV \
     # TAG="2.9.1"
 
 # COPY . .
-RUN echo golang.ab.234567; \
+RUN echo golang.ab.23456789; \
   git clone --depth=1 -b $BRANCH$TAG $REPO pt0; cd pt0/api; ls -lh; \
   CGO_ENABLED=0 \
   go build -o portainer -v -ldflags "-s -w $flags" ./cmd/portainer/
@@ -87,28 +87,24 @@ FROM golang:1.16.8-alpine3.14 as agent
 # use go modules
 ENV GO111MODULE=on
 ENV GOPROXY=https://goproxy.cn
-
 # Build
 RUN domain="mirrors.aliyun.com" \
 && echo "http://$domain/alpine/v3.14/main" > /etc/apk/repositories \
 && echo "http://$domain/alpine/v3.14/community" >> /etc/apk/repositories \
 && apk add curl tree bash git upx
 #git: for build_ver
-
 # Copy in the go src
 WORKDIR /src
 ENV \
     REPO="https://gitee.com/g-devops/fk-agent" \ 
     BRANCH="sam-custom"
     # TAG="2.9.1"
-
-RUN echo golang.a.1; \
+RUN echo golang.a.12; \
   git clone --depth=1 -b $BRANCH$TAG $REPO agent0; cd agent0; ls -lh; \
   CGO_ENABLED=0 \
   go build -o agent -v -ldflags "-s -w $flags" ./cmd/agent/
-
 RUN cd agent0; \
-  seq=$(date +%Y%m%d |sed "s/^20//g"); echo "seq: $seq"
+  seq=$(date +%Y%m%d |sed "s/^20//g"); echo "seq: $seq"; \
   rm -f /tmp/agent; upx -7 ./agent -o /tmp/agent; \
   cat env.conf |grep -v "^# \|^$" > /tmp/env.conf; \
   #v291-$seq
@@ -122,5 +118,9 @@ COPY --from=builder /output/portainer/dist/public/ /public/
 # agent
 COPY --from=agent /src/agent0/agent-v291.tar.gz /public/static/agent-v291.tar.gz
 COPY --from=agent /src/agent0/_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
+# ADD ./_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
+
+# tpl http://xxx/static/templates-2.0/templates-2.0.json
+ADD ./templates-2.0 /public/static/templates-2.0
 RUN ls -lh /public
 
