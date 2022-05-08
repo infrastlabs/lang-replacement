@@ -11,7 +11,7 @@
 <expect><![CDATA[Connecting environment...]]></expect>|<expect><![CDATA[节点连接中。。]]></expect>
 <expect><![CDATA[>Connecting...</span]]></expect>|<expect><![CDATA[>连接中。。</span]]></expect>
 <expect><![CDATA[>Connect</span]]></expect>|<expect><![CDATA[>连接</span]]></expect>
-<expect><![CDATA[Copy as Custom]]></expect>|<expect><![CDATA[拷贝为自定义]]]></expect>
+<expect><![CDATA[Copy as Custom]]></expect>|<expect><![CDATA[拷贝为自定义]]></expect>
 <expect><![CDATA[>Create config</button]]></expect>|<expect><![CDATA[>创建配置</button]]></expect>
 <expect><![CDATA[>Create custom template</span]]></expect>|<expect><![CDATA[>创建自定义模板</span]]></expect>
 <expect><![CDATA[Create template from stack]]></expect>|<expect><![CDATA[从Stack创建模板]]></expect>

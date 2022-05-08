@@ -3525,7 +3525,7 @@
         <target><![CDATA[</i>Add template]]></target>
       </replace>
       <replace>
-        <expect><![CDATA[拷贝为自定义]]]></expect>
+        <expect><![CDATA[拷贝为自定义]]></expect>
         <target><![CDATA[Copy as Custom]]></target>
       </replace>
       <replace>
