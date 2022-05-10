@@ -49,7 +49,7 @@ RUN apk add libpng
 
 #############
 #just lastStage build ##echo 123: force new build.
-RUN echo node.ac.123; /entry.sh
+RUN echo node.ac.123456; /entry.sh
 
 
 ##PT-BACKEND########################################
@@ -127,12 +127,12 @@ COPY --from=api /src/pt0/api/portainer /portainer
 COPY --from=builder /output/portainer/dist/public/ /public/
 # agent
 COPY --from=agent /src/agent0/agent-v291.tar.gz /public/static/agent-v291.tar.gz
-COPY --from=agent /src/agent0/_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
 COPY --from=agent /tmp/unpack1/gojq /public/static/
 COPY --from=agent /tmp/unpack1/goawk /public/static/
-# ADD ./_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
+# COPY --from=agent /src/agent0/_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
+ADD ./static/binary_ins.sh /public/static/binary_ins.sh.tpl
 
 # tpl http://xxx/static/templates-2.0/templates-2.0.json
-ADD ./templates-2.0 /public/static/templates-2.0
-RUN ls -lh /public
+ADD ./static/templates-2.0 /public/static/templates-2.0
+RUN ls -lh /public; ls -lh /public/static
 
