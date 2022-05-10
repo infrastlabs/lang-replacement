@@ -6,9 +6,9 @@ cur=$(cd "$(dirname "$0")"; pwd)
 # export URL="{module_args.portainer_url}"
 # export USER1="{module_args.portainer_user}"
 # export PASS="{module_args.portainer_pass}"
-# chmod +x binary_ins.sh; bash binary_ins.sh install
+# chmod +x binary_ins.sh; bash binary_ins.sh -ACT=install/uninstall
 # 
-# deps: jq, curl
+# deps: curl, jq/gojq
 # ===============================================
 
 # ACTION=$1; shift
@@ -17,46 +17,32 @@ test -z "$DEPLOY" && DEPLOY="/usr/local/portainer-agent"
 test -z "$ACTION" && ACTION="install" #install/uninstall
 test -z "$VOLUME_PATH" && VOLUME_PATH="/var/lib/docker/volumes" #"/opt/docker-data/volumes" 
 
-PT_EP_CLEAN=true #卸载时从PT删除节点
 PACKAGE="agent-v291.tar.gz" #agent程序包
 BINARY_URL=https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/agent-v291-220407.tar.gz #892492/download/agent-v291-1125.tar.gz
 BINARY_HOST="{{.}}"
-test -z $(echo $BINARY_HOST |grep "}}") && BINARY_URL="$BINARY_HOST/static/agent-v291.tar.gz" #ct's /misc/binary_ins.sh
+# BINARY_HOST="http://172.25.21.62:9000" #dbg
+test -z $(echo $BINARY_HOST |grep "}}") && BINARY_URL="$BINARY_HOST/static/$PACKAGE" #ct's /misc/binary_ins.sh
+test -z $(echo $BINARY_HOST |grep "}}") && URL=$BINARY_HOST #"http://172.17.0.60:9000" #golang从req中获取，tpl写入
 
 function errExit(){
   echo "$1"
   exit 1
 }
-function checkDeps(){ #gojq,goawk
-  # curl/wget?
-  curl -V > /dev/null 2>&1
-  err=$?; test "0" == "$err" || errExit "curl 未安装"
-  
-  # jq/gojq
-  if [ ! -z $(echo $BINARY_HOST |grep "}}") ]; then #non ct's /misc/binary_ins.sh
-    jqBin="jq"
-    $jqBin -V > /dev/null 2>&1
-    err=$?; test "0" == "$err" || errExit "jq 未安装"
-  else
-    curl -L "$BINARY_HOST/static/gojq" > /tmp/gojq
-    jqBin=/tmp/gojq; chmod +x $jqBin
-    $jqBin -v > /dev/null 2>&1
-    err=$?; test "0" == "$err" || errExit "gojq 错误"
-  fi
-}
-checkDeps
 
 # https://blog.csdn.net/bandaoyu/article/details/113770557
 function parseArgs(){
   for arg in $@
   do
-  local pre=${arg%%:*}       #从O开始，截取3个字符？ 
+  local pre=${arg%%=*}       #从O开始，截取3个字符？ 
   case $pre in
-    -u|-U)  USER1=${arg#*:}; echo "USER: $USER1";;   #从左边第3个字符开始，一直到结束。
-    -p|-P)   PASS=${arg#*:}; echo "PASS: ***";;
-    -a|-A) ACTION=${arg#*:}; echo "ACTION: $ACTION";;
+    -u|-U)  USER1=${arg#*=}; echo "USER: $USER1";;   #从左边第3个字符开始，一直到结束。
+    -p|-P)   PASS=${arg#*=}; echo "PASS: ***";;
+    -url|-URL) URL=${arg#*=}; echo "URL: $URL";;
+    -deploy|-DEPLOY) DEPLOY=${arg#*=}; echo "DEPLOY: $DEPLOY";;
+    -act|-ACT) ACTION=${arg#*=}; echo "ACTION: $ACTION";;
+    -name|-NAME) NODENAME=${arg#*=}; echo "NAME: $NODENAME";;
     -h|-H)  #help
-      echo -e "Usage: \n  binary_ins.sh -u:user -p:pass [-a:install/uninstall]"
+      echo -e "Usage: \n  binary_ins.sh -u=user -p=pass [-a=install/uninstall]"
       exit 0
       ;;
     *)
@@ -64,11 +50,29 @@ function parseArgs(){
   esac
   done
 }
-# sh binary_ins.sh  install -u:admin -p:xxx -n nName bb cc -h
+# sh binary_ins.sh  install -u=admin -p=xxx -name=Name bb cc -h
 parseArgs $@
+line="========================"; echo $line
 
-# URL:
-URL=$BINARY_HOST #"http://172.17.0.60:9000" #golang从req中获取，tpl写入
+function checkDeps(){ #gojq,goawk
+  # curl/wget?
+  curl -V > /dev/null 2>&1
+  err=$?; test "0" == "$err" || errExit "curl 未安装(apt/yum install curl)"
+  
+  # jq/gojq
+  if [ ! -z $(echo $BINARY_HOST |grep "}}") ]; then #non ct's /misc/binary_ins.sh
+    jqBin="jq"
+    $jqBin -V > /dev/null 2>&1
+    err=$?; test "0" == "$err" || errExit "jq 未安装(apt/yum install jq)"
+  else
+    echo "download: /tmp/gojq, please wait.."
+    test -s /tmp/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$BINARY_HOST/static/gojq" > /tmp/gojq"
+    jqBin=/tmp/gojq; sudo chmod +x $jqBin
+    $jqBin -v > /dev/null 2>&1
+    err=$?; test "0" == "$err" || errExit "gojq 错误"
+  fi
+}
+checkDeps
 
 test -z "$DEPLOY" && errExit "DEPLOY 为空"
 test -z "$ACTION" && errExit "ACTION 为空"
@@ -156,9 +160,13 @@ function endpointJudgeAdd(){
   # 如不存在，则添加：
   EDGE_KEY=""
   if [ -z "$EP_EDGE_KEY" ]; then
+    # epName：简短唯一; agentID: 格式<IP_AddTime>
+    EDGE_NAME="$LOCAL_IP" #"$ip-$rand"
+    test -z "$NODENAME" || EDGE_NAME=$NODENAME
     # -F "URL=$HOST"  ##try notes: 导致注册的节点写死了URL(需要epUpdate操作才更新)
     # 22.1.19: -F "URL=$URL"  ##UI中会自动带上, pt-cn1124测试：当不指定URL时，导致生成的EDGE_KEY没得URL信息， ptAgent注册失败.
     local jsonAdd=$(curl -s -X POST $HOST/api/endpoints -H "accept: application/json" -H "Authorization: Bearer $LOGIN_TOKEN" -F "URL=$URL" -F "Name=$EDGE_NAME" -F "EndpointCreationType=4")
+    # echo "jsonAdd: $jsonAdd" |grep "Invalid"
     EDGE_EP_ID=$(echo $jsonAdd |$jqBin -r .Id) #表ID号
     EDGE_EP_NAME=$(echo $jsonAdd |$jqBin -r .Name) #IP名
     EDGE_KEY=$(echo $jsonAdd |$jqBin -r .EdgeKey) #&& echo $EDGE_KEY
@@ -177,7 +185,6 @@ function endpointJudgeAdd(){
 
 function endpointRemove(){
   echo "removeEp"
-  doLogin
 
   # EP # DO: 从PT删除已加节点；
   source $dpPath/env.conf
@@ -187,25 +194,25 @@ function endpointRemove(){
     echo "EDGE_EP_ID为空，skip PT端的清理"
   else 
     echo "清理 $id-$epName， 该节点已卸载"
-    # if PT_EP_CLEAN
-    test "true" == "$PT_EP_CLEAN" && curl -s -X DELETE "$HOST/api/endpoints/$id"  -H "Authorization: Bearer $LOGIN_TOKEN"
+    curl -s -X DELETE "$HOST/api/endpoints/$id"  -H "Authorization: Bearer $LOGIN_TOKEN"
   fi
 }
 
-# epName：简短唯一; agentID: 格式<IP_AddTime>
+# LOCAL_IP
+function selectLocalIP(){
+  # 取IP: ip > ifconfig > nonip-$(hostname)
+  LOCAL_IP=$(ip a |grep inet |grep -v "inet6\|lo$\|br\-\|docker" |awk '{print $2}' |cut -d'/' -f1 |head -1) #list: head -1
+  test -z "$LOCAL_IP" && LOCAL_IP=$(ifconfig  -a |grep "flags\|inet " |sed ":a;N;s/\n *inet/|inet/g" |grep -v "lo: \|br\-\|docker" |cut -d'|' -f2 |awk '{print $2}' |head -1)
+  test -z "$LOCAL_IP" && LOCAL_IP="nonip-$(hostname)" #-$rq # ip="1.2.3.4"
+
+  echo "Got Local IP(top 1): $LOCAL_IP"  
+}
+
 function generateConf(){
   echo "gen: env.conf"
   local rq=$(date +%Y%m%d.%H%M%S |sed "s/^..//")
   # local rand=$(tr -dc 'A-Z0-9' </dev/urandom | head -c 2)
-  
-  # 取IP: ip > ifconfig > nonip-$(hostname)
-  local ip=$(ip a |grep inet |grep -v "inet6\|lo$\|br\-\|docker" |awk '{print $2}' |cut -d'/' -f1 |head -1) #list: head -1
-  test -z "$ip" && ip=$(ifconfig  -a |grep "flags\|inet " |sed ":a;N;s/\n *inet/|inet/g" |grep -v "lo: \|br\-\|docker" |cut -d'|' -f2 |awk '{print $2}' |head -1)
-  test -z "$ip" && ip="nonip-$(hostname)" #-$rq # ip="1.2.3.4"
-
-  echo "Got Local IP(top 1): $ip"
-  EDGE_NAME="$ip" #"$ip-$rand"
-  EDGE_ID="id-$ip-$rq" #存放于agent端，首注册时送到PT
+  EDGE_ID="id-$LOCAL_IP-$rq" #存放于agent端，首注册时送到PT
 
   echo """
 source /etc/profile
@@ -264,52 +271,67 @@ EOF
 
 function install(){
   # preCheck, validate
-  test -s /tmp/$PACKAGE || curl -L $BINARY_URL > /tmp/$PACKAGE #down from gitee's release
-  test -f /tmp/$PACKAGE || errExit "agent-pkg not exist"
+  echo "download: /tmp/$PACKAGE, please wait.."
+  test -s /tmp/$PACKAGE && echo "existed, skip" || sudo bash -c "curl -fsSL $BINARY_URL > /tmp/$PACKAGE" #down from gitee's release
+  test -s /tmp/$PACKAGE || errExit "agent-pkg not exist"
 
   sudo mkdir -p "$dpPath"; #echo "dpPath: $dpPath"
   sudo tar -zxf /tmp/$PACKAGE -C $dpPath; #unpack
 
   # PT: login > jwtToken, addEp, ret epKey;
-  doLogin
-  endpointJudgeAdd
+  selectLocalIP #LOCAL_IP
+  doLogin && endpointJudgeAdd
   generateConf 
+  genUninstall $dpPath/uninstall.sh; sudo chmod +x $dpPath/uninstall.sh
   ls -lh $dpPath/
 
   # Systemd: init + start
-  generateService #
-  # 注：需要systemd环境
-  sudo systemctl daemon-reload 
-  sudo systemctl enable $svc #auto start
-  sudo systemctl restart $svc #stop first, if exist
-  # view
-  sudo systemctl status $svc |grep Active
-  sudo systemctl -a |grep agent
-  #TODO if non-systemd: use nohup?
-
-  # uninstall
-  echo "gen: uninstall.sh"
-  touch $dpPath/uninstall.sh && chmod +x $dpPath/uninstall.sh
-  test -f $cur/params.txt && cat $cur/params.txt > $dpPath/uninstall.sh
-  echo "" >> $dpPath/uninstall.sh
-  echo "bash $cur/binary_ins.sh uninstall" >> $dpPath/uninstall.sh
+  systemctl -a > /dev/null 2>&1
+  if [ "0" == "$?" ]; then
+    generateService #
+    # 注：需要systemd环境
+    sudo systemctl daemon-reload 
+    sudo systemctl enable $svc #auto start
+    sudo systemctl restart $svc #stop first, if exist
+    # view
+    sudo systemctl status $svc |grep Active
+    sudo systemctl -a |grep agent
+  else #DO if non-systemd: use nohup
+    echo "WARN: non-systemd, run with nohup."
+    # /usr/local/portainer-agent/agent-172xxx_9000/run.sh
+    nohup bash $dpPath/run.sh >/dev/null 2>&1 & 
+  fi
 }
 
-function uninstall(){
-  echo "unInstalling..."
-
+function genUninstall(){
+  echo "gen: uninstall.sh"
+  sudo bash -c "cat > $1" <<EOF
+echo "unInstalling..."
+systemctl -a > /dev/null 2>&1
+if [ "0" == "\$?" ]; then
   # svcStopClean
   sudo systemctl stop $svc
   sudo systemctl disable $svc
   sudo systemctl status $svc |grep Active
   sudo rm -f /etc/systemd/system/$svc #del
-  
-  # endpointRemove
-  endpointRemove
+else
+  echo "WARN: non-systemd, uninstall try kill pid."
+  killPids=\$(ps -ef |grep "$dpPath/run.sh" |grep -v grep |awk '{print \$2}')
+  echo "killPids: \$killPids"
+  test -z "\$killPids" && echo "emp, skip." || kill -9 \$killPids
+fi
+sudo rm -rf $dpPath #只删对应实例
+EOF
+}
+# binary_ins.sh -act=uninstall ##本脚本执行uninstall，可删PT对应节点
+function uninstall(){
+  echo "removeEndpoint..."
+  test -f $dpPath/env.conf || errExit "env.conf找不到(agent目录已删?, PT端节点清理将skip)"
+  doLogin && endpointRemove
 
-  # dirClean #只删自己实例的;
-  sudo rm -rf $dpPath
-  
+  # uninstall.sh
+  genUninstall /tmp/ptAgent-uninstall.sh
+  sh /tmp/ptAgent-uninstall.sh; sudo rm -f /tmp/ptAgent-uninstall.sh
 }
 
 case "$ACTION" in
@@ -320,6 +342,6 @@ case "$ACTION" in
         uninstall
         ;;
     *)
-        echo "Usage: ./ins.sh \$ACTION<install/uninstall> \$URL \$USER1 \$PASS"
+        echo "Usage: ./ins.sh -ACT=<install/uninstall> -URL=URL -U=USER -P=PASS"
         ;;
 esac
