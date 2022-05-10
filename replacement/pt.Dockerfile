@@ -93,13 +93,23 @@ RUN domain="mirrors.aliyun.com" \
 && echo "http://$domain/alpine/v3.14/community" >> /etc/apk/repositories \
 && apk add curl tree bash git upx
 #git: for build_ver
+
+# gojq 1.4M; goawk 1.9M;
+RUN cd /tmp; \
+  curl -fSL -O https://hub.fastgit.xyz/itchyny/gojq/releases/download/v0.12.7/gojq_v0.12.7_linux_amd64.tar.gz; \
+  curl -fSL -O https://hub.fastgit.xyz/benhoyt/goawk/releases/download/v1.17.0/goawk_v1.17.0_linux_amd64.tar.gz; \
+  mkdir -p unpack1; \
+  tar -zxf gojq_v0.12.7_linux_amd64.tar.gz -C /tmp/unpack1 --strip-components 1; \
+  tar -zxf goawk_v1.17.0_linux_amd64.tar.gz -C /tmp/unpack1; \
+  ls -lh /tmp/unpack1
+
 # Copy in the go src
 WORKDIR /src
 ENV \
     REPO="https://gitee.com/g-devops/fk-agent" \ 
     BRANCH="sam-custom"
     # TAG="2.9.1"
-RUN echo golang.a.12; \
+RUN echo golang.a.123; \
   git clone --depth=1 -b $BRANCH$TAG $REPO agent0; cd agent0; ls -lh; \
   CGO_ENABLED=0 \
   go build -o agent -v -ldflags "-s -w $flags" ./cmd/agent/
@@ -118,6 +128,8 @@ COPY --from=builder /output/portainer/dist/public/ /public/
 # agent
 COPY --from=agent /src/agent0/agent-v291.tar.gz /public/static/agent-v291.tar.gz
 COPY --from=agent /src/agent0/_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
+COPY --from=agent /tmp/unpack1/gojq /public/static/
+COPY --from=agent /tmp/unpack1/goawk /public/static/
 # ADD ./_deploy/binary_ins.sh /public/static/binary_ins.sh.tpl
 
 # tpl http://xxx/static/templates-2.0/templates-2.0.json
