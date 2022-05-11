@@ -49,7 +49,7 @@ RUN apk add libpng
 
 #############
 #just lastStage build ##echo 123: force new build.
-RUN echo node.ac.123456; /entry.sh
+RUN echo node.ac.1234567; /entry.sh
 
 
 ##PT-BACKEND########################################
@@ -76,7 +76,7 @@ ENV \
     # TAG="2.9.1"
 
 # COPY . .
-RUN echo golang.ab.23456789; \
+RUN echo golang.abc.0; \
   git clone --depth=1 -b $BRANCH$TAG $REPO pt0; cd pt0/api; ls -lh; \
   CGO_ENABLED=0 \
   go build -o portainer -v -ldflags "-s -w $flags" ./cmd/portainer/
@@ -109,7 +109,7 @@ ENV \
     REPO="https://gitee.com/g-devops/fk-agent" \ 
     BRANCH="sam-custom"
     # TAG="2.9.1"
-RUN echo golang.a.123; \
+RUN echo agent.a.1234; \
   git clone --depth=1 -b $BRANCH$TAG $REPO agent0; cd agent0; ls -lh; \
   CGO_ENABLED=0 \
   go build -o agent -v -ldflags "-s -w $flags" ./cmd/agent/
