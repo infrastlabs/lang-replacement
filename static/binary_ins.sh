@@ -228,6 +228,7 @@ export AGENT_PORT=1906 #AGENT_PORT 改用socket,不再需要
 export AGENT_SOCKET=/var/run/portainer-agent-$INSTANCE_ID.sock
 export AGENT_SOCKET_MODE=true
 """  |sudo tee $dpPath/env.conf > /dev/null
+  echo "export DOCKER_HOST=unix:///var/run/docker.sock" |sudo tee -a $dpPath/env.conf > /dev/null
   echo "export DOCKER_BINARY_PATH=$dpPath" |sudo tee -a $dpPath/env.conf > /dev/null
   echo "export DOCKER_VOLUME_PATH=$VOLUME_PATH" |sudo tee -a $dpPath/env.conf > /dev/null
 
