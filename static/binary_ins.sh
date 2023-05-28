@@ -213,7 +213,7 @@ function generateConf(){
   local rq=$(date +%Y%m%d.%H%M%S |sed "s/^..//")
   # local rand=$(tr -dc 'A-Z0-9' </dev/urandom | head -c 2)
   EDGE_ID="id-$LOCAL_IP-$rq" #存放于agent端，首注册时送到PT
-
+  test -s $dpPath/env.conf && mv $dpPath/env.conf $dpPath/env.conf-bk$rq
   echo """
 source /etc/profile
 # export LOG_LEVEL=debug #info
@@ -240,7 +240,7 @@ export AGENT_SOCKET_MODE=true
 cur=\$(cd "\$(dirname "\$0")"; pwd)
 cd \$cur
 source ./env.conf
-mkdir -p ./logs && ./agent |grep -v "occured during short poll" >> logs/output.log 2>&1 # |tee -a
+mkdir -p ./logs && exec ./agent |grep -v "occured during short poll" >> logs/output.log 2>&1 # |tee -a
 EOF
   sudo chmod +x $dpPath/run.sh
 }
@@ -261,7 +261,8 @@ Documentation=https://github.com
 Type=simple
 WorkingDirectory=$WS
 ExecStart=$WS/run.sh
-Restart=on-failure
+#Restart=on-failure
+Restart=always
 RestartSec=5
 LimitNOFILE=65536
 
@@ -277,7 +278,8 @@ function install(){
   test -s /tmp/$PACKAGE || errExit "agent-pkg not exist"
 
   sudo mkdir -p "$dpPath"; #echo "dpPath: $dpPath"
-  sudo tar -zxf /tmp/$PACKAGE -C $dpPath; #unpack
+  sudo tar -zxf /tmp/$PACKAGE -C /tmp; #unpack
+  sudo \cp -a /tmp/agent $dpPath/ #不拷贝env.conf
 
   # PT: login > jwtToken, addEp, ret epKey;
   selectLocalIP #LOCAL_IP
