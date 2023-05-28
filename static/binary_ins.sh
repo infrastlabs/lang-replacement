@@ -29,31 +29,6 @@ function errExit(){
   exit 1
 }
 
-# https://blog.csdn.net/bandaoyu/article/details/113770557
-function parseArgs(){
-  for arg in $@
-  do
-  local pre=${arg%%=*}       #从O开始，截取3个字符？ 
-  case $pre in
-    -u|-U)  USER1=${arg#*=}; echo "USER: $USER1";;   #从左边第3个字符开始，一直到结束。
-    -p|-P)   PASS=${arg#*=}; echo "PASS: ***";;
-    -url|-URL) URL=${arg#*=}; echo "URL: $URL";;
-    -deploy|-DEPLOY) DEPLOY=${arg#*=}; echo "DEPLOY: $DEPLOY";;
-    -act|-ACT) ACTION=${arg#*=}; echo "ACTION: $ACTION";;
-    -name|-NAME) NODENAME=${arg#*=}; echo "NAME: $NODENAME";;
-    -h|-H)  #help
-      echo -e "Usage: \n  binary_ins.sh -u=user -p=pass [-a=install/uninstall]"
-      exit 0
-      ;;
-    *)
-      echo "notMatch: $arg"
-  esac
-  done
-}
-# sh binary_ins.sh  install -u=admin -p=xxx -name=Name bb cc -h
-parseArgs $@
-line="========================"; echo $line
-
 function checkDeps(){ #gojq,goawk
   # curl/wget?
   curl -V > /dev/null 2>&1
