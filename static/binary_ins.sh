@@ -2,23 +2,21 @@
 cur=$(cd "$(dirname "$0")"; pwd)
 
 # ===============================================
-# export SERVER_URL="{module_args.portainer_url}"
-# export SERVER_USER="{module_args.portainer_user}"
-# export SERVER_PASS="{module_args.portainer_pass}"
-# export DEPLOY="{module_args.agent_deploy_dir}"
-# chmod +x binary_ins.sh; bash binary_ins.sh -ACT=install/uninstall
+# export SERVER_URL="http://172.25.23.192:680" #9000
+# export SERVER_USER="admin"
+# export SERVER_PASS="admin123"
+# # export COUNT=2 #MultiAgent(default 1)
+# curl -s https://gitee.com/g-devops/lang-replacement/raw/dev/static/binary_ins.sh |bash -s #uninstall
 # 
-# deps: curl, jq/gojq
+# deps: curl, jq/gojq,goawk
 # ===============================================
 
 # ACTION=$1; shift
-# from ENV
-test -z "$DEPLOY" && DEPLOY="/usr/local/portainer-agent"
-test -z "$ACTION" && ACTION="install" #install/uninstall
-test -z "$VOLUME_PATH" && VOLUME_PATH="/var/lib/docker/volumes" #"/opt/docker-data/volumes" 
-
 PACKAGE="agent-v291.tar.gz" #agent程序包
-BINARY_URL=https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/agent-v291-220407.tar.gz #892492/download/agent-v291-1125.tar.gz
+test -z "$(uname -i |grep aarch)" && arch=x64 || arch=arm64
+# https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/agent-v291-220407.tar.gz #892492/download/agent-v291-1125.tar.gz
+# https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230522/agent-v291-x64-230523.tar.gz
+BINARY_URL=https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230522/agent-v291-$arch-230523.tar.gz 
 BINARY_HOST="{{.}}"
 # BINARY_HOST="http://172.25.21.62:9000" #dbg
 test -z $(echo $BINARY_HOST |grep "}}") && BINARY_URL="$BINARY_HOST/static/$PACKAGE" #ct's /misc/binary_ins.sh
@@ -29,69 +27,77 @@ function errExit(){
   exit 1
 }
 
-function checkDeps(){ #gojq,goawk
-  # curl/wget?
+function checkDeps(){ #static-curl,gojq,goawk
+  # wget> curl
+  test -s /bin/curl || wget -O /bin/curl https://ghproxy.com/https://github.com/moparisthebest/static-curl/releases/download/v7.88.1/curl-$arch
+  chmod +x /bin/curl
   curl -V > /dev/null 2>&1
   err=$?; test "0" == "$err" || errExit "curl 未安装(apt/yum install curl)"
   
+  # goawk
+  goawk_url=https://ghproxy.com/https://github.com/benhoyt/goawk/releases/download/v1.23.1/goawk_v1.23.1_linux_$arch.tar.gz
+  # wget $goawk_url -O - | tar -zx -C /tmp --strip-components=1;
+
   # jq/gojq
-  if [ ! -z $(echo $BINARY_HOST |grep "}}") ]; then #non ct's /misc/binary_ins.sh
-    jqBin="jq"
-    $jqBin -V > /dev/null 2>&1
-    err=$?; test "0" == "$err" || errExit "jq 未安装(apt/yum install jq)"
-  else
-    echo "download: /tmp/gojq, please wait.."
-    test -s /tmp/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$BINARY_HOST/static/gojq" > /tmp/gojq"
-    jqBin=/tmp/gojq; sudo chmod +x $jqBin
-    $jqBin -v > /dev/null 2>&1
-    err=$?; test "0" == "$err" || errExit "gojq 错误"
-  fi
+  echo "download: /tmp/gojq, please wait.."
+  # gojq_url=$BINARY_HOST/static/gojq
+  # test -s /tmp/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$gojq_url" > /tmp/gojq"
+  gojq_url=https://ghproxy.com/https://github.com/itchyny/gojq/releases/download/v0.12.12/gojq_v0.12.12_linux_$arch.tar.gz
+  # wget $gojq_url -qO -
+  test -s /tmp/gojq && echo "existed, skip" || wget $gojq_url -O - | tar -zx -C /tmp --strip-components=1;
+  jqBin=/tmp/gojq; sudo chmod +x $jqBin
+  $jqBin -v > /dev/null 2>&1
+  err=$?; test "0" == "$err" || errExit "gojq 错误"
+  # if [ ! -z $(echo $BINARY_HOST |grep "}}") ]; then #non ct's /misc/binary_ins.sh
+  #   jqBin="jq"
+  #   $jqBin -V > /dev/null 2>&1
+  #   err=$?; test "0" == "$err" || errExit "jq 未安装(apt/yum install jq)"
+  # else
+  #   echo "download: /tmp/gojq, please wait.."
+  #   test -s /tmp/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$BINARY_HOST/static/gojq" > /tmp/gojq"
+  #   jqBin=/tmp/gojq; sudo chmod +x $jqBin
+  #   $jqBin -v > /dev/null 2>&1
+  #   err=$?; test "0" == "$err" || errExit "gojq 错误"
+  # fi
 }
 checkDeps
 
-test -z "$DEPLOY" && errExit "DEPLOY 为空"
-test -z "$ACTION" && errExit "ACTION 为空"
+# from ENV
 test -z "$SERVER_URL" && errExit "SERVER_URL 为空"
 test -z "$SERVER_USER" && errExit "SERVER_USER 为空"
 test -z "$SERVER_PASS" && errExit "SERVER_PASS 为空"
+test -z "$DEPLOY" && DEPLOY="/usr/local/portainer-agent"
+test -z "$VOLUME_PATH" && VOLUME_PATH="/var/lib/docker/volumes" #"/opt/docker-data/volumes" 
 # exit 0 #debug_skip
-
-# INSTANCE_ID Params
-HOST="$SERVER_URL" #SERVER_URL > HOST
-URL_IP=$(echo $SERVER_URL |grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" |sed "s/\:/_/g"); test -z "$URL_IP" && errExit "fail to get URL_IP"
-INSTANCE_ID=$URL_IP
-dpPath="$DEPLOY/agent-$INSTANCE_ID"
-svc="agent-$INSTANCE_ID.service"
 
 function doLogin(){
   # validate:
-  curl --connect-timeout 3 -s $HOST > /dev/null #3s
-  local errCode=$?; test "0" == "$errCode" || errExit "$HOST 地址访问失败，curl错误码: $errCode"
+  curl --connect-timeout 3 -s $SERVER_URL > /dev/null #3s
+  local errCode=$?; test "0" == "$errCode" || errExit "$SERVER_URL 地址访问失败，curl错误码: $errCode"
 
   # if login err;
-  ret=$(curl -s -H "Content-Type: application/json" -d "{\"username\":\"$SERVER_USER\",\"password\":\"$SERVER_PASS\"}" -X POST $HOST/api/auth)
+  ret=$(curl -s -H "Content-Type: application/json" -d "{\"username\":\"$SERVER_USER\",\"password\":\"$SERVER_PASS\"}" -X POST $SERVER_URL/api/auth)
   # echo "ret: $ret"
   # Access denied to resource
-  message=$(echo $ret |grep "message"); test -z "$message" ||  errExit "$HOST 登录失败，detail: $ret"  
+  message=$(echo $ret |grep "message"); test -z "$message" ||  errExit "$SERVER_URL 登录失败，detail: $ret"  
   
   # LOGIN_TOKEN
   LOGIN_TOKEN=$(echo $ret | $jqBin -r .jwt) #global
   test -z "$LOGIN_TOKEN" && errExit "LOGIN_TOKEN为空" || echo "LOGIN_TOKEN: $LOGIN_TOKEN"
 }
 
-# EDGE_NAME="$ip"
 function endpointJudgeAdd(){
   # clearDuplicate ##当列表较多时(>50)，消耗时间较长；
   # exit 0
   
   # 清理后，重load一次
-  # local jsonList=$(curl -s -X GET "$HOST/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN") #|$jqBin ".Name"
+  # local jsonList=$(curl -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN") #|$jqBin ".Name"
   json=/tmp/.pt_jsonList.txt
-  curl -s -X GET "$HOST/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN" \
+  curl -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN" \
    |$jqBin -c "del(.[].SecuritySettings,.[].Kubernetes,.[].AzureCredentials,.[].TLSConfig)" > $json
   local len=$(cat $json |$jqBin ".|length")
   echo "==PT已有主机数：$len"
-  EP_EDGE_KEY="" #
+  EDGE_NAME=$LOCAL_IP$INDEX; EP_EDGE_KEY="" #
   for ((i=0; i<$len; i++)); do
     # echo $i
     local epName=$(cat $json |$jqBin -r ".[$i].Name")
@@ -104,6 +110,7 @@ function endpointJudgeAdd(){
       local qryDate=$(cat $json |$jqBin -r ".[$i].QueryDate")
       local lastCheckDate=$(cat $json |$jqBin -r ".[$i].LastCheckInDate")
       local val1=`expr $qryDate - $lastCheckDate`
+      # cat $json |$jqBin ".[$i]" #dbg
       # test "$val1" -gt "20" && echo "val1: $val1" #超过20s
 
       if [ "$val1" -gt "20" ]; then
@@ -116,7 +123,7 @@ function endpointJudgeAdd(){
         if [ "0" != "$lastCheckDate" ]; then 
           echo "lastCheckDate!=0, 进行解绑操作ing"; 
           # slow: pt-boltdb-batch
-          curl -s -X DELETE "$HOST/api/endpoints/$id/association"  -H "Authorization: Bearer $LOGIN_TOKEN" |$jqBin -r ".Id"
+          curl -s -X DELETE "$SERVER_URL/api/endpoints/$id/association"  -H "Authorization: Bearer $LOGIN_TOKEN" |$jqBin -r ".Id"
         else
           echo "lastCheckDate=0(未反向注册过), 不用解绑, skip"
         fi
@@ -134,11 +141,11 @@ function endpointJudgeAdd(){
   EDGE_KEY=""
   if [ -z "$EP_EDGE_KEY" ]; then
     # epName：简短唯一; agentID: 格式<IP_AddTime>
-    EDGE_NAME="$LOCAL_IP" #"$ip-$rand"
-    test -z "$NODENAME" || EDGE_NAME=$NODENAME
-    # -F "URL=$HOST"  ##try notes: 导致注册的节点写死了URL(需要epUpdate操作才更新)
+    # EDGE_NAME=$LOCAL_IP$INDEX #$ip-$rand
+    test -z "$NODENAME" || EDGE_NAME=$NODENAME$INDEX
+    # -F "URL=$SERVER_URL"  ##try notes: 导致注册的节点写死了URL(需要epUpdate操作才更新)
     # 22.1.19: -F "URL=$SERVER_URL"  ##UI中会自动带上, pt-cn1124测试：当不指定URL时，导致生成的EDGE_KEY没得URL信息， ptAgent注册失败.
-    local jsonAdd=$(curl -s -X POST $HOST/api/endpoints -H "accept: application/json" -H "Authorization: Bearer $LOGIN_TOKEN" -F "URL=$SERVER_URL" -F "Name=$EDGE_NAME" -F "EndpointCreationType=4")
+    local jsonAdd=$(curl -s -X POST $SERVER_URL/api/endpoints -H "accept: application/json" -H "Authorization: Bearer $LOGIN_TOKEN" -F "URL=$SERVER_URL" -F "Name=$EDGE_NAME" -F "EndpointCreationType=4")
     # echo "jsonAdd: $jsonAdd" |grep "Invalid"
     EDGE_EP_ID=$(echo $jsonAdd |$jqBin -r .Id) #表ID号
     EDGE_EP_NAME=$(echo $jsonAdd |$jqBin -r .Name) #IP名
@@ -167,7 +174,7 @@ function endpointRemove(){
     echo "EDGE_EP_ID为空，skip PT端的清理"
   else 
     echo "清理 $id-$epName， 该节点已卸载"
-    curl -s -X DELETE "$HOST/api/endpoints/$id"  -H "Authorization: Bearer $LOGIN_TOKEN"
+    curl -s -X DELETE "$SERVER_URL/api/endpoints/$id"  -H "Authorization: Bearer $LOGIN_TOKEN"
   fi
 }
 
@@ -178,6 +185,12 @@ function selectLocalIP(){
   test -z "$LOCAL_IP" && LOCAL_IP=$(ifconfig  -a |grep "flags\|inet " |sed ":a;N;s/\n *inet/|inet/g" |grep -v "lo: \|br\-\|docker" |cut -d'|' -f2 |awk '{print $2}' |head -1)
   test -z "$LOCAL_IP" && LOCAL_IP="nonip-$(hostname)" #-$rq # ip="1.2.3.4"
 
+  HOST=$(hostname) #REF: KEDGE
+  echo "HOST: $HOST"
+  hostlen=${#HOST}; test "$hostlen" -gt "6" && hostlen=6 || echo "hostlen<6"
+  h1=${HOST:0-$hostlen}
+  test "-" == "${h1:0:1}" && h1="x${h1:1}"
+  LOCAL_IP="$h1-$LOCAL_IP"
   echo "Got Local IP(top 1): $LOCAL_IP"  
 }
 
@@ -198,7 +211,7 @@ export EDGE_KEY=$EDGE_KEY
 export EDGE_INACTIVITY_TIMEOUT=525600m  #60*24*365 min
 # Done >> chisel v142(需改PT端): 改为绑定本地socket
 export AGENT_PORT=1906 #AGENT_PORT 改用socket,不再需要
-export AGENT_SOCKET=/var/run/portainer-agent-$INSTANCE_ID.sock
+export AGENT_SOCKET=$agentSock
 export AGENT_SOCKET_MODE=true
 """  |sudo tee $dpPath/env.conf > /dev/null
   echo "export DOCKER_HOST=unix:///var/run/docker.sock" |sudo tee -a $dpPath/env.conf > /dev/null
@@ -247,18 +260,18 @@ EOF
 function install(){
   # preCheck, validate
   echo "download: /tmp/$PACKAGE, please wait.."
+  echo "BINARY_URL: $BINARY_URL"
   test -s /tmp/$PACKAGE && echo "existed, skip" || sudo bash -c "curl -fsSL $BINARY_URL > /tmp/$PACKAGE" #down from gitee's release
   test -s /tmp/$PACKAGE || errExit "agent-pkg not exist"
 
   sudo mkdir -p "$dpPath"; #echo "dpPath: $dpPath"
   sudo tar -zxf /tmp/$PACKAGE -C /tmp; #unpack
-  sudo \cp -a /tmp/agent $dpPath/ #不拷贝env.conf
+  sudo \cp -a /tmp/agent-$arch $dpPath/agent #不拷贝env.conf
 
   # PT: login > jwtToken, addEp, ret epKey;
-  selectLocalIP #LOCAL_IP
-  doLogin && endpointJudgeAdd
+  endpointJudgeAdd
   generateConf 
-  genUninstall $dpPath/uninstall.sh; sudo chmod +x $dpPath/uninstall.sh
+  genUninstall $dpPath/uninstall$INDEX.sh; sudo chmod +x $dpPath/uninstall$INDEX.sh
   ls -lh $dpPath/
 
   # Systemd: init + start
@@ -272,6 +285,8 @@ function install(){
     # view
     sudo systemctl status $svc |grep Active
     sudo systemctl -a |grep agent
+  # else if sysv;
+  #   TODO..
   else #DO if non-systemd: use nohup
     echo "WARN: non-systemd, run with nohup."
     # /usr/local/portainer-agent/agent-172xxx_9000/run.sh
@@ -306,20 +321,34 @@ function uninstall(){
   doLogin && endpointRemove
 
   # uninstall.sh
-  genUninstall /tmp/ptAgent-uninstall.sh
-  sh /tmp/ptAgent-uninstall.sh; sudo rm -f /tmp/ptAgent-uninstall.sh
+  genUninstall /tmp/ptAgentUnInstall$INDEX.sh
+  sh /tmp/ptAgentUnInstall$INDEX.sh; sudo rm -f /tmp/ptAgentUnInstall$INDEX.sh
 }
 
-case "$ACTION" in
+
+# SERVER_IP TODO: if domain, ping
+SERVER_IP=$(echo $SERVER_URL |grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" |sed "s/\:/_/g"); test -z "$SERVER_IP" && errExit "fail to get SERVER_IP"
+dpPath="$DEPLOY/agent-$SERVER_IP"
+svc="agent-$SERVER_IP.service"
+agentSock=/var/run/portainer-agent-$SERVER_IP.sock
+#LOCAL_IP
+selectLocalIP; doLogin; INDEX=""
+# COUNT=10 #dbg
+test -z "$COUNT" && COUNT=1
+function doMulti(){
+  for((idx=1;idx<=$COUNT;idx++));do
+    echo "doMulti: $idx"; INDEX="-$idx"
+    dpPath="$DEPLOY/agent-$SERVER_IP$INDEX"
+    svc="agent-$SERVER_IP$INDEX.service"
+    agentSock=/var/run/portainer-agent-$SERVER_IP$INDEX.sock
+    $1 #ins/unins
+  done
+}
+case "$1" in
     uninstall)   
-        uninstall
+        test "1" == "$COUNT" && uninstall || doMulti "uninstall"
         ;;
     *)
-        install
+        test "1" == "$COUNT" && install || doMulti "install"
         ;;
 esac
-
-# export SERVER_URL="http://172.17.0.60:9000"
-# export SERVER_USER="admin"
-# export SERVER_PASS="xxx"
-# curl -s https://gitee.com/g-devops/lang-replacement/raw/dev/static/binary_ins.sh |bash -s #uninstall
