@@ -2,10 +2,10 @@
 cur=$(cd "$(dirname "$0")"; pwd)
 
 # ===============================================
+# export SERVER_URL="{module_args.portainer_url}"
+# export SERVER_USER="{module_args.portainer_user}"
+# export SERVER_PASS="{module_args.portainer_pass}"
 # export DEPLOY="{module_args.agent_deploy_dir}"
-# export URL="{module_args.portainer_url}"
-# export USER1="{module_args.portainer_user}"
-# export PASS="{module_args.portainer_pass}"
 # chmod +x binary_ins.sh; bash binary_ins.sh -ACT=install/uninstall
 # 
 # deps: curl, jq/gojq
@@ -22,7 +22,7 @@ BINARY_URL=https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/age
 BINARY_HOST="{{.}}"
 # BINARY_HOST="http://172.25.21.62:9000" #dbg
 test -z $(echo $BINARY_HOST |grep "}}") && BINARY_URL="$BINARY_HOST/static/$PACKAGE" #ct's /misc/binary_ins.sh
-test -z $(echo $BINARY_HOST |grep "}}") && URL=$BINARY_HOST #"http://172.17.0.60:9000" #golang从req中获取，tpl写入
+test -z $(echo $BINARY_HOST |grep "}}") && SERVER_URL=$BINARY_HOST #"http://172.17.0.60:9000" #golang从req中获取，tpl写入
 
 function errExit(){
   echo "$1"
@@ -51,27 +51,25 @@ checkDeps
 
 test -z "$DEPLOY" && errExit "DEPLOY 为空"
 test -z "$ACTION" && errExit "ACTION 为空"
-test -z "$URL" && errExit "URL 为空"
-test -z "$USER1" && errExit "USER 为空"
-test -z "$PASS" && errExit "PASS 为空"
+test -z "$SERVER_URL" && errExit "SERVER_URL 为空"
+test -z "$SERVER_USER" && errExit "SERVER_USER 为空"
+test -z "$SERVER_PASS" && errExit "SERVER_PASS 为空"
 # exit 0 #debug_skip
 
 # INSTANCE_ID Params
-HOST="$URL" #URL > HOST
-URL_IP=$(echo $URL |grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" |sed "s/\:/_/g"); test -z "$URL_IP" && errExit "fail to get URL_IP"
+HOST="$SERVER_URL" #SERVER_URL > HOST
+URL_IP=$(echo $SERVER_URL |grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" |sed "s/\:/_/g"); test -z "$URL_IP" && errExit "fail to get URL_IP"
 INSTANCE_ID=$URL_IP
 dpPath="$DEPLOY/agent-$INSTANCE_ID"
 svc="agent-$INSTANCE_ID.service"
 
 function doLogin(){
-  local USERNAME="$USER1"
-  local PASSWORD="$PASS"
   # validate:
   curl --connect-timeout 3 -s $HOST > /dev/null #3s
   local errCode=$?; test "0" == "$errCode" || errExit "$HOST 地址访问失败，curl错误码: $errCode"
 
   # if login err;
-  ret=$(curl -s -H "Content-Type: application/json" -d "{\"username\":\"$USERNAME\",\"password\":\"$PASSWORD\"}" -X POST $HOST/api/auth)
+  ret=$(curl -s -H "Content-Type: application/json" -d "{\"username\":\"$SERVER_USER\",\"password\":\"$SERVER_PASS\"}" -X POST $HOST/api/auth)
   # echo "ret: $ret"
   # Access denied to resource
   message=$(echo $ret |grep "message"); test -z "$message" ||  errExit "$HOST 登录失败，detail: $ret"  
@@ -139,8 +137,8 @@ function endpointJudgeAdd(){
     EDGE_NAME="$LOCAL_IP" #"$ip-$rand"
     test -z "$NODENAME" || EDGE_NAME=$NODENAME
     # -F "URL=$HOST"  ##try notes: 导致注册的节点写死了URL(需要epUpdate操作才更新)
-    # 22.1.19: -F "URL=$URL"  ##UI中会自动带上, pt-cn1124测试：当不指定URL时，导致生成的EDGE_KEY没得URL信息， ptAgent注册失败.
-    local jsonAdd=$(curl -s -X POST $HOST/api/endpoints -H "accept: application/json" -H "Authorization: Bearer $LOGIN_TOKEN" -F "URL=$URL" -F "Name=$EDGE_NAME" -F "EndpointCreationType=4")
+    # 22.1.19: -F "URL=$SERVER_URL"  ##UI中会自动带上, pt-cn1124测试：当不指定URL时，导致生成的EDGE_KEY没得URL信息， ptAgent注册失败.
+    local jsonAdd=$(curl -s -X POST $HOST/api/endpoints -H "accept: application/json" -H "Authorization: Bearer $LOGIN_TOKEN" -F "URL=$SERVER_URL" -F "Name=$EDGE_NAME" -F "EndpointCreationType=4")
     # echo "jsonAdd: $jsonAdd" |grep "Invalid"
     EDGE_EP_ID=$(echo $jsonAdd |$jqBin -r .Id) #表ID号
     EDGE_EP_NAME=$(echo $jsonAdd |$jqBin -r .Name) #IP名
@@ -313,13 +311,15 @@ function uninstall(){
 }
 
 case "$ACTION" in
-    install)   
-        install
-        ;;
     uninstall)   
         uninstall
         ;;
     *)
-        echo "Usage: ./ins.sh -ACT=<install/uninstall> -URL=URL -U=USER -P=PASS"
+        install
         ;;
 esac
+
+# export SERVER_URL="http://172.17.0.60:9000"
+# export SERVER_USER="admin"
+# export SERVER_PASS="xxx"
+# curl -s https://gitee.com/g-devops/lang-replacement/raw/dev/static/binary_ins.sh |bash -s #uninstall
