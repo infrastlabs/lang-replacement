@@ -12,6 +12,7 @@ cur=$(cd "$(dirname "$0")"; pwd)
 # ===============================================
 
 # ACTION=$1; shift
+cache=/opt/.cache_binary_ins; mkdir -p $cache
 PACKAGE="agent-v291.tar.gz" #agent程序包
 test -z "$(uname -i |grep aarch)" && arch=x64 || arch=arm64
 # https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/agent-v291-220407.tar.gz #892492/download/agent-v291-1125.tar.gz
@@ -22,68 +23,76 @@ BINARY_HOST="{{.}}"
 test -z $(echo $BINARY_HOST |grep "}}") && BINARY_URL="$BINARY_HOST/static/$PACKAGE" #ct's /misc/binary_ins.sh
 test -z $(echo $BINARY_HOST |grep "}}") && SERVER_URL=$BINARY_HOST #"http://172.17.0.60:9000" #golang从req中获取，tpl写入
 
-function errExit(){
+function errLog(){
   echo "$1"
-  exit 1
+  test "$2" != "false" && exit 1
 }
 
 function checkDeps(){ #static-curl,gojq,goawk
+  local arch=amd64
+  test -z "$(uname -i |grep aarch)" || arch=arm64
   # wget> curl
   test -s /bin/curl || wget -O /bin/curl https://ghproxy.com/https://github.com/moparisthebest/static-curl/releases/download/v7.88.1/curl-$arch
   chmod +x /bin/curl
   curl -V > /dev/null 2>&1
-  err=$?; test "0" == "$err" || errExit "curl 未安装(apt/yum install curl)"
+  err=$?; test "0" == "$err" || errLog "curl 未安装(apt/yum install curl)"
   
   # goawk
   goawk_url=https://ghproxy.com/https://github.com/benhoyt/goawk/releases/download/v1.23.1/goawk_v1.23.1_linux_$arch.tar.gz
-  # wget $goawk_url -O - | tar -zx -C /tmp --strip-components=1;
+  # wget $goawk_url -O - | tar -zx -C $cache --strip-components=1;
 
   # jq/gojq
-  echo "download: /tmp/gojq, please wait.."
+  echo "download: $cache/gojq, please wait.."
   # gojq_url=$BINARY_HOST/static/gojq
-  # test -s /tmp/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$gojq_url" > /tmp/gojq"
+  # test -s $cache/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$gojq_url" > $cache/gojq"
   gojq_url=https://ghproxy.com/https://github.com/itchyny/gojq/releases/download/v0.12.12/gojq_v0.12.12_linux_$arch.tar.gz
   # wget $gojq_url -qO -
-  test -s /tmp/gojq && echo "existed, skip" || wget $gojq_url -O - | tar -zx -C /tmp --strip-components=1;
-  jqBin=/tmp/gojq; sudo chmod +x $jqBin
+  test -s $cache/gojq && echo "existed, skip" || wget $gojq_url -O - | tar -zx -C $cache --strip-components=1;
+  jqBin=$cache/gojq; sudo chmod +x $jqBin
   $jqBin -v > /dev/null 2>&1
-  err=$?; test "0" == "$err" || errExit "gojq 错误"
+  err=$?; test "0" == "$err" || errLog "gojq 错误"
   # if [ ! -z $(echo $BINARY_HOST |grep "}}") ]; then #non ct's /misc/binary_ins.sh
   #   jqBin="jq"
   #   $jqBin -V > /dev/null 2>&1
-  #   err=$?; test "0" == "$err" || errExit "jq 未安装(apt/yum install jq)"
+  #   err=$?; test "0" == "$err" || errLog "jq 未安装(apt/yum install jq)"
   # else
-  #   echo "download: /tmp/gojq, please wait.."
-  #   test -s /tmp/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$BINARY_HOST/static/gojq" > /tmp/gojq"
-  #   jqBin=/tmp/gojq; sudo chmod +x $jqBin
+  #   echo "download: $cache/gojq, please wait.."
+  #   test -s $cache/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$BINARY_HOST/static/gojq" > $cache/gojq"
+  #   jqBin=$cache/gojq; sudo chmod +x $jqBin
   #   $jqBin -v > /dev/null 2>&1
-  #   err=$?; test "0" == "$err" || errExit "gojq 错误"
+  #   err=$?; test "0" == "$err" || errLog "gojq 错误"
   # fi
 }
-checkDeps
 
 # from ENV
-test -z "$SERVER_URL" && errExit "SERVER_URL 为空"
-test -z "$SERVER_USER" && errExit "SERVER_USER 为空"
-test -z "$SERVER_PASS" && errExit "SERVER_PASS 为空"
+test -z "$SERVER_URL" && errLog "SERVER_URL 为空"
+test -z "$SERVER_USER" && errLog "SERVER_USER 为空"
+test -z "$SERVER_PASS" && errLog "SERVER_PASS 为空"
 test -z "$DEPLOY" && DEPLOY="/usr/local/portainer-agent"
 test -z "$VOLUME_PATH" && VOLUME_PATH="/var/lib/docker/volumes" #"/opt/docker-data/volumes" 
 # exit 0 #debug_skip
 
+checkDeps
+# preCheck, validate
+echo "download: $cache/$PACKAGE, please wait.."
+echo "BINARY_URL: $BINARY_URL"
+test -s $cache/$PACKAGE && echo "$PACKAGE existed, skip" || sudo bash -c "curl -fsSL $BINARY_URL > $cache/$PACKAGE" #down from gitee's release
+test -s $cache/$PACKAGE || errLog "agent-pkg not exist"
+
 function doLogin(){
   # validate:
   curl --connect-timeout 3 -s $SERVER_URL > /dev/null #3s
-  local errCode=$?; test "0" == "$errCode" || errExit "$SERVER_URL 地址访问失败，curl错误码: $errCode"
+  local errCode=$?; test "0" == "$errCode" || errLog "$SERVER_URL 地址访问失败，curl错误码: $errCode"
 
   # if login err;
   ret=$(curl -s -H "Content-Type: application/json" -d "{\"username\":\"$SERVER_USER\",\"password\":\"$SERVER_PASS\"}" -X POST $SERVER_URL/api/auth)
   # echo "ret: $ret"
   # Access denied to resource
-  message=$(echo $ret |grep "message"); test -z "$message" ||  errExit "$SERVER_URL 登录失败，detail: $ret"  
+  message=$(echo $ret |grep "message"); test -z "$message" ||  errLog "$SERVER_URL 登录失败，detail: $ret"  
   
   # LOGIN_TOKEN
   LOGIN_TOKEN=$(echo $ret | $jqBin -r .jwt) #global
-  test -z "$LOGIN_TOKEN" && errExit "LOGIN_TOKEN为空" || echo "LOGIN_TOKEN: $LOGIN_TOKEN"
+  test -z "$LOGIN_TOKEN" && errLog "LOGIN_TOKEN为空" || echo "LOGIN_TOKEN: $LOGIN_TOKEN"
 }
 
 function endpointJudgeAdd(){
@@ -92,16 +101,24 @@ function endpointJudgeAdd(){
   
   # 清理后，重load一次
   # local jsonList=$(curl -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN") #|$jqBin ".Name"
-  json=/tmp/.pt_jsonList.txt
+  json=$cache/.pt_jsonList.txt
   curl -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN" \
    |$jqBin -c "del(.[].SecuritySettings,.[].Kubernetes,.[].AzureCredentials,.[].TLSConfig)" > $json
   local len=$(cat $json |$jqBin ".|length")
   echo "==PT已有主机数：$len"
   EDGE_NAME=$LOCAL_IP$INDEX; EP_EDGE_KEY="" #
-  for ((i=0; i<$len; i++)); do
-    # echo $i
-    local epName=$(cat $json |$jqBin -r ".[$i].Name")
-    if [ "$EDGE_NAME" == "$epName" ]; then
+
+  # speedup: 如果匹配上再loop;
+  match0=$(cat $json |$jqBin |grep Name |grep "$EDGE_NAME\"")
+  if [ ! -z "$match0" ]; then #如非空，进loop
+  idx0=$(cat $json |$jqBin |grep Name |grep "$EDGE_NAME\"" -n |head -1 |cut -d':' -f1 |cut -d'|' -f1)
+  idx0=$(($idx0-1))
+  echo "EDGE_NAME: $EDGE_NAME, idx0-1: $idx0"; cat $json |$jqBin ".[$idx0]" |grep Name
+  local i=$idx0; local epName=$(cat $json |$jqBin -r ".[$i].Name")
+  # for ((i=0; i<$len; i++)); do
+  #   # echo $i
+  #   local epName=$(cat $json |$jqBin -r ".[$i].Name")
+  #   if [ "$EDGE_NAME" == "$epName" ]; then
       # cat $json |$jqBin -r ".[$i].Status" #status=1， 无用途
       # exist: 
       # 如活跃：fail(请提前删除)
@@ -113,11 +130,11 @@ function endpointJudgeAdd(){
       # cat $json |$jqBin ".[$i]" #dbg
       # test "$val1" -gt "20" && echo "val1: $val1" #超过20s
 
+      EP_EDGE_KEY=$(cat $json |$jqBin -r ".[$i].EdgeKey") #used for install_2
+      EP_EDGE_ID=$(cat $json |$jqBin -r ".[$i].Id")
+      EP_EDGE_NAME=$(cat $json |$jqBin -r ".[$i].Name")
       if [ "$val1" -gt "20" ]; then
         echo "[$i]==$id-$epName, 已存在(不活跃)，本次将复用该节点的EDGE_KEY"
-        EP_EDGE_KEY=$(cat $json |$jqBin -r ".[$i].EdgeKey")
-        EP_EDGE_ID=$(cat $json |$jqBin -r ".[$i].Id")
-        EP_EDGE_NAME=$(cat $json |$jqBin -r ".[$i].Name")
 
         # lastCheckDate == 0: 表明从未用过，无需解绑
         if [ "0" != "$lastCheckDate" ]; then 
@@ -128,14 +145,15 @@ function endpointJudgeAdd(){
           echo "lastCheckDate=0(未反向注册过), 不用解绑, skip"
         fi
 
-        break #如多个: 取第一个即返回
+        # break #如多个: 取第一个即返回
       else
         # echo "still active"
-        errExit "[ERROR] $id-$epName, 已存在且活跃，本次节点注册失败。(请检查本地获取到的IP节点名是否正确：$epName, 或先停用/删除PT端已有Agent节点)"
+        errLog "[RETURN] $id-$epName, 已存在且活跃，本次节点注册失败。(请检查本地获取到的IP节点名是否正确：$epName, 或先停用/删除PT端已有Agent节点)" false
+        return #return func
       fi
-    fi
-  done
-
+  #   fi
+  # done
+  fi
 
   # 如不存在，则添加：
   EDGE_KEY=""
@@ -150,7 +168,8 @@ function endpointJudgeAdd(){
     EDGE_EP_ID=$(echo $jsonAdd |$jqBin -r .Id) #表ID号
     EDGE_EP_NAME=$(echo $jsonAdd |$jqBin -r .Name) #IP名
     EDGE_KEY=$(echo $jsonAdd |$jqBin -r .EdgeKey) #&& echo $EDGE_KEY
-    test -z "$EDGE_KEY" && errExit "EDGE_KEY为空, PT端新加节点失败: $EDGE_NAME"
+    test -z "$EDGE_KEY" && errLog "[RETURN] EDGE_KEY为空, PT端新加节点失败: $EDGE_NAME"  false
+    test -z "$EDGE_KEY" && return
     echo "新加节点，EDGE_KEY(decode):"
     echo $EDGE_KEY |base64 -d
   else
@@ -161,6 +180,7 @@ function endpointJudgeAdd(){
     echo $EDGE_KEY |base64 -d
   fi  
   export EDGE_EP_ID EDGE_EP_NAME EDGE_KEY #暴露给之后func使用
+  # install_2 #aviod returned, still exec
 }
 
 function endpointRemove(){
@@ -226,7 +246,9 @@ export AGENT_SOCKET_MODE=true
 cur=\$(cd "\$(dirname "\$0")"; pwd)
 cd \$cur
 source ./env.conf
-mkdir -p ./logs && exec ./agent |grep -v "occured during short poll" >> logs/output.log 2>&1 # |tee -a
+mkdir -p ./logs
+#exec ./agent |grep -v "occured during short poll" >> logs/output.log 2>&1 # |tee -a
+exec ./agent > >(tee -a \$cur/logs/output.log) 2>&1 #|grep -v "occured during short poll"
 EOF
   sudo chmod +x $dpPath/run.sh
 }
@@ -258,18 +280,15 @@ EOF
 }
 
 function install(){
-  # preCheck, validate
-  echo "download: /tmp/$PACKAGE, please wait.."
-  echo "BINARY_URL: $BINARY_URL"
-  test -s /tmp/$PACKAGE && echo "existed, skip" || sudo bash -c "curl -fsSL $BINARY_URL > /tmp/$PACKAGE" #down from gitee's release
-  test -s /tmp/$PACKAGE || errExit "agent-pkg not exist"
-
   sudo mkdir -p "$dpPath"; #echo "dpPath: $dpPath"
-  sudo tar -zxf /tmp/$PACKAGE -C /tmp; #unpack
-  sudo \cp -a /tmp/agent-$arch $dpPath/agent #不拷贝env.conf
+  sudo tar -zxf $cache/$PACKAGE -C $cache; #unpack
+  sudo \cp -a $cache/agent-$arch $dpPath/agent #不拷贝env.conf
 
   # PT: login > jwtToken, addEp, ret epKey;
   endpointJudgeAdd
+  install_2
+}
+function install_2(){
   generateConf 
   genUninstall $dpPath/uninstall$INDEX.sh; sudo chmod +x $dpPath/uninstall$INDEX.sh
   ls -lh $dpPath/
@@ -290,7 +309,12 @@ function install(){
   else #DO if non-systemd: use nohup
     echo "WARN: non-systemd, run with nohup."
     # /usr/local/portainer-agent/agent-172xxx_9000/run.sh
-    nohup bash $dpPath/run.sh >/dev/null 2>&1 & 
+    match1=$(ps -ef |grep "agent-$SERVER_IP$INDEX/logs/output.log" |grep -v grep)
+    if [ -z "$match1" ]; then 
+      nohup bash $dpPath/run.sh >/dev/null 2>&1 &
+    else 
+      echo "progress existed, skip"
+    fi
   fi
 }
 
@@ -317,17 +341,17 @@ EOF
 # binary_ins.sh -act=uninstall ##本脚本执行uninstall，可删PT对应节点
 function uninstall(){
   echo "removeEndpoint..."
-  test -f $dpPath/env.conf || errExit "env.conf找不到(agent目录已删?, PT端节点清理将skip)"
+  test -f $dpPath/env.conf || errLog "env.conf找不到(agent目录已删?, PT端节点清理将skip)"
   doLogin && endpointRemove
 
   # uninstall.sh
-  genUninstall /tmp/ptAgentUnInstall$INDEX.sh
-  sh /tmp/ptAgentUnInstall$INDEX.sh; sudo rm -f /tmp/ptAgentUnInstall$INDEX.sh
+  genUninstall $cache/ptAgentUnInstall$INDEX.sh
+  sh $cache/ptAgentUnInstall$INDEX.sh; sudo rm -f $cache/ptAgentUnInstall$INDEX.sh
 }
 
 
 # SERVER_IP TODO: if domain, ping
-SERVER_IP=$(echo $SERVER_URL |grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" |sed "s/\:/_/g"); test -z "$SERVER_IP" && errExit "fail to get SERVER_IP"
+SERVER_IP=$(echo $SERVER_URL |grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" |sed "s/\:/_/g"); test -z "$SERVER_IP" && errLog "fail to get SERVER_IP"
 dpPath="$DEPLOY/agent-$SERVER_IP"
 svc="agent-$SERVER_IP.service"
 agentSock=/var/run/portainer-agent-$SERVER_IP.sock
