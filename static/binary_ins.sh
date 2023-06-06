@@ -13,6 +13,7 @@ cur=$(cd "$(dirname "$0")"; pwd)
 
 # ACTION=$1; shift
 cache=/opt/.cache_binary_ins; mkdir -p $cache
+CONST_NOT_ALIVE=20
 PACKAGE="agent-v291.tar.gz" #agent程序包
 test -z "$(uname -i |grep aarch)" && arch=x64 || arch=arm64
 # https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/agent-v291-220407.tar.gz #892492/download/agent-v291-1125.tar.gz
@@ -66,12 +67,13 @@ function checkDeps(){ #static-curl,gojq,goawk
   # 
   # go-supervisor
   $RUN echo a.1; \
-  test -z "$(echo $TARGETPLATFORM |grep arm)" && arch=64-bit || arch=ARM64; \
+  test -z "$(uname -i |grep aarch)" && arch=64-bit || arch=ARM64; \
   gosv_url=https://ghproxy.com/https://github.com/ochinchina/supervisord/releases/download/v0.7.3/supervisord_0.7.3_Linux_$arch.tar.gz; \
-  test -s $cache/gojq && echo "existed, skip" || wget $gosv_url -O - | tar -zx -C $cache --strip-components=1; \
-  \cp -a $cache/supervisord /usr/local/bin/go-supervisord;
+  test -s $cache/supervisord && echo "existed, skip" || wget $gosv_url -O - | tar -zx -C $cache --strip-components=1; \
+  \cp -a $cache/supervisord /bin/go-supervisord;
+  rm -f /usr/bin/sv; echo -e "#!/bin/bash\ntest -z "\$1" && go-supervisord ctl -h || go-supervisord ctl \$@" > /usr/bin/sv; chmod +x /usr/bin/sv;
   # 
-  sudo mkdir -p /var/run /var/log/supervisor /etc/supervisor/conf.d
+  sudo mkdir -p /var/run /var/log/supervisor /etc/supervisor
   sudo bash -c "cat > /etc/supervisor/supervisord.conf" <<EOF
 [unix_http_server]
 file=/var/run/supervisor.sock   ; (the path to the socket file)
@@ -163,7 +165,7 @@ function endpointJudgeAdd(){
       EP_EDGE_KEY=$(cat $json |$jqBin -r ".[$i].EdgeKey") #used for install_2
       EP_EDGE_ID=$(cat $json |$jqBin -r ".[$i].Id")
       EP_EDGE_NAME=$(cat $json |$jqBin -r ".[$i].Name")
-      if [ "$val1" -gt "20" ]; then
+      if [ "$val1" -gt "$CONST_NOT_ALIVE" ]; then #20s
         echo "[$i]==$id-$epName, 已存在(不活跃)，本次将复用该节点的EDGE_KEY"
 
         # lastCheckDate == 0: 表明从未用过，无需解绑
@@ -179,7 +181,14 @@ function endpointJudgeAdd(){
       else
         # echo "still active"
         errLog "[RETURN] $id-$epName, 已存在且活跃，本次节点注册失败。(请检查本地获取到的IP节点名是否正确：$epName, 或先停用/删除PT端已有Agent节点)" false
-        return #return func
+        
+        # TODO: 此项aliveNode>> 不应该跑新进程(Edge identifier对不上，也用不了)
+
+        EDGE_EP_ID="$EP_EDGE_ID";EDGE_EP_NAME="$EP_EDGE_NAME";EDGE_KEY="$EP_EDGE_KEY"
+        echo "复用节点，EDGE_KEY(decode):"
+        echo $EDGE_KEY |base64 -d
+        export EDGE_EP_ID EDGE_EP_NAME EDGE_KEY #暴露给之后func使用
+        return #return func >> DO: 这里return 导致install_2取到上1条的信息?? (未export)
       fi
   #   fi
   # done
@@ -199,7 +208,6 @@ function endpointJudgeAdd(){
     EDGE_EP_NAME=$(echo $jsonAdd |$jqBin -r .Name) #IP名
     EDGE_KEY=$(echo $jsonAdd |$jqBin -r .EdgeKey) #&& echo $EDGE_KEY
     test -z "$EDGE_KEY" && errLog "[RETURN] EDGE_KEY为空, PT端新加节点失败: $EDGE_NAME"  false
-    test -z "$EDGE_KEY" && return
     echo "新加节点，EDGE_KEY(decode):"
     echo $EDGE_KEY |base64 -d
   else
@@ -210,6 +218,7 @@ function endpointJudgeAdd(){
     echo $EDGE_KEY |base64 -d
   fi  
   export EDGE_EP_ID EDGE_EP_NAME EDGE_KEY #暴露给之后func使用
+  test -z "$EDGE_KEY" && endpointJudgeAdd #失败则重试，TODO: EDGE_KEY_MAX_RETRY=3
   # install_2 #aviod returned, still exec
 }
 
@@ -285,7 +294,6 @@ EOF
 
 function generateService(){
   echo "generateService"
-  local WS=$dpPath
   sudo mkdir -p /etc/systemd/system
   sudo bash -c "cat > /etc/systemd/system/$svc" <<EOF
 [Unit]
@@ -297,8 +305,8 @@ Documentation=https://github.com
 
 [Service]
 Type=simple
-WorkingDirectory=$WS
-ExecStart=$WS/run.sh
+WorkingDirectory=$dpPath
+ExecStart=$dpPath/run.sh
 #Restart=on-failure
 Restart=always
 RestartSec=5
@@ -307,13 +315,17 @@ LimitNOFILE=65536
 [Install]
 WantedBy=multi-user.target
 EOF
-sudo bash -c "cat > /etc/supervisor/conf.d/$svc.conf" <<EOF
+}
+function generateSV(){
+  echo "generateSV"
+  sudo mkdir -p /etc/supervisor/conf.d
+  sudo bash -c "cat > /etc/supervisor/conf.d/$svc.conf" <<EOF
 [program:$svc]
 priority=20
 user=root
 startretries=5
 autorestart=true
-command=$WS/run.sh
+command=$dpPath/run.sh
 stdout_logfile=/var/log/supervisor/$svc.log
 stdout_logfile_maxbytes = 50MB
 stdout_logfile_backups  = 10
@@ -351,7 +363,9 @@ function install_2(){
   else #DO if non-systemd: use nohup
     echo "WARN: non-systemd, run with gosv/nohup."
     # /usr/local/portainer-agent/agent-172xxx_9000/run.sh
+    
     # exec go-supervisord
+    generateSV
     match1=$(ps -ef |grep "go-supervisord" |grep -v grep)
     if [ -z "$match1" ]; then 
       echo "start gosv"
@@ -411,6 +425,7 @@ selectLocalIP; doLogin; INDEX=""
 # COUNT=10 #dbg
 test -z "$COUNT" && COUNT=1
 function doMulti(){
+  echo "sleep $CONST_NOT_ALIVE; #barge下rebootVM时，让pt端达成不活跃状态"; sleep $CONST_NOT_ALIVE
   for((idx=1;idx<=$COUNT;idx++));do
     echo "doMulti: $idx"; INDEX="-$idx"
     dpPath="$DEPLOY/agent-$SERVER_IP$INDEX"
