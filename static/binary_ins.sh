@@ -62,6 +62,36 @@ function checkDeps(){ #static-curl,gojq,goawk
   #   $jqBin -v > /dev/null 2>&1
   #   err=$?; test "0" == "$err" || errLog "gojq 错误"
   # fi
+
+  # 
+  # go-supervisor
+  $RUN echo a.1; \
+  test -z "$(echo $TARGETPLATFORM |grep arm)" && arch=64-bit || arch=ARM64; \
+  gosv_url=https://ghproxy.com/https://github.com/ochinchina/supervisord/releases/download/v0.7.3/supervisord_0.7.3_Linux_$arch.tar.gz; \
+  test -s $cache/gojq && echo "existed, skip" || wget $gosv_url -O - | tar -zx -C $cache --strip-components=1; \
+  \cp -a $cache/supervisord /usr/local/bin/go-supervisord;
+  # 
+  sudo mkdir -p /var/run /var/log/supervisor /etc/supervisor/conf.d
+  sudo bash -c "cat > /etc/supervisor/supervisord.conf" <<EOF
+[unix_http_server]
+file=/var/run/supervisor.sock   ; (the path to the socket file)
+chmod=0700                       ; sockef file mode (default 0700)
+[inet_http_server]
+port=0.0.0.0:9001 ;9001
+username=headless
+password=View123 ; replace with vnc-view's pass? (ro)
+;prom http://127.0.0.1:9001/metrics
+[supervisord]
+logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)
+pidfile=/var/run/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+childlogdir=/var/log/supervisor            ; ('AUTO' child log dir, default $TEMP)
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+[supervisorctl]
+serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
+[include]
+files = /etc/supervisor/conf.d/*.conf
+EOF
 }
 
 # from ENV
@@ -277,6 +307,18 @@ LimitNOFILE=65536
 [Install]
 WantedBy=multi-user.target
 EOF
+sudo bash -c "cat > /etc/supervisor/conf.d/$svc.conf" <<EOF
+[program:$svc]
+priority=20
+user=root
+startretries=5
+autorestart=true
+command=$WS/run.sh
+stdout_logfile=/var/log/supervisor/$svc.log
+stdout_logfile_maxbytes = 50MB
+stdout_logfile_backups  = 10
+redirect_stderr=true
+EOF
 }
 
 function install(){
@@ -307,14 +349,23 @@ function install_2(){
   # else if sysv;
   #   TODO..
   else #DO if non-systemd: use nohup
-    echo "WARN: non-systemd, run with nohup."
+    echo "WARN: non-systemd, run with gosv/nohup."
     # /usr/local/portainer-agent/agent-172xxx_9000/run.sh
-    match1=$(ps -ef |grep "agent-$SERVER_IP$INDEX/logs/output.log" |grep -v grep)
+    # exec go-supervisord
+    match1=$(ps -ef |grep "go-supervisord" |grep -v grep)
     if [ -z "$match1" ]; then 
-      nohup bash $dpPath/run.sh >/dev/null 2>&1 &
+      echo "start gosv"
+      nohup go-supervisord >/dev/null 2>&1 &
     else 
-      echo "progress existed, skip"
+      echo "sv reload"; sv reload
     fi
+
+    # match1=$(ps -ef |grep "agent-$SERVER_IP$INDEX/logs/output.log" |grep -v grep)
+    # if [ -z "$match1" ]; then 
+    #   nohup bash $dpPath/run.sh >/dev/null 2>&1 &
+    # else 
+    #   echo "progress existed, skip"
+    # fi
   fi
 }
 
