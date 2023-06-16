@@ -6,16 +6,62 @@ cur=$(cd "$(dirname "$0")"; pwd)
 # export SERVER_USER="admin"
 # export SERVER_PASS="admin123"
 # # export COUNT=2 #MultiAgent(default 1)
-# curl -s https://gitee.com/g-devops/lang-replacement/raw/dev/static/binary_ins.sh |bash -s #uninstall
+# curl -k -fSL https://gitee.com/g-devops/lang-replacement/raw/dev/static/binary_ins.sh |bash -s #uninstall
 # 
-# deps: curl, jq/gojq,goawk
+# deps: curl, jq/gojq, goawk
 # ===============================================
 
 # ACTION=$1; shift
-cache=/opt/.cache_binary_ins; mkdir -p $cache
-CONST_NOT_ALIVE=20
+CONST_NOT_ALIVE=5 #20
+C=/opt/.cache_binary_ins; mkdir -p $C #cacheDir
+sudo -V > /dev/null 2>&1; test "0" == "$?" && sudo="sudo" || sudo=""
+function errLog(){
+  echo "$1"
+  test "$2" != "false" && exit 1
+}
+# from ENV
+test -z "$SERVER_URL" && errLog "SERVER_URL 为空"
+test -z "$SERVER_USER" && errLog "SERVER_USER 为空"
+test -z "$SERVER_PASS" && errLog "SERVER_PASS 为空"
+test -z "$DEPLOY" && DEPLOY="/usr/local/portainer-agent"
+test -z "$VOLUME_PATH" && VOLUME_PATH="/var/lib/docker/volumes" #"/opt/docker-data/volumes" 
+# exit 0 #debug_skip
+BinDir=$DEPLOY/bin; mkdir -p $BinDir #/bin #/usr/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin #psu host pty
+sudo echo 123 > /dev/null 2>&1; test "0" == "$?" && sudo="sudo" || sudo=""
+echo -e "\nsudo: $sudo"
+
+function checkDeps(){ #static-curl,gojq,goawk
+  # apt/yum install curl jq
+  # wget -qO - $url # curl -k -fSL $url
+
+  # curl|wget
+  wget -V > /dev/null 2>&1
+  test "0" == "$?" && dlcmd="wget --no-check-certificate -O" || dlcmd="curl -k -fSL -o"
+
+  # static-curl
+  local arch=amd64; test -z "$(uname -a |grep aarch)" || arch=aarch64 
+  local file=static-curl-$arch
+  curl_url=https://ghproxy.com/https://github.com/moparisthebest/static-curl/releases/download/v7.88.1/curl-$arch
+  test -s $C/$file && echo "existed, skip" || $dlcmd $C/$file $curl_url
+  curlBin=$C/$file; chmod +x $curlBin
+  $curlBin -V > /dev/null 2>&1; test "0" == "$?" || errLog "curl-static错误"
+
+  # jq/gojq
+  local arch=amd64; test -z "$(uname -a |grep aarch)" || arch=arm64 
+  gojq_url=https://ghproxy.com/https://github.com/itchyny/gojq/releases/download/v0.12.12/gojq_v0.12.12_linux_$arch.tar.gz
+  test -s $C/gojq && echo "existed, skip" || $curlBin -k -fSL $gojq_url | tar -zx -C $C --strip-components=1; #wget -O -
+  jqBin=$C/gojq; $sudo chmod +x $jqBin
+  $jqBin -v > /dev/null 2>&1; test "0" == "$?" || errLog "gojq 错误"
+  
+  # goawk
+  goawk_url=https://ghproxy.com/https://github.com/benhoyt/goawk/releases/download/v1.23.1/goawk_v1.23.1_linux_$arch.tar.gz
+  #test -s $C/goawk && echo "existed, skip" || $curlBin -k -fSL $goawk_url | tar -zx -C $C --strip-components=1;
+}
+echo -e "\ncheckDeps" && checkDeps
+# preCheck, validate
 PACKAGE="agent-v291.tar.gz" #agent程序包
-test -z "$(uname -i |grep aarch)" && arch=x64 || arch=arm64
+test -z "$(uname -a |grep aarch)" && arch=x64 || arch=arm64
 # https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/agent-v291-220407.tar.gz #892492/download/agent-v291-1125.tar.gz
 # https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230522/agent-v291-x64-230523.tar.gz
 BINARY_URL=https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230522/agent-v291-$arch-230523.tar.gz 
@@ -24,65 +70,30 @@ BINARY_HOST="{{.}}"
 test -z $(echo $BINARY_HOST |grep "}}") && BINARY_URL="$BINARY_HOST/static/$PACKAGE" #ct's /misc/binary_ins.sh
 test -z $(echo $BINARY_HOST |grep "}}") && SERVER_URL=$BINARY_HOST #"http://172.17.0.60:9000" #golang从req中获取，tpl写入
 
-function errLog(){
-  echo "$1"
-  test "$2" != "false" && exit 1
-}
+# echo "download: $C/$PACKAGE, please wait.."
+echo "BINARY_URL: $BINARY_URL"
+test -s $C/$PACKAGE && echo "existed, skip" || $sudo $curlBin -k -fSL -o $C/$PACKAGE $BINARY_URL #down from gitee's release
+test -s $C/$PACKAGE || errLog "agent-pkg not exist"
 
-function checkDeps(){ #static-curl,gojq,goawk
+function initSV(){ # go-supervisor
+  echo "initSV"
   local arch=amd64
-  test -z "$(uname -i |grep aarch)" || arch=arm64
-  # wget> curl
-  test -s /bin/curl || wget -O /bin/curl https://ghproxy.com/https://github.com/moparisthebest/static-curl/releases/download/v7.88.1/curl-$arch
-  chmod +x /bin/curl
-  curl -V > /dev/null 2>&1
-  err=$?; test "0" == "$err" || errLog "curl 未安装(apt/yum install curl)"
-  
-  # goawk
-  goawk_url=https://ghproxy.com/https://github.com/benhoyt/goawk/releases/download/v1.23.1/goawk_v1.23.1_linux_$arch.tar.gz
-  # wget $goawk_url -O - | tar -zx -C $cache --strip-components=1;
-
-  # jq/gojq
-  echo "download: $cache/gojq, please wait.."
-  # gojq_url=$BINARY_HOST/static/gojq
-  # test -s $cache/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$gojq_url" > $cache/gojq"
-  gojq_url=https://ghproxy.com/https://github.com/itchyny/gojq/releases/download/v0.12.12/gojq_v0.12.12_linux_$arch.tar.gz
-  # wget $gojq_url -qO -
-  test -s $cache/gojq && echo "existed, skip" || wget $gojq_url -O - | tar -zx -C $cache --strip-components=1;
-  jqBin=$cache/gojq; sudo chmod +x $jqBin
-  $jqBin -v > /dev/null 2>&1
-  err=$?; test "0" == "$err" || errLog "gojq 错误"
-  # if [ ! -z $(echo $BINARY_HOST |grep "}}") ]; then #non ct's /misc/binary_ins.sh
-  #   jqBin="jq"
-  #   $jqBin -V > /dev/null 2>&1
-  #   err=$?; test "0" == "$err" || errLog "jq 未安装(apt/yum install jq)"
-  # else
-  #   echo "download: $cache/gojq, please wait.."
-  #   test -s $cache/gojq && echo "existed, skip" || sudo bash -c "curl -fsSL "$BINARY_HOST/static/gojq" > $cache/gojq"
-  #   jqBin=$cache/gojq; sudo chmod +x $jqBin
-  #   $jqBin -v > /dev/null 2>&1
-  #   err=$?; test "0" == "$err" || errLog "gojq 错误"
-  # fi
-
-  # 
-  # go-supervisor
-  $RUN echo a.1; \
-  test -z "$(uname -i |grep aarch)" && arch=64-bit || arch=ARM64; \
+  test -z "$(uname -a |grep aarch)" && arch=64-bit || arch=ARM64; \
   gosv_url=https://ghproxy.com/https://github.com/ochinchina/supervisord/releases/download/v0.7.3/supervisord_0.7.3_Linux_$arch.tar.gz; \
-  test -s $cache/supervisord && echo "existed, skip" || wget $gosv_url -O - | tar -zx -C $cache --strip-components=1; \
-  \cp -a $cache/supervisord /bin/go-supervisord;
-  rm -f /usr/bin/sv; echo -e "#!/bin/bash\ntest -z "\$1" && go-supervisord ctl -h || go-supervisord ctl \$@" > /usr/bin/sv; chmod +x /usr/bin/sv;
+  test -s $C/supervisord && echo "existed, skip" || $curlBin -k -fSL $gosv_url | tar -zx -C $C --strip-components=1; \
+  \cp -a $C/supervisord $BinDir/go-supervisord;
+  rm -f $BinDir/sv; echo -e "#!/bin/bash\ntest -z "\$1" && go-supervisord ctl -h || go-supervisord ctl \$@" > $BinDir/sv; chmod +x $BinDir/sv;
   # 
-  sudo mkdir -p /var/run /var/log/supervisor /etc/supervisor
-  sudo bash -c "cat > /etc/supervisor/supervisord.conf" <<EOF
+  $sudo mkdir -p /var/run /var/log/supervisor /etc/supervisor
+  $sudo bash -c "cat > /etc/supervisor/supervisord.conf" <<EOF
 [unix_http_server]
 file=/var/run/supervisor.sock   ; (the path to the socket file)
 chmod=0700                       ; sockef file mode (default 0700)
-[inet_http_server]
-port=0.0.0.0:9001 ;9001
-username=headless
-password=View123 ; replace with vnc-view's pass? (ro)
-;prom http://127.0.0.1:9001/metrics
+;[inet_http_server]
+;port=0.0.0.0:9001 ;9001
+;username=root
+;password=root123 ; replace with vnc-view's pass? (ro)
+;;prom http://127.0.0.1:9001/metrics
 [supervisord]
 logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)
 pidfile=/var/run/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
@@ -95,29 +106,17 @@ serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket
 files = /etc/supervisor/conf.d/*.conf
 EOF
 }
-
-# from ENV
-test -z "$SERVER_URL" && errLog "SERVER_URL 为空"
-test -z "$SERVER_USER" && errLog "SERVER_USER 为空"
-test -z "$SERVER_PASS" && errLog "SERVER_PASS 为空"
-test -z "$DEPLOY" && DEPLOY="/usr/local/portainer-agent"
-test -z "$VOLUME_PATH" && VOLUME_PATH="/var/lib/docker/volumes" #"/opt/docker-data/volumes" 
-# exit 0 #debug_skip
-
-checkDeps
-# preCheck, validate
-echo "download: $cache/$PACKAGE, please wait.."
-echo "BINARY_URL: $BINARY_URL"
-test -s $cache/$PACKAGE && echo "$PACKAGE existed, skip" || sudo bash -c "curl -fsSL $BINARY_URL > $cache/$PACKAGE" #down from gitee's release
-test -s $cache/$PACKAGE || errLog "agent-pkg not exist"
+systemctl -a > /dev/null 2>&1
+test "0" != "$?" && initSV
 
 function doLogin(){
+  echo "doLogin"
   # validate:
-  curl --connect-timeout 3 -s $SERVER_URL > /dev/null #3s
+  $curlBin --connect-timeout 3 -s $SERVER_URL > /dev/null 2>&1 #3s
   local errCode=$?; test "0" == "$errCode" || errLog "$SERVER_URL 地址访问失败，curl错误码: $errCode"
 
   # if login err;
-  ret=$(curl -s -H "Content-Type: application/json" -d "{\"username\":\"$SERVER_USER\",\"password\":\"$SERVER_PASS\"}" -X POST $SERVER_URL/api/auth)
+  ret=$($curlBin -s -H "Content-Type: application/json" -d "{\"username\":\"$SERVER_USER\",\"password\":\"$SERVER_PASS\"}" -X POST $SERVER_URL/api/auth)
   # echo "ret: $ret"
   # Access denied to resource
   message=$(echo $ret |grep "message"); test -z "$message" ||  errLog "$SERVER_URL 登录失败，detail: $ret"  
@@ -128,17 +127,21 @@ function doLogin(){
 }
 
 function endpointJudgeAdd(){
+  unset EDGE_EP_ID EDGE_EP_NAME EDGE_KEY EDGE_ID #reset for eachNewLoop
   # clearDuplicate ##当列表较多时(>50)，消耗时间较长；
   # exit 0
+  local rq=$(date +%Y%m%d.%H%M%S |sed "s/^..//")
+  # local rand=$(tr -dc 'A-Z0-9' </dev/urandom | head -c 2)
+  EDGE_ID_new="id-$LOCAL_IP-$rq" #存放于agent端，首注册时送到PT
   
   # 清理后，重load一次
-  # local jsonList=$(curl -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN") #|$jqBin ".Name"
-  json=$cache/.pt_jsonList.txt
-  curl -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN" \
+  # local jsonList=$($curlBin -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN") #|$jqBin ".Name"
+  json=$C/.pt_jsonList.txt
+  $curlBin -s -X GET "$SERVER_URL/api/endpoints?limit=0&start=0"  -H "Authorization: Bearer $LOGIN_TOKEN" \
    |$jqBin -c "del(.[].SecuritySettings,.[].Kubernetes,.[].AzureCredentials,.[].TLSConfig)" > $json
   local len=$(cat $json |$jqBin ".|length")
   echo "==PT已有主机数：$len"
-  EDGE_NAME=$LOCAL_IP$INDEX; EP_EDGE_KEY="" #
+  EDGE_NAME=$LOCAL_IP$INDEX; #EP_EDGE_KEY="" #
 
   # speedup: 如果匹配上再loop;
   match0=$(cat $json |$jqBin |grep Name |grep "$EDGE_NAME\"")
@@ -162,9 +165,10 @@ function endpointJudgeAdd(){
       # cat $json |$jqBin ".[$i]" #dbg
       # test "$val1" -gt "20" && echo "val1: $val1" #超过20s
 
-      EP_EDGE_KEY=$(cat $json |$jqBin -r ".[$i].EdgeKey") #used for install_2
-      EP_EDGE_ID=$(cat $json |$jqBin -r ".[$i].Id")
-      EP_EDGE_NAME=$(cat $json |$jqBin -r ".[$i].Name")
+      EDGE_EP_ID=$(cat $json |$jqBin -r ".[$i].Id")
+      EDGE_EP_NAME=$(cat $json |$jqBin -r ".[$i].Name")
+      EDGE_KEY=$(cat $json |$jqBin -r ".[$i].EdgeKey") #used for install_2
+      EDGE_ID=$(cat $json |$jqBin -r ".[$i].EdgeID")
       if [ "$val1" -gt "$CONST_NOT_ALIVE" ]; then #20s
         echo "[$i]==$id-$epName, 已存在(不活跃)，本次将复用该节点的EDGE_KEY"
 
@@ -172,11 +176,11 @@ function endpointJudgeAdd(){
         if [ "0" != "$lastCheckDate" ]; then 
           echo "lastCheckDate!=0, 进行解绑操作ing"; 
           # slow: pt-boltdb-batch
-          curl -s -X DELETE "$SERVER_URL/api/endpoints/$id/association"  -H "Authorization: Bearer $LOGIN_TOKEN" |$jqBin -r ".Id"
+          $curlBin -s -X DELETE "$SERVER_URL/api/endpoints/$id/association"  -H "Authorization: Bearer $LOGIN_TOKEN" |$jqBin -r ".Id"
         else
           echo "lastCheckDate=0(未反向注册过), 不用解绑, skip"
         fi
-
+        EDGE_ID=$EDGE_ID_new #解绑后用新id
         # break #如多个: 取第一个即返回
       else
         # echo "still active"
@@ -184,10 +188,10 @@ function endpointJudgeAdd(){
         
         # TODO: 此项aliveNode>> 不应该跑新进程(Edge identifier对不上，也用不了)
 
-        EDGE_EP_ID="$EP_EDGE_ID";EDGE_EP_NAME="$EP_EDGE_NAME";EDGE_KEY="$EP_EDGE_KEY"
+        # EDGE_EP_ID="$EP_EDGE_ID";EDGE_EP_NAME="$EP_EDGE_NAME";EDGE_KEY="$EP_EDGE_KEY"
         echo "复用节点，EDGE_KEY(decode):"
         echo $EDGE_KEY |base64 -d
-        export EDGE_EP_ID EDGE_EP_NAME EDGE_KEY #暴露给之后func使用
+        export EDGE_EP_ID EDGE_EP_NAME EDGE_KEY EDGE_ID #暴露给之后func使用
         return #return func >> DO: 这里return 导致install_2取到上1条的信息?? (未export)
       fi
   #   fi
@@ -195,14 +199,14 @@ function endpointJudgeAdd(){
   fi
 
   # 如不存在，则添加：
-  EDGE_KEY=""
-  if [ -z "$EP_EDGE_KEY" ]; then
+  # EDGE_KEY=""
+  if [ -z "$EDGE_KEY" ]; then
     # epName：简短唯一; agentID: 格式<IP_AddTime>
     # EDGE_NAME=$LOCAL_IP$INDEX #$ip-$rand
     test -z "$NODENAME" || EDGE_NAME=$NODENAME$INDEX
     # -F "URL=$SERVER_URL"  ##try notes: 导致注册的节点写死了URL(需要epUpdate操作才更新)
     # 22.1.19: -F "URL=$SERVER_URL"  ##UI中会自动带上, pt-cn1124测试：当不指定URL时，导致生成的EDGE_KEY没得URL信息， ptAgent注册失败.
-    local jsonAdd=$(curl -s -X POST $SERVER_URL/api/endpoints -H "accept: application/json" -H "Authorization: Bearer $LOGIN_TOKEN" -F "URL=$SERVER_URL" -F "Name=$EDGE_NAME" -F "EndpointCreationType=4")
+    local jsonAdd=$($curlBin -s -X POST $SERVER_URL/api/endpoints -H "accept: application/json" -H "Authorization: Bearer $LOGIN_TOKEN" -F "URL=$SERVER_URL" -F "Name=$EDGE_NAME" -F "EndpointCreationType=4")
     # echo "jsonAdd: $jsonAdd" |grep "Invalid"
     EDGE_EP_ID=$(echo $jsonAdd |$jqBin -r .Id) #表ID号
     EDGE_EP_NAME=$(echo $jsonAdd |$jqBin -r .Name) #IP名
@@ -210,14 +214,14 @@ function endpointJudgeAdd(){
     test -z "$EDGE_KEY" && errLog "[RETURN] EDGE_KEY为空, PT端新加节点失败: $EDGE_NAME"  false
     echo "新加节点，EDGE_KEY(decode):"
     echo $EDGE_KEY |base64 -d
-  else
-    EDGE_EP_ID="$EP_EDGE_ID"
-    EDGE_EP_NAME="$EP_EDGE_NAME"
-    EDGE_KEY="$EP_EDGE_KEY"
-    echo "复用节点，EDGE_KEY(decode):"
-    echo $EDGE_KEY |base64 -d
+    EDGE_ID=$EDGE_ID_new
+    
+  # else
+  #   EDGE_EP_ID="$EP_EDGE_ID"; EDGE_EP_NAME="$EP_EDGE_NAME"; EDGE_KEY="$EP_EDGE_KEY"
+  #   echo "复用节点，EDGE_KEY(decode):"
+  #   echo $EDGE_KEY |base64 -d
   fi  
-  export EDGE_EP_ID EDGE_EP_NAME EDGE_KEY #暴露给之后func使用
+  export EDGE_EP_ID EDGE_EP_NAME EDGE_KEY EDGE_ID #暴露给之后func使用
   test -z "$EDGE_KEY" && endpointJudgeAdd #失败则重试，TODO: EDGE_KEY_MAX_RETRY=3
   # install_2 #aviod returned, still exec
 }
@@ -233,7 +237,7 @@ function endpointRemove(){
     echo "EDGE_EP_ID为空，skip PT端的清理"
   else 
     echo "清理 $id-$epName， 该节点已卸载"
-    curl -s -X DELETE "$SERVER_URL/api/endpoints/$id"  -H "Authorization: Bearer $LOGIN_TOKEN"
+    $curlBin -s -X DELETE "$SERVER_URL/api/endpoints/$id"  -H "Authorization: Bearer $LOGIN_TOKEN"
   fi
 }
 
@@ -255,9 +259,9 @@ function selectLocalIP(){
 
 function generateConf(){
   echo "gen: env.conf"
+  echo "EDGE_KEY: $EDGE_KEY"
+  echo "EDGE_ID: $EDGE_ID"
   local rq=$(date +%Y%m%d.%H%M%S |sed "s/^..//")
-  # local rand=$(tr -dc 'A-Z0-9' </dev/urandom | head -c 2)
-  EDGE_ID="id-$LOCAL_IP-$rq" #存放于agent端，首注册时送到PT
   test -s $dpPath/env.conf && mv $dpPath/env.conf $dpPath/env.conf-bk$rq
   echo """
 source /etc/profile
@@ -272,30 +276,32 @@ export EDGE_INACTIVITY_TIMEOUT=525600m  #60*24*365 min
 export AGENT_PORT=1906 #AGENT_PORT 改用socket,不再需要
 export AGENT_SOCKET=$agentSock
 export AGENT_SOCKET_MODE=true
-"""  |sudo tee $dpPath/env.conf > /dev/null
-  echo "export DOCKER_HOST=unix:///var/run/docker.sock" |sudo tee -a $dpPath/env.conf > /dev/null
-  echo "export DOCKER_BINARY_PATH=$dpPath" |sudo tee -a $dpPath/env.conf > /dev/null
-  echo "export DOCKER_VOLUME_PATH=$VOLUME_PATH" |sudo tee -a $dpPath/env.conf > /dev/null
+"""  |$sudo tee $dpPath/env.conf > /dev/null
+  echo "export DOCKER_HOST=unix:///var/run/docker.sock" |$sudo tee -a $dpPath/env.conf > /dev/null
+  echo "export DOCKER_BINARY_PATH=$dpPath" |$sudo tee -a $dpPath/env.conf > /dev/null
+  echo "export DOCKER_VOLUME_PATH=$VOLUME_PATH" |$sudo tee -a $dpPath/env.conf > /dev/null
 
 
   # ./agent > logs/output.log 2>&1
   echo "gen: run.sh"
-  sudo bash -c "cat > $dpPath/run.sh" <<EOF
+  $sudo bash -c "cat > $dpPath/run.sh" <<EOF
 #!/bin/bash
 cur=\$(cd "\$(dirname "\$0")"; pwd)
 cd \$cur
 source ./env.conf
-mkdir -p ./logs
+#mkdir -p ./logs
 #exec ./agent |grep -v "occured during short poll" >> logs/output.log 2>&1 # |tee -a
-exec ./agent > >(tee -a \$cur/logs/output.log) 2>&1 #|grep -v "occured during short poll"
+#exec ./agent > >(tee -a \$cur/logs/output.log) 2>&1 #|grep -v "occured during short poll"
+rm -rf ./logs; ln -s /var/log/supervisor ./logs
+exec \$cur/agent #full path
 EOF
-  sudo chmod +x $dpPath/run.sh
+  $sudo chmod +x $dpPath/run.sh
 }
 
 function generateService(){
   echo "generateService"
-  sudo mkdir -p /etc/systemd/system
-  sudo bash -c "cat > /etc/systemd/system/$svc" <<EOF
+  $sudo mkdir -p /etc/systemd/system
+  $sudo bash -c "cat > /etc/systemd/system/$svc" <<EOF
 [Unit]
 Description=Portainer Agent
 After=network.target
@@ -318,8 +324,8 @@ EOF
 }
 function generateSV(){
   echo "generateSV"
-  sudo mkdir -p /etc/supervisor/conf.d
-  sudo bash -c "cat > /etc/supervisor/conf.d/$svc.conf" <<EOF
+  $sudo mkdir -p /etc/supervisor/conf.d
+  $sudo bash -c "cat > /etc/supervisor/conf.d/$svc.conf" <<EOF
 [program:$svc]
 priority=20
 user=root
@@ -334,9 +340,9 @@ EOF
 }
 
 function install(){
-  sudo mkdir -p "$dpPath"; #echo "dpPath: $dpPath"
-  sudo tar -zxf $cache/$PACKAGE -C $cache; #unpack
-  sudo \cp -a $cache/agent-$arch $dpPath/agent #不拷贝env.conf
+  $sudo mkdir -p "$dpPath"; #echo "dpPath: $dpPath"
+  $sudo tar -zxf $C/$PACKAGE -C $C; #unpack
+  $sudo \cp -a $C/agent-$arch $dpPath/agent #不拷贝env.conf
 
   # PT: login > jwtToken, addEp, ret epKey;
   endpointJudgeAdd
@@ -344,7 +350,7 @@ function install(){
 }
 function install_2(){
   generateConf 
-  genUninstall $dpPath/uninstall$INDEX.sh; sudo chmod +x $dpPath/uninstall$INDEX.sh
+  genUninstall $dpPath/uninstall$INDEX.sh; $sudo chmod +x $dpPath/uninstall$INDEX.sh
   ls -lh $dpPath/
 
   # Systemd: init + start
@@ -352,69 +358,60 @@ function install_2(){
   if [ "0" == "$?" ]; then
     generateService #
     # 注：需要systemd环境
-    sudo systemctl daemon-reload 
-    sudo systemctl enable $svc #auto start
-    sudo systemctl restart $svc #stop first, if exist
+    $sudo systemctl daemon-reload 
+    $sudo systemctl enable $svc #auto start
+    $sudo systemctl restart $svc #stop first, if exist
     # view
-    sudo systemctl status $svc |grep Active
-    sudo systemctl -a |grep agent
-  # else if sysv;
-  #   TODO..
+    $sudo systemctl status $svc |grep Active
+    $sudo systemctl -a |grep agent
   else #DO if non-systemd: use nohup
     echo "WARN: non-systemd, run with gosv/nohup."
-    # /usr/local/portainer-agent/agent-172xxx_9000/run.sh
-    
-    # exec go-supervisord
     generateSV
     match1=$(ps -ef |grep "go-supervisord" |grep -v grep)
     if [ -z "$match1" ]; then 
       echo "start gosv"
-      nohup go-supervisord >/dev/null 2>&1 &
+      # exec go-supervisord
+      nohup $BinDir/go-supervisord >/dev/null 2>&1 &
     else 
-      echo "sv reload"; sv reload
+      echo "sv reload"; sv reload; sv restart $svc #restart cur-svc
     fi
-
-    # match1=$(ps -ef |grep "agent-$SERVER_IP$INDEX/logs/output.log" |grep -v grep)
-    # if [ -z "$match1" ]; then 
-    #   nohup bash $dpPath/run.sh >/dev/null 2>&1 &
-    # else 
-    #   echo "progress existed, skip"
-    # fi
+    # echo sleep 1; sleep 1
+    # export PATH=$BinDir:$PATH; sv status #view
   fi
 }
 
 function genUninstall(){
   echo "gen: uninstall.sh"
-  sudo bash -c "cat > $1" <<EOF
+  $sudo bash -c "cat > $1" <<EOF
 echo "unInstalling..."
 systemctl -a > /dev/null 2>&1
 if [ "0" == "\$?" ]; then
   # svcStopClean
-  sudo systemctl stop $svc
-  sudo systemctl disable $svc
-  sudo systemctl status $svc |grep Active
-  sudo rm -f /etc/systemd/system/$svc #del
+  $sudo systemctl stop $svc
+  $sudo systemctl disable $svc
+  $sudo systemctl status $svc |grep Active
+  $sudo rm -f /etc/systemd/system/$svc #del
 else
   echo "WARN: non-systemd, uninstall try kill pid."
-  killPids=\$(ps -ef |grep "$dpPath/run.sh" |grep -v grep |awk '{print \$2}')
+  killPids=\$(ps -ao pid,user,comm,args |grep "$dpPath/agent" |grep -v grep |awk '{print \$1}')
   echo "killPids: \$killPids"
   test -z "\$killPids" && echo "emp, skip." || kill -9 \$killPids
 fi
-sudo rm -rf $dpPath #只删对应实例
+$sudo rm -rf $dpPath #只删对应实例
 EOF
 }
 # binary_ins.sh -act=uninstall ##本脚本执行uninstall，可删PT对应节点
 function uninstall(){
   echo "removeEndpoint..."
-  test -f $dpPath/env.conf || errLog "env.conf找不到(agent目录已删?, PT端节点清理将skip)"
+  test -f $dpPath/env.conf || errLog "env.conf找不到(agent目录已删?, PT端节点清理将skip)" false
   doLogin && endpointRemove
 
   # uninstall.sh
-  genUninstall $cache/ptAgentUnInstall$INDEX.sh
-  sh $cache/ptAgentUnInstall$INDEX.sh; sudo rm -f $cache/ptAgentUnInstall$INDEX.sh
+  genUninstall $C/ptAgentUnInstall$INDEX.sh
+  sh $C/ptAgentUnInstall$INDEX.sh; $sudo rm -f $C/ptAgentUnInstall$INDEX.sh
 }
 
-
+echo "===doInstall=========="
 # SERVER_IP TODO: if domain, ping
 SERVER_IP=$(echo $SERVER_URL |grep -E -o "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+:[0-9]+" |sed "s/\:/_/g"); test -z "$SERVER_IP" && errLog "fail to get SERVER_IP"
 dpPath="$DEPLOY/agent-$SERVER_IP"
@@ -425,7 +422,7 @@ selectLocalIP; doLogin; INDEX=""
 # COUNT=10 #dbg
 test -z "$COUNT" && COUNT=1
 function doMulti(){
-  echo "sleep $CONST_NOT_ALIVE; #barge下rebootVM时，让pt端达成不活跃状态"; sleep $CONST_NOT_ALIVE
+  echo "#Barge环境rebootVM再初始：sleep \$CONST_NOT_ALIVE; ($CONST_NOT_ALIVE)，让PT节点不活跃"; sleep $CONST_NOT_ALIVE
   for((idx=1;idx<=$COUNT;idx++));do
     echo "doMulti: $idx"; INDEX="-$idx"
     dpPath="$DEPLOY/agent-$SERVER_IP$INDEX"
@@ -442,3 +439,5 @@ case "$1" in
         test "1" == "$COUNT" && install || doMulti "install"
         ;;
 esac
+
+echo "export PATH=$BinDir:\$PATH; sv status #view"
