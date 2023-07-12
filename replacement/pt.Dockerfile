@@ -5,7 +5,8 @@ FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement:cache as cac
 # ref: dvp-ci-mgr.ui-frontend
 # FROM node:10.15.0-alpine AS builder
 # ref: docs-devops_vuepress
-FROM node:14.13.1-alpine AS builder
+FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/node:14.13.1-alpine AS builder
+# FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/node:14.20.0-slim AS builder
 MAINTAINER sam <sam@devcn.top>
 
 RUN domain="mirrors.aliyun.com" \
@@ -14,6 +15,15 @@ RUN domain="mirrors.aliyun.com" \
 && apk add git bash curl wget jq
 # portainer: yarn install
 # RUN apk add autoconf libtool libpng automake gcc
+
+# ref ./Dockerfile >> deb9: EOF
+# RUN domain="mirrors.163.com" \
+#   && echo "deb http://$domain/debian/ stretch main contrib non-free" > /etc/apt/sources.list \
+#   && echo "deb http://$domain/debian/ stretch-updates main contrib non-free">> /etc/apt/sources.list; \
+#   \
+#   echo 'apt update -qq && apt install -yq --no-install-recommends $@ && apt-get clean && rm -rf /var/lib/apt/lists/*; ' > /usr/local/bin/apt.sh \
+#   && chmod +x /usr/local/bin/apt.sh
+# RUN apt.sh \ git bash curl wget jq libpng*
 
 RUN \
     # npm
@@ -56,7 +66,7 @@ RUN echo node.ac.1234567; /entry.sh
 # PT/API
 # FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.13.9-alpine3.10 as api
 # FROM golang:1.16.9-alpine3.14 as api
-FROM golang:1.16.8-alpine3.14 as api
+FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.16.8-alpine3.14 as api
 # use go modules
 ENV GO111MODULE=on
 ENV GOPROXY=https://goproxy.cn
@@ -83,7 +93,7 @@ RUN echo golang.abc.0; \
 
 ##AGENT########################################
 # FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.13.9-alpine3.10 as api
-FROM golang:1.16.8-alpine3.14 as agent
+FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/golang:1.16.8-alpine3.14 as agent
 # use go modules
 ENV GO111MODULE=on
 ENV GOPROXY=https://goproxy.cn
@@ -96,8 +106,8 @@ RUN domain="mirrors.aliyun.com" \
 
 # gojq 1.4M; goawk 1.9M;
 RUN cd /tmp; \
-  curl -fSL -O https://hub.fastgit.xyz/itchyny/gojq/releases/download/v0.12.7/gojq_v0.12.7_linux_amd64.tar.gz; \
-  curl -fSL -O https://hub.fastgit.xyz/benhoyt/goawk/releases/download/v1.17.0/goawk_v1.17.0_linux_amd64.tar.gz; \
+  curl -fSL -O https://ghproxy.com/https://github.com/itchyny/gojq/releases/download/v0.12.7/gojq_v0.12.7_linux_amd64.tar.gz; \
+  curl -fSL -O https://ghproxy.com/https://github.com/benhoyt/goawk/releases/download/v1.17.0/goawk_v1.17.0_linux_amd64.tar.gz; \
   mkdir -p unpack1; \
   tar -zxf gojq_v0.12.7_linux_amd64.tar.gz -C /tmp/unpack1 --strip-components 1; \
   tar -zxf goawk_v1.17.0_linux_amd64.tar.gz -C /tmp/unpack1; \
@@ -121,7 +131,9 @@ RUN cd agent0; \
   cd /tmp; tar -zcvf /src/agent0/agent-v291.tar.gz agent env.conf
 
 ##########################################
-FROM portainer/portainer-ce:2.9.1-alpine
+# FROM portainer/portainer-ce:2.9.1-alpine
+# FROM portainer/portainer-ce:2.9.3-alpine
+FROM registry.cn-shenzhen.aliyuncs.com/infrastlabs/portainer-ce:2.9.3-alpine
 RUN rm -rf /public /portainer
 COPY --from=api /src/pt0/api/portainer /portainer
 COPY --from=builder /output/portainer/dist/public/ /public/
