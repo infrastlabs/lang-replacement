@@ -74,7 +74,8 @@ PACKAGE="agent-v291.tar.gz" #agent程序包
 test -z "$(uname -a |grep aarch)" && arch=x64 || arch=arm64
 # https://gitee.com/g-devops/fk-agent/attach_files/1020608/download/agent-v291-220407.tar.gz #892492/download/agent-v291-1125.tar.gz
 # https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230522/agent-v291-x64-230523.tar.gz
-BINARY_URL=https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230522/agent-v291-$arch-230523.tar.gz 
+# BINARY_URL=https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230522/agent-v291-$arch-230523.tar.gz
+BINARY_URL=https://gitee.com/g-devops/fk-agent/releases/download/agent-v291-230725/agent-v291-230725-$arch.tar.gz
 BINARY_HOST="{{.}}"
 # BINARY_HOST="http://172.25.21.62:9000" #dbg
 test -z $(echo $BINARY_HOST |grep "}}") && BINARY_URL="$BINARY_HOST/static/$PACKAGE" #ct's /misc/binary_ins.sh
@@ -187,10 +188,11 @@ function endpointJudgeAdd(){
           echo "lastCheckDate!=0, 进行解绑操作ing"; 
           # slow: pt-boltdb-batch
           $curlBin -s -X DELETE "$SERVER_URL/api/endpoints/$id/association"  -H "Authorization: Bearer $LOGIN_TOKEN" |$jqBin -r ".Id"
+          EDGE_ID=$EDGE_ID_new #解绑后才用新id
         else
           echo "lastCheckDate=0(未反向注册过), 不用解绑, skip"
+          # 仍用旧EDGE_ID
         fi
-        EDGE_ID=$EDGE_ID_new #解绑后用新id
         # break #如多个: 取第一个即返回
       else
         # echo "still active"
@@ -383,6 +385,7 @@ function install_2(){
       # exec go-supervisord
       nohup $BinDir/go-supervisord >/dev/null 2>&1 &
     else 
+      export PATH=$BinDir:$PATH;
       echo "sv reload"; sv reload; sv restart $svc #restart cur-svc
     fi
     # echo sleep 1; sleep 1
