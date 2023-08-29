@@ -22,9 +22,9 @@
 docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock registry.cn-shenzhen.aliyuncs.com/infrastlabs/portainer-cn
 
 # choice2: 生成public.tar.gz, 手动挂载到容器内使用
-#  choice2_step1: 容器运行(node环境: 替换后 直接构建输出public.tar.gz)
+#  step1: 容器运行(node环境: 替换后 直接构建输出public.tar.gz)
 $ docker run -it --rm -v $(pwd)/output:/output registry.cn-shenzhen.aliyuncs.com/infrastlabs/lang-replacement
-#  choice2_step1: 挂载/public目录来使用
+#  step2: 挂载/public目录来使用
 tar -zxf public.tar.gz
 docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/public:/public portainer/portainer-ce:2.9.1-alpine
 ```
