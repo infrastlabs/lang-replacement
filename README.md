@@ -13,11 +13,11 @@
 
 **#）节点列表**
 
-![](https://gitee.com/g-devops/lang-replacement/raw/dev/demo/res/c01-节点列表.png)
+![](https://gitee.com/g-devops/lang-replacement/raw/dev/static/res/c01-节点列表.png)
 
 **#）容器列表**
 
-![](https://gitee.com/g-devops/lang-replacement/raw/dev/demo/res/c02-容器列表.png)
+![](https://gitee.com/g-devops/lang-replacement/raw/dev/static/res/c02-容器列表.png)
 
 ## 一、快速体验
 
@@ -28,7 +28,7 @@ docker run -it --rm --net=host -v /var/run/docker.sock:/var/run/docker.sock infr
 
 **#）日志查看**
 
-![](./demo/res/b22-logs.png)
+![](./static/res/b22-logs.png)
 
 ## 二、定制步骤(Portainer汉化)
 
@@ -112,7 +112,7 @@ $ ./portainer --data=./data --admin-password=$token --templates=http://127.0.0.1
 
 **00: 容器化设计**
 
-![](https://gitee.com/g-devops/lang-replacement/raw/dev/demo/res/01-容器化.png)
+![](https://gitee.com/g-devops/lang-replacement/raw/dev/static/res/01-容器化.png)
 
 **01: 汉化/改动项/功能增强**
 
